@@ -1,0 +1,2377 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Конспект курса «Имитационное моделирование» (ФКН ВШЭ)">
+      
+      
+      
+      
+        <link rel="prev" href="../04-discrete-event/">
+      
+      
+        <link rel="next" href="../06-queueing-intro/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>5. Основы ТМО - Имитационное моделирование — Конспект</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href=".." title="Имитационное моделирование — Конспект" class="md-header__button md-logo" aria-label="Имитационное моделирование — Конспект" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Имитационное моделирование — Конспект
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5. Основы ТМО
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Светлая тема"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Светлая тема" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Тёмная тема"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Тёмная тема" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Главная
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-introduction/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  1. Введение в ИМ
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../02-system-dynamics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  2. Системная динамика
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../03-agent-based/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  3. Агентное моделирование
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../04-discrete-event/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  4. Дискретно-событийное моделирование
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  5. Основы ТМО
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../06-queueing-intro/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  6. Теория очередей — введение
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../07-single-queue/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  7. Анализ одиночной очереди
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../08-queueing-networks/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  8. Сети массового обслуживания
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../09-simpy/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  9. SimPy — основы
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../10-simpy-practice/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  10. SimPy — практика
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../11-simulation-analysis/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  11. Моделирование и анализ
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../cheatsheet/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Шпаргалка
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Имитационное моделирование — Конспект" class="md-nav__button md-logo" aria-label="Имитационное моделирование — Конспект" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Имитационное моделирование — Конспект
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Введение в ИМ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-system-dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Системная динамика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-agent-based/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Агентное моделирование
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-discrete-event/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Дискретно-событийное моделирование
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Основы ТМО
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Основы ТМО
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это нужно
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Структура СМО
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Показатели эффективности
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Показатели эффективности">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Группа 1: Показатели загрузки системы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Группа 2: Показатели качества обслуживания
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Группа 3: Показатели пары «система — клиент»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Классификация СМО
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Классификация СМО">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        По числу каналов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        По дисциплине обслуживания
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        По источнику заявок
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        По числу фаз
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Потоки событий
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Потоки событий">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Свойства потоков
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Распределение Пуассона
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Экспоненциальное распределение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Марковские процессы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Марковские процессы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Примеры
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Уравнения Колмогорова
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Уравнения Колмогорова">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Правило составления уравнений
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Стационарный (установившийся) режим
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Процессы гибели и размножения
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Процессы гибели и размножения">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Формулы для предельных вероятностей
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        СМО с отказами
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="СМО с отказами">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Одноканальная СМО с отказами
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Многоканальная СМО с отказами (формулы Эрланга)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пример: оптимизация банковского отделения
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        СМО с ожиданием
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="СМО с ожиданием">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Одноканальная СМО с ограниченной очередью
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Предельные вероятности
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вероятность отказа
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Средняя длина очереди
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Среднее время ожидания в очереди
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Среднее время пребывания в системе
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-queueing-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Теория очередей — введение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-single-queue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Анализ одиночной очереди
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-queueing-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Сети массового обслуживания
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-simpy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. SimPy — основы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-simpy-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. SimPy — практика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-simulation-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Моделирование и анализ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Шпаргалка
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это нужно
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Структура СМО
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Показатели эффективности
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Показатели эффективности">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Группа 1: Показатели загрузки системы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Группа 2: Показатели качества обслуживания
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Группа 3: Показатели пары «система — клиент»
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Классификация СМО
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Классификация СМО">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        По числу каналов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        По дисциплине обслуживания
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        По источнику заявок
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        По числу фаз
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Потоки событий
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Потоки событий">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Свойства потоков
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Распределение Пуассона
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Экспоненциальное распределение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Марковские процессы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Марковские процессы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Примеры
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Уравнения Колмогорова
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Уравнения Колмогорова">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Правило составления уравнений
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Стационарный (установившийся) режим
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Процессы гибели и размножения
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Процессы гибели и размножения">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Формулы для предельных вероятностей
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        СМО с отказами
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="СМО с отказами">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Одноканальная СМО с отказами
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Многоканальная СМО с отказами (формулы Эрланга)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пример: оптимизация банковского отделения
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        СМО с ожиданием
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="СМО с ожиданием">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Одноканальная СМО с ограниченной очередью
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Предельные вероятности
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вероятность отказа
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Средняя длина очереди
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Среднее время ожидания в очереди
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Среднее время пребывания в системе
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">Основы теории массового обслуживания<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Привет! В этой лекции мы разберём <strong>теорию массового обслуживания</strong> (ТМО) — мощный математический аппарат, который помогает проектировать и оптимизировать самые разные системы: от банковских отделений до серверных кластеров. Материал может показаться формульно насыщенным, но не пугайся — мы пойдём шаг за шагом и разберём каждую идею на примерах.</p>
+<hr />
+<h2 id="_2">Зачем это нужно<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Представь: ты стоишь в очереди в банке, и тебе интересно — сколько касс нужно открыть, чтобы среднее время ожидания не превышало 5 минут? Или ты проектируешь колл-центр и хочешь понять, сколько операторов нанять, чтобы не более 2% звонков оставались без ответа? Именно на такие вопросы отвечает <strong>теория массового обслуживания</strong>.</p>
+<p>Основоположником ТМО считается датский инженер <strong>Агнер Краруп Эрланг</strong> (A.K. Erlang), который в <strong>1909 году</strong> опубликовал первую работу по анализу телефонных сетей. Сам термин <strong>«теория массового обслуживания»</strong> был предложен выдающимся советским математиком <strong>А.Я. Хинчиным</strong>.</p>
+<p>Где применяется ТМО на практике:</p>
+<ul>
+<li><strong>Банки и сервисные центры</strong> — оптимальное число окон/касс</li>
+<li><strong>Телекоммуникации</strong> — расчёт пропускной способности каналов связи</li>
+<li><strong>Больницы</strong> — планирование числа коек, врачей, операционных</li>
+<li><strong>Производство</strong> — организация конвейерных линий, складская логистика</li>
+<li><strong>IT-системы</strong> — балансировка нагрузки на серверы, проектирование очередей сообщений</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Ключевая идея</p>
+<p>ТМО изучает системы, в которых <strong>заявки</strong> (клиенты, запросы, вызовы) поступают <strong>случайным образом</strong> и обслуживаются одним или несколькими <strong>каналами</strong> (серверами, кассами, операторами). Цель — найти оптимальный баланс между качеством обслуживания и затратами на содержание системы.</p>
+</div>
+<hr />
+<h2 id="_3">Структура СМО<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Любая <strong>система массового обслуживания</strong> (СМО) состоит из четырёх основных элементов:</p>
+<ol>
+<li><strong>Входящий поток заявок</strong> — клиенты (или запросы), поступающие в систему случайным образом с некоторой интенсивностью <span class="arithmatex">\(\lambda\)</span></li>
+<li><strong>Очередь</strong> — буфер, в котором заявки ожидают обслуживания (может быть ограниченной или бесконечной длины)</li>
+<li><strong>Каналы обслуживания</strong> — устройства или люди, которые непосредственно обрабатывают заявки (каждый канал имеет интенсивность обслуживания <span class="arithmatex">\(\mu\)</span>)</li>
+<li><strong>Выходящий поток</strong> — обслуженные заявки, покидающие систему</li>
+</ol>
+<pre class="mermaid"><code>graph LR
+    A["Входящий поток&lt;br/&gt;заявок (λ)"] --&gt; B["Очередь&lt;br/&gt;(буфер)"]
+    B --&gt; C1["Канал 1&lt;br/&gt;(μ)"]
+    B --&gt; C2["Канал 2&lt;br/&gt;(μ)"]
+    B --&gt; C3["Канал n&lt;br/&gt;(μ)"]
+    C1 --&gt; D["Выходящий&lt;br/&gt;поток"]
+    C2 --&gt; D
+    C3 --&gt; D
+
+    style A fill:#4CAF50,stroke:#333,color:#fff
+    style B fill:#FF9800,stroke:#333,color:#fff
+    style C1 fill:#2196F3,stroke:#333,color:#fff
+    style C2 fill:#2196F3,stroke:#333,color:#fff
+    style C3 fill:#2196F3,stroke:#333,color:#fff
+    style D fill:#9C27B0,stroke:#333,color:#fff</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Обрати внимание</p>
+<p>В зависимости от типа СМО, заявка, заставшая все каналы занятыми, может либо <strong>встать в очередь</strong>, либо <strong>получить отказ</strong> и покинуть систему необслуженной.</p>
+</div>
+<hr />
+<h2 id="_4">Показатели эффективности<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Чтобы оценить, насколько хорошо работает СМО, используют различные <strong>показатели эффективности</strong>. Их удобно разделить на три группы.</p>
+<h3 id="1">Группа 1: Показатели загрузки системы<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Показатель</th>
+<th>Обозначение</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Абсолютная пропускная способность</strong></td>
+<td><span class="arithmatex">\(A\)</span></td>
+<td>Среднее число заявок, обслуживаемых в единицу времени</td>
+</tr>
+<tr>
+<td><strong>Относительная пропускная способность</strong></td>
+<td><span class="arithmatex">\(Q\)</span></td>
+<td>Доля поступивших заявок, которые будут обслужены: <span class="arithmatex">\(Q = A / \lambda\)</span></td>
+</tr>
+<tr>
+<td><strong>Коэффициент загрузки</strong></td>
+<td><span class="arithmatex">\(\rho\)</span></td>
+<td>Средняя доля времени, в течение которого каналы заняты обслуживанием</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2">Группа 2: Показатели качества обслуживания<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Показатель</th>
+<th>Обозначение</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Среднее время ожидания в очереди</strong></td>
+<td><span class="arithmatex">\(T_{\text{оч}}\)</span></td>
+<td>Сколько в среднем заявка проводит в очереди</td>
+</tr>
+<tr>
+<td><strong>Среднее время пребывания в системе</strong></td>
+<td><span class="arithmatex">\(T_{\text{сист}}\)</span></td>
+<td>Полное время от поступления до завершения обслуживания: <span class="arithmatex">\(T_{\text{сист}} = T_{\text{оч}} + T_{\text{обс}}\)</span></td>
+</tr>
+<tr>
+<td><strong>Вероятность отказа</strong></td>
+<td><span class="arithmatex">\(P_{\text{отк}}\)</span></td>
+<td>Вероятность того, что поступившая заявка не будет обслужена</td>
+</tr>
+<tr>
+<td><strong>Средняя длина очереди</strong></td>
+<td><span class="arithmatex">\(L_{\text{оч}}\)</span></td>
+<td>Среднее число заявок, ожидающих в очереди</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3">Группа 3: Показатели пары «система — клиент»<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Показатель</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Средний доход в единицу времени</strong></td>
+<td>Экономический показатель, учитывающий прибыль от обслуживания и потери от отказов/ожидания</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Совет</p>
+<p>При проектировании СМО обычно стремятся найти <strong>компромисс</strong>: слишком мало каналов — длинные очереди и недовольные клиенты; слишком много каналов — высокие затраты на их содержание при низкой загрузке.</p>
+</div>
+<hr />
+<h2 id="_5">Классификация СМО<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Системы массового обслуживания классифицируют по нескольким признакам:</p>
+<h3 id="_6">По числу каналов<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Одноканальные</strong> — один обслуживающий прибор (одна касса, один сервер)</li>
+<li><strong>Многоканальные</strong> — несколько параллельно работающих приборов</li>
+</ul>
+<h3 id="_7">По дисциплине обслуживания<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>С отказами</strong> — заявка, заставшая все каналы занятыми, покидает систему (получает отказ)</li>
+<li><strong>С ожиданием (очередью)</strong> — заявка встаёт в очередь и ждёт освобождения канала (очередь может быть ограниченной или неограниченной)</li>
+<li><strong>Смешанные</strong> — заявка ждёт ограниченное время, после чего покидает систему</li>
+</ul>
+<h3 id="_8">По источнику заявок<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Открытые</strong> — поток заявок не зависит от состояния системы (источник бесконечный)</li>
+<li><strong>Замкнутые</strong> — число потенциальных заявок ограничено (например, ремонтная бригада обслуживает фиксированный парк станков)</li>
+</ul>
+<h3 id="_9">По числу фаз<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Однофазные</strong> — обслуживание в один этап</li>
+<li><strong>Многофазные</strong> — обслуживание проходит несколько последовательных этапов</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Признак</th>
+<th>Варианты</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Число каналов</td>
+<td>Одноканальная / Многоканальная</td>
+</tr>
+<tr>
+<td>Дисциплина обслуживания</td>
+<td>С отказами / С ожиданием / Смешанная</td>
+</tr>
+<tr>
+<td>Источник заявок</td>
+<td>Открытая / Замкнутая</td>
+</tr>
+<tr>
+<td>Число фаз</td>
+<td>Однофазная / Многофазная</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_10">Потоки событий<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p><strong>Поток событий</strong> — это последовательность однородных событий, происходящих одно за другим в случайные моменты времени (например, приход клиентов в магазин). Поток характеризуется <strong>интенсивностью</strong> <span class="arithmatex">\(\lambda\)</span> — средним числом событий в единицу времени.</p>
+<h3 id="_11">Свойства потоков<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>Выделяют три ключевых свойства:</p>
+<p><strong>1. Стационарность (стационарный поток)</strong></p>
+<p>Вероятность появления <span class="arithmatex">\(m\)</span> событий на интервале длиной <span class="arithmatex">\(\tau\)</span> зависит только от длины интервала <span class="arithmatex">\(\tau\)</span> и не зависит от того, где именно на временной оси расположен этот интервал. Другими словами, интенсивность потока <strong>не меняется со временем</strong>.</p>
+<p><strong>2. Отсутствие последействия (поток без последействия)</strong></p>
+<p>Число событий, попадающих на любой интервал времени, <strong>не зависит</strong> от числа событий на любом другом, не пересекающемся с ним интервале. То есть прошлое не влияет на будущее.</p>
+<p><strong>3. Ординарность (ординарный поток)</strong></p>
+<p>Вероятность одновременного появления двух или более событий в один и тот же момент времени пренебрежимо мала.</p>
+<div class="admonition success">
+<p class="admonition-title">Простейший (пуассоновский) поток</p>
+<p>Поток, обладающий <strong>всеми тремя</strong> свойствами — стационарностью, отсутствием последействия и ординарностью — называется <strong>простейшим</strong> (или <strong>пуассоновским</strong>) потоком. Это самая удобная и часто используемая модель в ТМО.</p>
+</div>
+<h3 id="_12">Распределение Пуассона<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>Для простейшего потока с интенсивностью <span class="arithmatex">\(\lambda\)</span> вероятность того, что за время <span class="arithmatex">\(\tau\)</span> произойдёт ровно <span class="arithmatex">\(m\)</span> событий, определяется <strong>формулой Пуассона</strong>:</p>
+<div class="arithmatex">\[
+P_m(\tau) = \frac{(\lambda\tau)^m}{m!} \, e^{-\lambda\tau}
+\]</div>
+<p>где:</p>
+<ul>
+<li><span class="arithmatex">\(\lambda\)</span> — интенсивность потока (среднее число событий в единицу времени)</li>
+<li><span class="arithmatex">\(\tau\)</span> — длина рассматриваемого интервала времени</li>
+<li><span class="arithmatex">\(m\)</span> — число событий (<span class="arithmatex">\(m = 0, 1, 2, \ldots\)</span>)</li>
+</ul>
+<h3 id="_13">Экспоненциальное распределение<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>Время между соседними событиями в простейшем потоке имеет <strong>показательное (экспоненциальное) распределение</strong> с функцией распределения:</p>
+<div class="arithmatex">\[
+F(t) = 1 - e^{-\lambda t}
+\]</div>
+<p>и плотностью:</p>
+<div class="arithmatex">\[
+f(t) = \lambda \, e^{-\lambda t}, \quad t \geq 0
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">Свойство отсутствия памяти</p>
+<p>Показательное распределение обладает замечательным свойством <strong>отсутствия памяти</strong>: если ты уже прождал время <span class="arithmatex">\(s\)</span>, то вероятность прождать ещё время <span class="arithmatex">\(t\)</span> такая же, как если бы ты только начал ждать. Формально: <span class="arithmatex">\(P(T &gt; s + t \mid T &gt; s) = P(T &gt; t)\)</span>.</p>
+</div>
+<hr />
+<h2 id="_14">Марковские процессы<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<p><strong>Марковский процесс</strong> — это случайный процесс, в котором будущее зависит от прошлого <strong>только через настоящее</strong>. Если мы знаем текущее состояние системы, то для предсказания будущего нам не нужна информация о том, как система пришла в это состояние.</p>
+<p>Формально: вероятность перехода системы в любое будущее состояние зависит только от <strong>текущего состояния</strong> и не зависит от предыстории.</p>
+<h3 id="_15">Примеры<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p><strong>Марковский процесс:</strong></p>
+<ul>
+<li>Блуждание частицы, где следующий шаг зависит только от текущей позиции</li>
+<li>СМО с простейшими потоками заявок и экспоненциальным временем обслуживания</li>
+<li>Число клиентов в банке, если приход и уход описываются пуассоновскими потоками</li>
+</ul>
+<p><strong>Не марковский процесс:</strong></p>
+<ul>
+<li>Система, где время обслуживания распределено по нормальному закону (а не по экспоненциальному)</li>
+<li>Процесс, в котором интенсивность поступления заявок зависит от времени суток (нестационарный поток)</li>
+<li>Очередь, в которой приоритет зависит от того, сколько раз клиент уже обращался ранее</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Важная связь</p>
+<p>Если входящий поток заявок является <strong>простейшим</strong>, а время обслуживания имеет <strong>показательное распределение</strong>, то процесс функционирования СМО является <strong>марковским</strong>. Это ключевое условие, позволяющее применять аналитические методы решения.</p>
+</div>
+<hr />
+<h2 id="_16">Уравнения Колмогорова<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<p>Для марковского процесса с конечным числом состояний <span class="arithmatex">\(S_0, S_1, \ldots, S_n\)</span> можно составить систему <strong>дифференциальных уравнений Колмогорова</strong>, описывающих изменение вероятностей состояний во времени.</p>
+<p>Пусть <span class="arithmatex">\(p_i(t)\)</span> — вероятность того, что в момент <span class="arithmatex">\(t\)</span> система находится в состоянии <span class="arithmatex">\(S_i\)</span>. Интенсивность перехода из состояния <span class="arithmatex">\(S_i\)</span> в <span class="arithmatex">\(S_j\)</span> обозначим <span class="arithmatex">\(\lambda_{ij}\)</span>.</p>
+<h3 id="_17">Правило составления уравнений<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Мнемоническое правило</p>
+<p><strong>Левая часть</strong> — производная <span class="arithmatex">\(\dfrac{dp_i}{dt}\)</span>.</p>
+<p><strong>Правая часть</strong> — алгебраическая сумма:</p>
+<ul>
+<li>со знаком <strong>«+»</strong> берутся произведения интенсивностей потоков, <strong>входящих</strong> в состояние <span class="arithmatex">\(S_i\)</span>, на вероятности тех состояний, откуда идут эти потоки;</li>
+<li>со знаком <strong>«–»</strong> берутся произведения интенсивностей потоков, <strong>выходящих</strong> из состояния <span class="arithmatex">\(S_i\)</span>, на саму вероятность <span class="arithmatex">\(p_i\)</span>.</li>
+</ul>
+</div>
+<p>В формульном виде:</p>
+<div class="arithmatex">\[
+\frac{dp_i(t)}{dt} = \sum_{j \neq i} \lambda_{ji} \, p_j(t) - p_i(t) \sum_{j \neq i} \lambda_{ij}
+\]</div>
+<h3 id="_18">Стационарный (установившийся) режим<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p>Если система работает достаточно долго, вероятности состояний перестают зависеть от времени и стремятся к <strong>предельным (установившимся) значениям</strong>:</p>
+<div class="arithmatex">\[
+\lim_{t \to \infty} p_i(t) = p_i = \text{const}
+\]</div>
+<p>В этом случае все производные равны нулю:</p>
+<div class="arithmatex">\[
+\frac{dp_i}{dt} = 0
+\]</div>
+<p>и система дифференциальных уравнений превращается в <strong>систему алгебраических уравнений</strong>:</p>
+<div class="arithmatex">\[
+0 = \sum_{j \neq i} \lambda_{ji} \, p_j - p_i \sum_{j \neq i} \lambda_{ij}
+\]</div>
+<p>К этой системе добавляется <strong>условие нормировки</strong>:</p>
+<div class="arithmatex">\[
+\sum_{i=0}^{n} p_i = 1
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Смысл предельных вероятностей</p>
+<p>Предельная вероятность <span class="arithmatex">\(p_i\)</span> имеет двойной смысл:</p>
+<ol>
+<li>Вероятность застать систему в состоянии <span class="arithmatex">\(S_i\)</span> в произвольный момент времени</li>
+<li>Средняя доля времени, которую система проводит в состоянии <span class="arithmatex">\(S_i\)</span></li>
+</ol>
+</div>
+<hr />
+<h2 id="_19">Процессы гибели и размножения<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<p>Очень важный частный случай марковских процессов — <strong>процесс гибели и размножения</strong> (birth-death process). В нём переходы возможны <strong>только между соседними состояниями</strong>: из <span class="arithmatex">\(S_k\)</span> можно перейти либо в <span class="arithmatex">\(S_{k+1}\)</span> (рождение/приход), либо в <span class="arithmatex">\(S_{k-1}\)</span> (гибель/уход).</p>
+<pre class="mermaid"><code>graph LR
+    S0(("S₀")) --&gt;|"λ₀₁"| S1(("S₁"))
+    S1 --&gt;|"μ₁₀"| S0
+    S1 --&gt;|"λ₁₂"| S2(("S₂"))
+    S2 --&gt;|"μ₂₁"| S1
+    S2 --&gt;|"λ₂₃"| S3(("S₃"))
+    S3 --&gt;|"μ₃₂"| S2
+    S3 --&gt;|"λ₃₄"| S4(("..."))
+    S4 --&gt;|"μ₄₃"| S3
+    S4 --&gt;|"λₙ₋₁,ₙ"| S5(("Sₙ"))
+    S5 --&gt;|"μₙ,ₙ₋₁"| S4
+
+    style S0 fill:#4CAF50,stroke:#333,color:#fff
+    style S1 fill:#2196F3,stroke:#333,color:#fff
+    style S2 fill:#2196F3,stroke:#333,color:#fff
+    style S3 fill:#2196F3,stroke:#333,color:#fff
+    style S4 fill:#FF9800,stroke:#333,color:#fff
+    style S5 fill:#f44336,stroke:#333,color:#fff</code></pre>
+<h3 id="_20">Формулы для предельных вероятностей<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<p>Для процесса гибели и размножения предельные вероятности выражаются через <span class="arithmatex">\(p_0\)</span> по рекуррентной формуле:</p>
+<div class="arithmatex">\[
+p_k = \frac{\lambda_{01} \cdot \lambda_{12} \cdots \lambda_{k-1,k}}{\mu_{10} \cdot \mu_{21} \cdots \mu_{k,k-1}} \, p_0
+\]</div>
+<p>где:</p>
+<ul>
+<li><span class="arithmatex">\(\lambda_{k-1,k}\)</span> — интенсивность перехода «вправо» (из <span class="arithmatex">\(S_{k-1}\)</span> в <span class="arithmatex">\(S_k\)</span>)</li>
+<li><span class="arithmatex">\(\mu_{k,k-1}\)</span> — интенсивность перехода «влево» (из <span class="arithmatex">\(S_k\)</span> в <span class="arithmatex">\(S_{k-1}\)</span>)</li>
+</ul>
+<p>Значение <span class="arithmatex">\(p_0\)</span> находится из <strong>условия нормировки</strong>:</p>
+<div class="arithmatex">\[
+p_0 + p_1 + p_2 + \cdots + p_n = 1
+\]</div>
+<p>Откуда:</p>
+<div class="arithmatex">\[
+p_0 = \left(1 + \sum_{k=1}^{n} \frac{\lambda_{01} \cdot \lambda_{12} \cdots \lambda_{k-1,k}}{\mu_{10} \cdot \mu_{21} \cdots \mu_{k,k-1}}\right)^{-1}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Почему это важно</p>
+<p>Большинство классических моделей СМО (с отказами, с очередью) являются частными случаями процесса гибели и размножения. Поэтому, освоив эти формулы, ты сможешь быстро получать результаты для конкретных систем.</p>
+</div>
+<hr />
+<h2 id="_21">СМО с отказами<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<p>В СМО <strong>с отказами</strong> заявка, поступившая в момент, когда все каналы заняты, <strong>получает отказ</strong> и покидает систему. Очередь отсутствует.</p>
+<h3 id="_22">Одноканальная СМО с отказами<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<p>Система имеет два состояния:</p>
+<ul>
+<li><span class="arithmatex">\(S_0\)</span> — канал свободен</li>
+<li><span class="arithmatex">\(S_1\)</span> — канал занят</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    S0(("S₀&lt;br/&gt;свободен")) --&gt;|"λ"| S1(("S₁&lt;br/&gt;занят"))
+    S1 --&gt;|"μ"| S0
+
+    style S0 fill:#4CAF50,stroke:#333,color:#fff
+    style S1 fill:#f44336,stroke:#333,color:#fff</code></pre>
+<p>Предельные вероятности:</p>
+<div class="arithmatex">\[
+p_0 = \frac{\mu}{\lambda + \mu}, \qquad p_1 = \frac{\lambda}{\lambda + \mu}
+\]</div>
+<p>Вероятность отказа:</p>
+<div class="arithmatex">\[
+P_{\text{отк}} = p_1 = \frac{\lambda}{\lambda + \mu}
+\]</div>
+<p>Относительная пропускная способность:</p>
+<div class="arithmatex">\[
+Q = 1 - P_{\text{отк}} = \frac{\mu}{\lambda + \mu}
+\]</div>
+<h3 id="_23">Многоканальная СМО с отказами (формулы Эрланга)<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<p>Рассмотрим систему с <span class="arithmatex">\(n\)</span> каналами, интенсивностью входящего потока <span class="arithmatex">\(\lambda\)</span> и интенсивностью обслуживания каждым каналом <span class="arithmatex">\(\mu\)</span>. Введём <strong>приведённую интенсивность</strong>:</p>
+<div class="arithmatex">\[
+\rho = \frac{\lambda}{\mu}
+\]</div>
+<p>Состояния системы: <span class="arithmatex">\(S_0\)</span> (все каналы свободны), <span class="arithmatex">\(S_1\)</span> (один канал занят), ..., <span class="arithmatex">\(S_n\)</span> (все каналы заняты).</p>
+<pre class="mermaid"><code>graph LR
+    S0(("S₀")) --&gt;|"λ"| S1(("S₁"))
+    S1 --&gt;|"μ"| S0
+    S1 --&gt;|"λ"| S2(("S₂"))
+    S2 --&gt;|"2μ"| S1
+    S2 --&gt;|"λ"| S3(("..."))
+    S3 --&gt;|"3μ"| S2
+    S3 --&gt;|"λ"| Sn(("Sₙ"))
+    Sn --&gt;|"nμ"| S3
+
+    style S0 fill:#4CAF50,stroke:#333,color:#fff
+    style S1 fill:#2196F3,stroke:#333,color:#fff
+    style S2 fill:#2196F3,stroke:#333,color:#fff
+    style S3 fill:#FF9800,stroke:#333,color:#fff
+    style Sn fill:#f44336,stroke:#333,color:#fff</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Обрати внимание на интенсивности обслуживания</p>
+<p>Когда в системе занято <span class="arithmatex">\(k\)</span> каналов, суммарная интенсивность обслуживания равна <span class="arithmatex">\(k\mu\)</span>, а не просто <span class="arithmatex">\(\mu\)</span>.</p>
+</div>
+<p>Предельные вероятности (<strong>формулы Эрланга</strong>):</p>
+<div class="arithmatex">\[
+p_0 = \left(1 + \rho + \frac{\rho^2}{2!} + \frac{\rho^3}{3!} + \cdots + \frac{\rho^n}{n!}\right)^{-1} = \left(\sum_{k=0}^{n} \frac{\rho^k}{k!}\right)^{-1}
+\]</div>
+<div class="arithmatex">\[
+p_k = \frac{\rho^k}{k!} \, p_0, \quad k = 1, 2, \ldots, n
+\]</div>
+<p><strong>Вероятность отказа</strong> (формула Эрланга):</p>
+<div class="arithmatex">\[
+P_{\text{отк}} = p_n = \frac{\rho^n}{n!} \, p_0 = \frac{\rho^n / n!}{\displaystyle\sum_{k=0}^{n} \frac{\rho^k}{k!}}
+\]</div>
+<p><strong>Относительная пропускная способность:</strong></p>
+<div class="arithmatex">\[
+Q = 1 - P_{\text{отк}}
+\]</div>
+<p><strong>Абсолютная пропускная способность:</strong></p>
+<div class="arithmatex">\[
+A = \lambda \cdot Q
+\]</div>
+<p><strong>Среднее число занятых каналов:</strong></p>
+<div class="arithmatex">\[
+\bar{k} = \rho \cdot Q = \frac{\lambda}{\mu}(1 - P_{\text{отк}})
+\]</div>
+<h3 id="_24">Пример: оптимизация банковского отделения<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<div class="admonition example">
+<p class="admonition-title">Задача</p>
+<p>В банковское отделение поступает в среднем <span class="arithmatex">\(\lambda = 10\)</span> клиентов в час. Среднее время обслуживания одного клиента — 12 минут (<span class="arithmatex">\(\mu = 5\)</span> клиентов/час). Сколько касс нужно открыть, чтобы вероятность отказа не превышала 5%?</p>
+</div>
+<p><strong>Решение:</strong></p>
+<p>Приведённая интенсивность: <span class="arithmatex">\(\rho = \lambda / \mu = 10 / 5 = 2\)</span>.</p>
+<p>Подбираем <span class="arithmatex">\(n\)</span>, вычисляя <span class="arithmatex">\(P_{\text{отк}}\)</span> для разных значений:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(n\)</span> (число касс)</th>
+<th><span class="arithmatex">\(p_0\)</span></th>
+<th><span class="arithmatex">\(P_{\text{отк}}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td><span class="arithmatex">\(\left(1 + 2 + \frac{4}{2}\right)^{-1} = 0{,}2\)</span></td>
+<td><span class="arithmatex">\(\frac{4/2}{5} = 0{,}4\)</span> (40%)</td>
+</tr>
+<tr>
+<td>3</td>
+<td><span class="arithmatex">\(\left(1 + 2 + 2 + \frac{8}{6}\right)^{-1} \approx 0{,}157\)</span></td>
+<td><span class="arithmatex">\(\approx 0{,}209\)</span> (20,9%)</td>
+</tr>
+<tr>
+<td>4</td>
+<td><span class="arithmatex">\(\left(1 + 2 + 2 + \frac{4}{3} + \frac{2}{3}\right)^{-1} \approx 0{,}143\)</span></td>
+<td><span class="arithmatex">\(\approx 0{,}095\)</span> (9,5%)</td>
+</tr>
+<tr>
+<td>5</td>
+<td><span class="arithmatex">\(\approx 0{,}138\)</span></td>
+<td><span class="arithmatex">\(\approx 0{,}037\)</span> (3,7%)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ответ:</strong> необходимо открыть <strong>5 касс</strong>, чтобы вероятность отказа составила менее 5%.</p>
+<hr />
+<h2 id="_25">СМО с ожиданием<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<p>В СМО <strong>с ожиданием</strong> заявка, заставшая все каналы занятыми, <strong>не уходит</strong>, а встаёт в очередь. Рассмотрим наиболее практичный случай: <strong>одноканальная СМО с ограниченной очередью</strong>.</p>
+<h3 id="_26">Одноканальная СМО с ограниченной очередью<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<p>Пусть в системе <strong>1 канал</strong> обслуживания и очередь вмещает не более <strong><span class="arithmatex">\(m\)</span> заявок</strong>. Интенсивность входящего потока — <span class="arithmatex">\(\lambda\)</span>, интенсивность обслуживания — <span class="arithmatex">\(\mu\)</span>.</p>
+<p>Состояния системы:</p>
+<ul>
+<li><span class="arithmatex">\(S_0\)</span> — канал свободен, очередь пуста</li>
+<li><span class="arithmatex">\(S_1\)</span> — канал занят, очередь пуста</li>
+<li><span class="arithmatex">\(S_2\)</span> — канал занят, 1 заявка в очереди</li>
+<li>...</li>
+<li><span class="arithmatex">\(S_{m+1}\)</span> — канал занят, <span class="arithmatex">\(m\)</span> заявок в очереди (очередь заполнена)</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    S0(("S₀")) --&gt;|"λ"| S1(("S₁"))
+    S1 --&gt;|"μ"| S0
+    S1 --&gt;|"λ"| S2(("S₂"))
+    S2 --&gt;|"μ"| S1
+    S2 --&gt;|"λ"| S3(("S₃"))
+    S3 --&gt;|"μ"| S2
+    S3 --&gt;|"λ"| S4(("..."))
+    S4 --&gt;|"μ"| S3
+    S4 --&gt;|"λ"| Sm(("S&lt;sub&gt;m+1&lt;/sub&gt;"))
+    Sm --&gt;|"μ"| S4
+
+    style S0 fill:#4CAF50,stroke:#333,color:#fff
+    style S1 fill:#2196F3,stroke:#333,color:#fff
+    style S2 fill:#FF9800,stroke:#333,color:#fff
+    style S3 fill:#FF9800,stroke:#333,color:#fff
+    style S4 fill:#FF9800,stroke:#333,color:#fff
+    style Sm fill:#f44336,stroke:#333,color:#fff</code></pre>
+<p>Это процесс гибели и размножения с интенсивностями:</p>
+<ul>
+<li><span class="arithmatex">\(\lambda_{k,k+1} = \lambda\)</span> для всех <span class="arithmatex">\(k = 0, 1, \ldots, m\)</span></li>
+<li><span class="arithmatex">\(\mu_{k,k-1} = \mu\)</span> для всех <span class="arithmatex">\(k = 1, 2, \ldots, m+1\)</span></li>
+</ul>
+<p>Обозначим <span class="arithmatex">\(\rho = \lambda / \mu\)</span>.</p>
+<h3 id="_27">Предельные вероятности<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<p><strong>Случай <span class="arithmatex">\(\rho \neq 1\)</span>:</strong></p>
+<div class="arithmatex">\[
+p_k = \rho^k \, p_0, \quad k = 0, 1, \ldots, m+1
+\]</div>
+<p>Из условия нормировки:</p>
+<div class="arithmatex">\[
+p_0 \left(1 + \rho + \rho^2 + \cdots + \rho^{m+1}\right) = 1
+\]</div>
+<div class="arithmatex">\[
+p_0 = \frac{1 - \rho}{1 - \rho^{m+2}}
+\]</div>
+<div class="arithmatex">\[
+p_k = \frac{(1 - \rho) \, \rho^k}{1 - \rho^{m+2}}, \quad k = 0, 1, \ldots, m+1
+\]</div>
+<p><strong>Случай <span class="arithmatex">\(\rho = 1\)</span> (<span class="arithmatex">\(\lambda = \mu\)</span>):</strong></p>
+<div class="arithmatex">\[
+p_k = \frac{1}{m + 2}, \quad k = 0, 1, \ldots, m+1
+\]</div>
+<p>(все состояния равновероятны)</p>
+<h3 id="_28">Вероятность отказа<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<p>Отказ происходит, когда система находится в состоянии <span class="arithmatex">\(S_{m+1}\)</span> (очередь заполнена):</p>
+<div class="arithmatex">\[
+P_{\text{отк}} = p_{m+1} = \begin{cases} \dfrac{(1 - \rho) \, \rho^{m+1}}{1 - \rho^{m+2}}, &amp; \text{если } \rho \neq 1 \\[10pt] \dfrac{1}{m + 2}, &amp; \text{если } \rho = 1 \end{cases}
+\]</div>
+<h3 id="_29">Средняя длина очереди<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<p>Средняя длина очереди — это математическое ожидание числа заявок в очереди:</p>
+<div class="arithmatex">\[
+L_{\text{оч}} = \sum_{k=1}^{m} k \cdot p_{k+1} = \sum_{k=1}^{m} k \cdot \rho^{k+1} \, p_0
+\]</div>
+<p><strong>Для <span class="arithmatex">\(\rho \neq 1\)</span>:</strong></p>
+<div class="arithmatex">\[
+L_{\text{оч}} = \frac{\rho^2}{1 - \rho^{m+2}} \left[\frac{1 - (m+1)\rho^m + m\rho^{m+1}}{(1-\rho)^2} \cdot (1-\rho)\right]
+\]</div>
+<p>После упрощения:</p>
+<div class="arithmatex">\[
+L_{\text{оч}} = \frac{\rho^2 \left[1 - (m+1)\rho^m + m\rho^{m+1}\right]}{(1 - \rho)(1 - \rho^{m+2})}
+\]</div>
+<p><strong>Для <span class="arithmatex">\(\rho = 1\)</span>:</strong></p>
+<div class="arithmatex">\[
+L_{\text{оч}} = \frac{m(m+1)}{2(m+2)}
+\]</div>
+<h3 id="_30">Среднее время ожидания в очереди<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<p>По <strong>формуле Литтла</strong> среднее время ожидания связано со средней длиной очереди:</p>
+<div class="arithmatex">\[
+T_{\text{оч}} = \frac{L_{\text{оч}}}{\lambda_{\text{эф}}}
+\]</div>
+<p>где <span class="arithmatex">\(\lambda_{\text{эф}} = \lambda(1 - P_{\text{отк}})\)</span> — эффективная интенсивность (интенсивность потока заявок, фактически поступающих на обслуживание).</p>
+<p>Таким образом:</p>
+<div class="arithmatex">\[
+T_{\text{оч}} = \frac{L_{\text{оч}}}{\lambda(1 - P_{\text{отк}})}
+\]</div>
+<h3 id="_31">Среднее время пребывания в системе<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+T_{\text{сист}} = T_{\text{оч}} + \frac{1}{\mu}
+\]</div>
+<div class="admonition success">
+<p class="admonition-title">Формула Литтла</p>
+<p><strong>Формула Литтла</strong> — одна из самых красивых и полезных формул ТМО. Она связывает три фундаментальные характеристики <strong>любой</strong> стационарной СМО:</p>
+<div class="arithmatex">\[L = \lambda_{\text{эф}} \cdot T\]</div>
+<p>где <span class="arithmatex">\(L\)</span> — среднее число заявок в системе (или в очереди), <span class="arithmatex">\(\lambda_{\text{эф}}\)</span> — эффективная интенсивность потока, <span class="arithmatex">\(T\)</span> — среднее время пребывания (в системе или в очереди соответственно).</p>
+</div>
+<hr />
+<div class="admonition abstract">
+<p class="admonition-title">Итоги лекции</p>
+<p>Мы рассмотрели основные понятия и инструменты теории массового обслуживания:</p>
+<ol>
+<li><strong>Структура СМО</strong>: входящий поток, очередь, каналы, выходящий поток</li>
+<li><strong>Показатели эффективности</strong>: пропускная способность, время ожидания, вероятность отказа</li>
+<li><strong>Простейший (пуассоновский) поток</strong>: распределение Пуассона и экспоненциальное распределение</li>
+<li><strong>Марковские процессы</strong> и <strong>уравнения Колмогорова</strong>: аналитический аппарат для анализа СМО</li>
+<li><strong>Процесс гибели и размножения</strong>: базовая модель для большинства СМО</li>
+<li><strong>СМО с отказами</strong> и <strong>формулы Эрланга</strong>: расчёт систем без очереди</li>
+<li><strong>СМО с ожиданием</strong>: расчёт систем с ограниченной очередью и формула Литтла</li>
+</ol>
+<p>Эти инструменты позволяют решать широкий круг практических задач — от проектирования банковских отделений до оптимизации серверной инфраструктуры.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

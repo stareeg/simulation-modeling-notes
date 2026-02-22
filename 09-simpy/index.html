@@ -1,0 +1,2521 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Конспект курса «Имитационное моделирование» (ФКН ВШЭ)">
+      
+      
+      
+      
+        <link rel="prev" href="../08-queueing-networks/">
+      
+      
+        <link rel="next" href="../10-simpy-practice/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>9. SimPy — основы - Имитационное моделирование — Конспект</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#simpy-python" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href=".." title="Имитационное моделирование — Конспект" class="md-header__button md-logo" aria-label="Имитационное моделирование — Конспект" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Имитационное моделирование — Конспект
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              9. SimPy — основы
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Светлая тема"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Светлая тема" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Тёмная тема"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Тёмная тема" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Главная
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-introduction/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  1. Введение в ИМ
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../02-system-dynamics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  2. Системная динамика
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../03-agent-based/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  3. Агентное моделирование
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../04-discrete-event/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  4. Дискретно-событийное моделирование
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../05-queueing-basics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  5. Основы ТМО
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../06-queueing-intro/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  6. Теория очередей — введение
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../07-single-queue/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  7. Анализ одиночной очереди
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../08-queueing-networks/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  8. Сети массового обслуживания
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  9. SimPy — основы
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../10-simpy-practice/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  10. SimPy — практика
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../11-simulation-analysis/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  11. Моделирование и анализ
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../cheatsheet/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Шпаргалка
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Имитационное моделирование — Конспект" class="md-nav__button md-logo" aria-label="Имитационное моделирование — Конспект" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Имитационное моделирование — Конспект
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Введение в ИМ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-system-dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Системная динамика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-agent-based/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Агентное моделирование
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-discrete-event/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Дискретно-событийное моделирование
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-queueing-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Основы ТМО
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-queueing-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Теория очередей — введение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-single-queue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Анализ одиночной очереди
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-queueing-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Сети массового обслуживания
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. SimPy — основы
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. SimPy — основы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это нужно
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Установка
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Базовые концепции
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Базовые концепции">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пример: парковка и вождение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ожидание процесса
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прерывание процессов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ресурсы (Resource)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ресурсы (Resource)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Базовое использование
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requestrelease" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ручной request/release
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Статистика ресурса
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Приоритетные ресурсы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вытесняющие ресурсы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Контейнеры (Container)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Контейнеры (Container)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пример: автозаправка
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Хранилища (Store)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Параллельные процессы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возврат значений
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Возврат значений">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#value-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Через параметр value у Timeout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Через return
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пошаговое выполнение
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мониторинг процессов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sleep-until-woken-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sleep until woken up
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ожидание завершения другого процесса
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ожидание завершения другого процесса">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#and-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AND-условие (оба должны завершиться)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#or-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OR-условие (достаточно одного)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Реальное время
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Реальное время">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обычная среда (мгновенно)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#realtimeenvironment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RealtimeEnvironment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-simpy-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. SimPy — практика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-simulation-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Моделирование и анализ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Шпаргалка
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это нужно
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Установка
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Базовые концепции
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Базовые концепции">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пример: парковка и вождение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ожидание процесса
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прерывание процессов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ресурсы (Resource)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ресурсы (Resource)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Базовое использование
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requestrelease" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ручной request/release
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Статистика ресурса
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Приоритетные ресурсы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вытесняющие ресурсы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Контейнеры (Container)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Контейнеры (Container)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пример: автозаправка
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Хранилища (Store)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Параллельные процессы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Возврат значений
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Возврат значений">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#value-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Через параметр value у Timeout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Через return
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пошаговое выполнение
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мониторинг процессов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sleep-until-woken-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sleep until woken up
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ожидание завершения другого процесса
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ожидание завершения другого процесса">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#and-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AND-условие (оба должны завершиться)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#or-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OR-условие (достаточно одного)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Реальное время
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Реальное время">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обычная среда (мгновенно)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#realtimeenvironment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RealtimeEnvironment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="simpy-python">SimPy — основы дискретно-событийного моделирования на Python<a class="headerlink" href="#simpy-python" title="Permanent link">&para;</a></h1>
+<p>Привет! В этой лекции мы разберёмся с <strong>SimPy</strong> — Python-библиотекой для дискретно-событийного моделирования. Если до этого мы изучали теорию СМО и сетей массового обслуживания на бумаге, то теперь научимся строить имитационные модели <strong>в коде</strong>. Конспект основан на материалах ноутбуков <code>basic.ipynb</code> и <code>extra.ipynb</code>.</p>
+<hr />
+<h2 id="_1">Зачем это нужно<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>SimPy (SIMulation in PYthon) — это библиотека для <strong>дискретно-событийного моделирования</strong> (Discrete-Event Simulation, DES) на Python.</p>
+<p>Почему именно SimPy?</p>
+<ul>
+<li><strong>Бесплатная и open-source</strong> — никаких лицензий, всё на GitHub.</li>
+<li><strong>Чистый Python</strong> — никаких внешних зависимостей, работает везде, где есть Python.</li>
+<li><strong>Полный программный контроль</strong> — в отличие от GUI-инструментов (Arena, AnyLogic), ты управляешь каждой деталью модели из кода.</li>
+<li><strong>Легко интегрируется</strong> — с NumPy, Pandas, Matplotlib и любыми другими Python-библиотеками для анализа и визуализации.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Нет графического интерфейса</p>
+<p>SimPy — это <strong>не</strong> визуальная среда моделирования. Здесь нет drag-and-drop, нет 3D-анимации. Зато есть полная свобода: можно строить модели любой сложности, автоматизировать эксперименты, собирать статистику — всё, что позволяет Python.</p>
+</div>
+<hr />
+<h2 id="_2">Установка<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Установка максимально простая:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>simpy
+</code></pre></div>
+<p>И импорт:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">simpy</span>
+</code></pre></div>
+<p>Вот и всё — можно моделировать!</p>
+<hr />
+<h2 id="_3">Базовые концепции<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>SimPy строится на трёх ключевых понятиях:</p>
+<table>
+<thead>
+<tr>
+<th>Понятие</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Environment</strong> (среда)</td>
+<td>Ядро симуляции. Управляет временем и расписанием событий.</td>
+</tr>
+<tr>
+<td><strong>Process</strong> (процесс)</td>
+<td>Генераторная функция Python (<code>yield</code>), описывающая поведение сущности во времени.</td>
+</tr>
+<tr>
+<td><strong>Timeout</strong> (задержка)</td>
+<td>Событие, которое наступает через заданное время. Используется для моделирования длительности действий.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">Пример: парковка и вождение<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Начнём с простейшего примера — машина, которая бесконечно чередует парковку (5 единиц времени) и вождение (2 единицы времени):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">car</span><span class="p">(</span><span class="n">env</span><span class="p">):</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Start parking at </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        <span class="n">parking_duration</span> <span class="o">=</span> <span class="mi">5</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">parking_duration</span><span class="p">)</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Start driving at </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        <span class="n">trip_duration</span> <span class="o">=</span> <span class="mi">2</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">trip_duration</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Как это работает?</p>
+<p>Функция <code>car</code> — это <strong>генератор</strong>. Каждый <code>yield env.timeout(...)</code> приостанавливает выполнение функции и говорит среде: «разбуди меня через столько-то единиц времени». Среда запоминает это и продвигает модельное время к ближайшему событию.</p>
+</div>
+<p>Запускаем:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>       <span class="c1"># Создаём среду</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">car</span><span class="p">(</span><span class="n">env</span><span class="p">))</span>           <span class="c1"># Регистрируем процесс</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>               <span class="c1"># Запускаем до t=15</span>
+</code></pre></div>
+<p>Вывод:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Start parking at 0
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Start driving at 5
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Start parking at 7
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Start driving at 12
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Start parking at 14
+</code></pre></div>
+<p>Обрати внимание: <code>env.now</code> всегда показывает текущее модельное время. Время продвигается <strong>дискретно</strong> — от одного события к следующему, минуя «пустые» промежутки.</p>
+<hr />
+<h2 id="_5">Ожидание процесса<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Процессы могут <strong>ожидать завершения других процессов</strong>. Это удобно для моделирования составных действий. Перепишем пример с машиной, добавив процесс зарядки:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">run</span><span class="p">())</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Start parking and charging at </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>            <span class="n">charge_duration</span> <span class="o">=</span> <span class="mi">5</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>            <span class="c1"># Ждём завершения процесса зарядки</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">charge</span><span class="p">(</span><span class="n">charge_duration</span><span class="p">))</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Start driving at </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>            <span class="n">trip_duration</span> <span class="o">=</span> <span class="mi">2</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">trip_duration</span><span class="p">)</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">charge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duration</span><span class="p">):</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>        <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">duration</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+</code></pre></div>
+<p>Вывод:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Start parking and charging at 0
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Start driving at 5
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Start parking and charging at 7
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Start driving at 12
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>Start parking and charging at 14
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">yield env.process(...)</p>
+<p>Конструкция <code>yield self.env.process(self.charge(...))</code> запускает подпроцесс <code>charge</code> и <strong>ждёт</strong> его завершения. Только после этого выполнение <code>run</code> продолжается. Это аналог <code>await</code> в асинхронном программировании.</p>
+</div>
+<hr />
+<h2 id="_6">Прерывание процессов<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>Иногда процесс нужно <strong>прервать</strong> извне. Например, водитель решает уехать, не дожидаясь полной зарядки. SimPy поддерживает это через механизм <code>Interrupt</code>.</p>
+<p>Функция водителя, который прерывает зарядку через 3 единицы времени:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">driver</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">car</span><span class="p">):</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="n">car</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">interrupt</span><span class="p">()</span>
+</code></pre></div>
+<p>Модифицированный класс Car с обработкой прерывания:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">run</span><span class="p">())</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Start parking and charging at </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>            <span class="n">charge_duration</span> <span class="o">=</span> <span class="mi">5</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>            <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>                <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">charge</span><span class="p">(</span><span class="n">charge_duration</span><span class="p">))</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>            <span class="k">except</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Interrupt</span><span class="p">:</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Was interrupted. Hope, the battery is full enough ...&#39;</span><span class="p">)</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Start driving at </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>            <span class="n">trip_duration</span> <span class="o">=</span> <span class="mi">2</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">trip_duration</span><span class="p">)</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">charge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duration</span><span class="p">):</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>        <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">duration</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">driver</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">car</span><span class="p">))</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+</code></pre></div>
+<p>Вывод:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Start parking and charging at 0
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Was interrupted. Hope, the battery is full enough ...
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>Start driving at 3
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>Start parking and charging at 5
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>Start driving at 10
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>Start parking and charging at 12
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Паттерн try/except</p>
+<p>Прерывание — это исключение <code>simpy.Interrupt</code>. Процесс, который может быть прерван, оборачивает свой <code>yield</code> в блок <code>try/except</code>. Если прерывание произошло — управление переходит в <code>except</code>, и процесс может корректно завершить текущее действие.</p>
+</div>
+<hr />
+<h2 id="resource">Ресурсы (Resource)<a class="headerlink" href="#resource" title="Permanent link">&para;</a></h2>
+<p><strong>Ресурсы</strong> — один из самых важных элементов SimPy. Ресурс — это объект с ограниченной ёмкостью, который процессы должны <strong>запрашивать</strong> (request) и <strong>освобождать</strong> (release).</p>
+<h3 id="_7">Базовое использование<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">car</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bcs</span><span class="p">,</span> <span class="n">driving_time</span><span class="p">,</span> <span class="n">charge_duration</span><span class="p">):</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    <span class="c1"># Едем к зарядной станции</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">driving_time</span><span class="p">)</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> arriving at </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">))</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>    <span class="k">with</span> <span class="n">bcs</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>        <span class="k">yield</span> <span class="n">req</span>  <span class="c1"># Ждём свободного места</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> starting to charge at </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">))</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">charge_duration</span><span class="p">)</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> leaving the bcs at </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">bcs</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Resource</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Станция на 2 места</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">car</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="s1">&#39;Car </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">,</span> <span class="n">bcs</span><span class="p">,</span> <span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+<p>Вывод:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Car 0 arriving at 0
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Car 0 starting to charge at 0
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Car 1 arriving at 2
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>Car 1 starting to charge at 2
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>Car 2 arriving at 4
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>Car 0 leaving the bcs at 5
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>Car 2 starting to charge at 5
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>Car 3 arriving at 6
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>Car 1 leaving the bcs at 7
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>Car 3 starting to charge at 7
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>Car 2 leaving the bcs at 10
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>Car 3 leaving the bcs at 12
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Контекстный менеджер (with)</p>
+<p>Конструкция <code>with bcs.request() as req</code> автоматически освобождает ресурс при выходе из блока <code>with</code>. Это безопаснее, чем ручной <code>release()</code> — ресурс освобождается даже при исключении.</p>
+</div>
+<h3 id="requestrelease">Ручной request/release<a class="headerlink" href="#requestrelease" title="Permanent link">&para;</a></h3>
+<p>Можно управлять ресурсами и вручную:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">resource_user</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">resource</span><span class="p">):</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="n">request</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">request</span><span class="p">()</span>   <span class="c1"># Генерируем запрос</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    <span class="k">yield</span> <span class="n">request</span>                  <span class="c1"># Ждём доступа</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Resource request&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>           <span class="c1"># Работаем</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>    <span class="n">resource</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>      <span class="c1"># Освобождаем</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Resource release&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="_8">Статистика ресурса<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>SimPy предоставляет полезные атрибуты для мониторинга ресурсов:</p>
+<table>
+<thead>
+<tr>
+<th>Атрибут</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>res.count</code></td>
+<td>Текущее число занятых слотов</td>
+</tr>
+<tr>
+<td><code>res.capacity</code></td>
+<td>Общая ёмкость ресурса</td>
+</tr>
+<tr>
+<td><code>res.users</code></td>
+<td>Список текущих пользователей</td>
+</tr>
+<tr>
+<td><code>res.queue</code></td>
+<td>Очередь ожидающих запросов</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">print_stats</span><span class="p">(</span><span class="n">res</span><span class="p">):</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">count</span><span class="si">}</span><span class="s1"> of </span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">capacity</span><span class="si">}</span><span class="s1"> slots are allocated.&#39;</span><span class="p">)</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  Users: </span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">users</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  Queued events: </span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">queue</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">user</span><span class="p">(</span><span class="n">res</span><span class="p">):</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>    <span class="n">print_stats</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>    <span class="k">with</span> <span class="n">res</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>        <span class="k">yield</span> <span class="n">req</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>        <span class="n">print_stats</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>    <span class="n">print_stats</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">res</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Resource</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="n">procs</span> <span class="o">=</span> <span class="p">[</span><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">user</span><span class="p">(</span><span class="n">res</span><span class="p">)),</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">user</span><span class="p">(</span><span class="n">res</span><span class="p">))]</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+<p>Вывод:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>0 of 1 slots are allocated.
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>  Users: []
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>  Queued events: []
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>1 of 1 slots are allocated.
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>  Users: [&lt;Request() object at 0x...&gt;]
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>  Queued events: []
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>1 of 1 slots are allocated.
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>  Users: [&lt;Request() object at 0x...&gt;]
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>  Queued events: [&lt;Request() object at 0x...&gt;]
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>0 of 1 slots are allocated.
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>  Users: []
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>  Queued events: [&lt;Request() object at 0x...&gt;]
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>1 of 1 slots are allocated.
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>  Users: [&lt;Request() object at 0x...&gt;]
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>  Queued events: []
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>0 of 1 slots are allocated.
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>  Users: []
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>  Queued events: []
+</code></pre></div>
+<hr />
+<h2 id="_9">Приоритетные ресурсы<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>Обычный <code>Resource</code> обслуживает запросы в порядке поступления (FIFO). Но иногда нужны <strong>приоритеты</strong> — например, VIP-клиент должен обслуживаться раньше обычного.</p>
+<p><code>PriorityResource</code> позволяет назначать приоритет каждому запросу:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">resource_user</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">resource</span><span class="p">,</span> <span class="n">wait</span><span class="p">,</span> <span class="n">prio</span><span class="p">):</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>    <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">wait</span><span class="p">)</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    <span class="k">with</span> <span class="n">resource</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">priority</span><span class="o">=</span><span class="n">prio</span><span class="p">)</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> requesting at </span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s1"> with priority=</span><span class="si">{</span><span class="n">prio</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>        <span class="k">yield</span> <span class="n">req</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> got resource at </span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="n">res</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">PriorityResource</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="n">p1</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">resource_user</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">prio</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="n">p2</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">resource_user</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">prio</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="n">p3</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">resource_user</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prio</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+<p>Вывод:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>1 requesting at 0 with priority=0
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>1 got resource at 0
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>2 requesting at 1 with priority=0
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>3 requesting at 2 with priority=-1
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>3 got resource at 3
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>2 got resource at 6
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Чем меньше число — тем выше приоритет!</p>
+<p>В SimPy приоритет задаётся числом: <strong>меньшее значение = более высокий приоритет</strong>. В примере выше процесс 3 с <code>priority=-1</code> обслуживается раньше процесса 2 с <code>priority=0</code>, хотя пришёл позже.</p>
+</div>
+<hr />
+<h2 id="_10">Вытесняющие ресурсы<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p><code>PreemptiveResource</code> идёт ещё дальше — процесс с более высоким приоритетом может <strong>вытеснить</strong> текущего пользователя ресурса:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">resource_user</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">resource</span><span class="p">,</span> <span class="n">wait</span><span class="p">,</span> <span class="n">prio</span><span class="p">):</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>    <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">wait</span><span class="p">)</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>    <span class="k">with</span> <span class="n">resource</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">priority</span><span class="o">=</span><span class="n">prio</span><span class="p">)</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> requesting at </span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s1"> with priority=</span><span class="si">{</span><span class="n">prio</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>        <span class="k">yield</span> <span class="n">req</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> got resource at </span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>        <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>            <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>        <span class="k">except</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Interrupt</span> <span class="k">as</span> <span class="n">interrupt</span><span class="p">:</span>
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>            <span class="n">by</span> <span class="o">=</span> <span class="n">interrupt</span><span class="o">.</span><span class="n">cause</span><span class="o">.</span><span class="n">by</span>
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>            <span class="n">usage</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">interrupt</span><span class="o">.</span><span class="n">cause</span><span class="o">.</span><span class="n">usage_since</span>
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> got preempted by </span><span class="si">{</span><span class="n">by</span><span class="si">}</span><span class="s1"> at </span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s1">&#39;</span>
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>                  <span class="sa">f</span><span class="s1">&#39; after </span><span class="si">{</span><span class="n">usage</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">res</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">PreemptiveResource</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="n">p1</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">resource_user</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">prio</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="n">p2</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">resource_user</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">prio</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="n">p3</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">resource_user</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prio</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+<p>Вывод:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>1 requesting at 0 with priority=0
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>1 got resource at 0
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>2 requesting at 1 with priority=0
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>3 requesting at 2 with priority=-1
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>1 got preempted by &lt;Process(resource_user) object at 0x...&gt; at 2 after 2
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>3 got resource at 2
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>2 got resource at 5
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">preempt=True vs preempt=False</p>
+<p>При использовании <code>PreemptiveResource</code> можно указать параметр <code>preempt</code> в запросе:</p>
+<ul>
+<li><code>preempt=True</code> (по умолчанию) — процесс <strong>может вытеснить</strong> текущего пользователя, если имеет более высокий приоритет.</li>
+<li><code>preempt=False</code> — процесс получит приоритет в очереди, но <strong>не будет вытеснять</strong> текущего пользователя.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">user</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">prio</span><span class="p">,</span> <span class="n">preempt</span><span class="p">):</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>    <span class="k">with</span> <span class="n">res</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">priority</span><span class="o">=</span><span class="n">prio</span><span class="p">,</span> <span class="n">preempt</span><span class="o">=</span><span class="n">preempt</span><span class="p">)</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>        <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> requesting at </span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>            <span class="k">yield</span> <span class="n">req</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> got resource at </span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>            <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>        <span class="k">except</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Interrupt</span><span class="p">:</span>
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> got preempted at </span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Пример: процесс B с <code>preempt=False</code> и более высоким приоритетом не вытесняет A, а просто ждёт в очереди с приоритетом:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="n">res</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">PreemptiveResource</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="n">A</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">user</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">prio</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">preempt</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># A получает ресурс</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="n">B</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">user</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">prio</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">preempt</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="n">C</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">user</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">prio</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">preempt</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>A requesting at 0
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>A got resource at 0
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>B requesting at 1
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>C requesting at 1
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>B got resource at 3
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>C got resource at 6
+</code></pre></div>
+<p>B не вытесняет A (хотя имеет более высокий приоритет), потому что <code>preempt=False</code>. Зато B обслуживается раньше C благодаря более высокому приоритету в очереди.</p>
+</div>
+<hr />
+<h2 id="container">Контейнеры (Container)<a class="headerlink" href="#container" title="Permanent link">&para;</a></h2>
+<p><strong>Container</strong> — это ресурс, моделирующий <strong>непрерывную ёмкость</strong>: бак с топливом, аккумулятор, склад с однородным товаром. В отличие от <code>Resource</code> (дискретные слоты), <code>Container</code> работает с <strong>уровнем</strong> (level).</p>
+<table>
+<thead>
+<tr>
+<th>Атрибут/Метод</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>capacity</code></td>
+<td>Максимальная ёмкость контейнера</td>
+</tr>
+<tr>
+<td><code>level</code></td>
+<td>Текущий уровень заполнения</td>
+</tr>
+<tr>
+<td><code>put(amount)</code></td>
+<td>Добавить <code>amount</code> в контейнер (событие)</td>
+</tr>
+<tr>
+<td><code>get(amount)</code></td>
+<td>Извлечь <code>amount</code> из контейнера (событие)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_11">Пример: автозаправка<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GasStation</span><span class="p">:</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">fuel_dispensers</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Resource</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">gas_tank</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">mon_proc</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">monitor_tank</span><span class="p">(</span><span class="n">env</span><span class="p">))</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">monitor_tank</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">gas_tank</span><span class="o">.</span><span class="n">level</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Calling tanker at </span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>                <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">tanker</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="bp">self</span><span class="p">))</span>
+<a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>            <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>
+<a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a><span class="k">def</span><span class="w"> </span><span class="nf">tanker</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">gas_station</span><span class="p">):</span>
+<a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a>    <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># 10 минут на дорогу</span>
+<a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Tanker arriving at </span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a>    <span class="n">amount</span> <span class="o">=</span> <span class="n">gas_station</span><span class="o">.</span><span class="n">gas_tank</span><span class="o">.</span><span class="n">capacity</span> <span class="o">-</span> <span class="n">gas_station</span><span class="o">.</span><span class="n">gas_tank</span><span class="o">.</span><span class="n">level</span>
+<a id="__codelineno-28-18" name="__codelineno-28-18" href="#__codelineno-28-18"></a>    <span class="k">yield</span> <span class="n">gas_station</span><span class="o">.</span><span class="n">gas_tank</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span>
+<a id="__codelineno-28-19" name="__codelineno-28-19" href="#__codelineno-28-19"></a>
+<a id="__codelineno-28-20" name="__codelineno-28-20" href="#__codelineno-28-20"></a><span class="k">def</span><span class="w"> </span><span class="nf">car</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">gas_station</span><span class="p">):</span>
+<a id="__codelineno-28-21" name="__codelineno-28-21" href="#__codelineno-28-21"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Car </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> arriving at </span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<a id="__codelineno-28-22" name="__codelineno-28-22" href="#__codelineno-28-22"></a>    <span class="k">with</span> <span class="n">gas_station</span><span class="o">.</span><span class="n">fuel_dispensers</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>
+<a id="__codelineno-28-23" name="__codelineno-28-23" href="#__codelineno-28-23"></a>        <span class="k">yield</span> <span class="n">req</span>
+<a id="__codelineno-28-24" name="__codelineno-28-24" href="#__codelineno-28-24"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Car </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> starts refueling at </span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<a id="__codelineno-28-25" name="__codelineno-28-25" href="#__codelineno-28-25"></a>        <span class="k">yield</span> <span class="n">gas_station</span><span class="o">.</span><span class="n">gas_tank</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<a id="__codelineno-28-26" name="__codelineno-28-26" href="#__codelineno-28-26"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-28-27" name="__codelineno-28-27" href="#__codelineno-28-27"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Car </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> done refueling at </span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<a id="__codelineno-28-28" name="__codelineno-28-28" href="#__codelineno-28-28"></a>
+<a id="__codelineno-28-29" name="__codelineno-28-29" href="#__codelineno-28-29"></a><span class="k">def</span><span class="w"> </span><span class="nf">car_generator</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">gas_station</span><span class="p">):</span>
+<a id="__codelineno-28-30" name="__codelineno-28-30" href="#__codelineno-28-30"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+<a id="__codelineno-28-31" name="__codelineno-28-31" href="#__codelineno-28-31"></a>        <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">car</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">gas_station</span><span class="p">))</span>
+<a id="__codelineno-28-32" name="__codelineno-28-32" href="#__codelineno-28-32"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="n">gas_station</span> <span class="o">=</span> <span class="n">GasStation</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="n">car_gen</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">car_generator</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">gas_station</span><span class="p">))</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span>
+</code></pre></div>
+<p>Вывод:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>Car 0 arriving at 0
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>Car 0 starts refueling at 0
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>Car 1 arriving at 5
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>Car 0 done refueling at 5
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>Car 1 starts refueling at 5
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>Car 2 arriving at 10
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>Car 1 done refueling at 10
+<a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>Car 2 starts refueling at 10
+<a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a>Calling tanker at 15
+<a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a>Car 3 arriving at 15
+<a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a>Car 3 starts refueling at 15
+<a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a>Tanker arriving at 25
+<a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a>Car 2 done refueling at 30
+<a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a>Car 3 done refueling at 30
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Блокировка при нехватке ресурса</p>
+<p>Обрати внимание: <code>yield gas_station.gas_tank.get(40)</code> <strong>блокирует</strong> процесс, если в баке недостаточно топлива. Машины 2 и 3 ждут, пока танкер не привезёт бензин. Это моделируется автоматически — никакого ручного кода ожидания!</p>
+</div>
+<hr />
+<h2 id="store">Хранилища (Store)<a class="headerlink" href="#store" title="Permanent link">&para;</a></h2>
+<p><strong>Store</strong> — это ресурс для хранения <strong>дискретных объектов</strong> (в отличие от Container, который хранит «однородную жидкость»). Идеально подходит для паттерна <strong>производитель-потребитель</strong>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">producer</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">store</span><span class="p">):</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>        <span class="k">yield</span> <span class="n">store</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;spam </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Produced spam at&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>
+<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">consumer</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">store</span><span class="p">):</span>
+<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;requesting spam at&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+<a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a>        <span class="n">item</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">store</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;got&#39;</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="s1">&#39;at&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="n">store</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Store</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="n">prod</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">producer</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">store</span><span class="p">))</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="n">consumers</span> <span class="o">=</span> <span class="p">[</span><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">consumer</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">store</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+<p>Вывод:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>0 requesting spam at 1
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>1 requesting spam at 1
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>Produced spam at 2
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>0 got spam 0 at 2
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>0 requesting spam at 3
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>Produced spam at 4
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>1 got spam 1 at 4
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Store vs Container vs Resource</p>
+<ul>
+<li><strong>Resource</strong> — дискретные слоты (парковочные места, кассиры). Процесс занимает слот и освобождает его.</li>
+<li><strong>Container</strong> — однородная ёмкость (бензин, электричество, деньги). Можно добавлять и забирать произвольные количества.</li>
+<li><strong>Store</strong> — хранилище именованных объектов (товары, заказы, сообщения). Каждый объект уникален.</li>
+</ul>
+</div>
+<hr />
+<h2 id="_12">Параллельные процессы<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>SimPy легко поддерживает <strong>параллельное выполнение</strong> нескольких процессов. Все процессы работают в одной среде и координируются через общее модельное время.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">clock</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">tick</span><span class="p">):</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">tick</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">clock</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="s1">&#39;fast&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">clock</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="s1">&#39;slow&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mf">2.1</span><span class="p">)</span>
+</code></pre></div>
+<p>Вывод:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>fast 0
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>slow 0
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>fast 0.5
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>slow 1
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>fast 1.0
+<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>fast 1.5
+<a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a>slow 2
+<a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a>fast 2.0
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Как это работает внутри?</p>
+<p>SimPy использует <strong>очередь событий</strong> (event queue). Когда процесс делает <code>yield env.timeout(tick)</code>, в очередь добавляется событие «разбудить этот процесс через <code>tick</code> единиц времени». Среда обрабатывает события в хронологическом порядке. Если два события запланированы на одно время — они выполняются в порядке добавления в очередь (FIFO).</p>
+</div>
+<hr />
+<h2 id="_13">Возврат значений<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p>Процессы в SimPy могут <strong>возвращать значения</strong> — как через <code>return</code>, так и через параметр <code>value</code> у Timeout.</p>
+<h3 id="value-timeout">Через параметр value у Timeout<a class="headerlink" href="#value-timeout" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">env</span><span class="p">):</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>    <span class="n">value</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;now=</span><span class="si">%d</span><span class="s1">, value=</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="n">p</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">example</span><span class="p">(</span><span class="n">env</span><span class="p">))</span>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>now=1, value=42
+</code></pre></div>
+<h3 id="return">Через return<a class="headerlink" href="#return" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">my_proc</span><span class="p">(</span><span class="n">env</span><span class="p">):</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>    <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>    <span class="k">return</span> <span class="s1">&#39;Armen&#39;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="n">proc</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">my_proc</span><span class="p">(</span><span class="n">env</span><span class="p">))</span>
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="n">proc</span><span class="p">)</span>
+</code></pre></div>
+<p>Результат: <code>'Armen'</code></p>
+<div class="admonition tip">
+<p class="admonition-title">Зачем возвращать значения?</p>
+<p>Это полезно, когда один процесс ожидает результата другого. Например, процесс-клиент отправляет запрос процессу-серверу и ждёт ответа. Возвращаемое значение — это ответ сервера.</p>
+</div>
+<hr />
+<h2 id="_14">Пошаговое выполнение<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<p>Иногда нужно выполнять симуляцию <strong>по одному шагу</strong> — например, для отладки или интеграции с внешней системой. SimPy предоставляет для этого два метода:</p>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>env.peek()</code></td>
+<td>Возвращает время следующего события (без выполнения)</td>
+</tr>
+<tr>
+<td><code>env.step()</code></td>
+<td>Выполняет одно следующее событие</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">my_proc</span><span class="p">(</span><span class="n">env</span><span class="p">):</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Armen at </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">my_proc</span><span class="p">(</span><span class="n">env</span><span class="p">))</span>
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="n">until</span> <span class="o">=</span> <span class="mi">10</span>
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="k">while</span> <span class="n">env</span><span class="o">.</span><span class="n">peek</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">until</span><span class="p">:</span>
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>    <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</code></pre></div>
+<p>Вывод:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>Armen at 1
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>Armen at 2
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>Armen at 3
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a>Armen at 4
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a>Armen at 5
+<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a>Armen at 6
+<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a>Armen at 7
+<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a>Armen at 8
+<a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a>Armen at 9
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Когда использовать?</p>
+<p>Пошаговое выполнение полезно для:</p>
+<ul>
+<li><strong>Отладки</strong> — можно остановиться после каждого события и проверить состояние.</li>
+<li><strong>Интеграции</strong> — если SimPy-модель встроена в другую систему, которая управляет тактами.</li>
+<li><strong>Визуализации</strong> — обновлять картинку после каждого шага.</li>
+</ul>
+</div>
+<hr />
+<h2 id="_15">Мониторинг процессов<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p>SimPy позволяет узнать, какой процесс сейчас активен, через атрибут <code>env.active_process</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">subfunc</span><span class="p">(</span><span class="n">env</span><span class="p">):</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">active_process</span><span class="p">)</span>
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">my_proc</span><span class="p">(</span><span class="n">env</span><span class="p">):</span>
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">active_process</span><span class="p">)</span>
+<a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a>        <span class="n">subfunc</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+<a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="n">p1</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">my_proc</span><span class="p">(</span><span class="n">env</span><span class="p">))</span>
+<a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">active_process</span><span class="p">)</span>   <span class="c1"># None — между событиями</span>
+<a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+<a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">active_process</span><span class="p">)</span>   <span class="c1"># None — между событиями</span>
+</code></pre></div>
+<p>Вывод:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>None
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>&lt;Process(my_proc) object at 0x...&gt;
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>&lt;Process(my_proc) object at 0x...&gt;
+<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>None
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">active_process</p>
+<p><code>env.active_process</code> возвращает текущий активный процесс <strong>только во время выполнения</strong> обработчика события. Между событиями (в «управляющем» коде) он возвращает <code>None</code>.</p>
+</div>
+<hr />
+<h2 id="sleep-until-woken-up">Sleep until woken up<a class="headerlink" href="#sleep-until-woken-up" title="Permanent link">&para;</a></h2>
+<p>Иногда процесс должен «заснуть» и ждать, пока его <strong>явно разбудят</strong>. Это паттерн <strong>passivation/reactivation</strong> — процесс переходит в пассивное состояние и активируется по внешнему событию.</p>
+<p>В SimPy это реализуется через <strong>события</strong> (<code>env.event()</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">seed</span><span class="p">,</span> <span class="n">randint</span>
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="n">seed</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>
+<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">EV</span><span class="p">:</span>
+<a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+<a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
+<a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">drive_proc</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="n">env</span><span class="p">))</span>
+<a id="__codelineno-48-8" name="__codelineno-48-8" href="#__codelineno-48-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">bat_ctrl_proc</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bat_ctrl</span><span class="p">(</span><span class="n">env</span><span class="p">))</span>
+<a id="__codelineno-48-9" name="__codelineno-48-9" href="#__codelineno-48-9"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">bat_ctrl_reactivate</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">event</span><span class="p">()</span>
+<a id="__codelineno-48-10" name="__codelineno-48-10" href="#__codelineno-48-10"></a>
+<a id="__codelineno-48-11" name="__codelineno-48-11" href="#__codelineno-48-11"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">drive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+<a id="__codelineno-48-12" name="__codelineno-48-12" href="#__codelineno-48-12"></a>        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-48-13" name="__codelineno-48-13" href="#__codelineno-48-13"></a>            <span class="c1"># Едем 20-40 минут</span>
+<a id="__codelineno-48-14" name="__codelineno-48-14" href="#__codelineno-48-14"></a>            <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">))</span>
+<a id="__codelineno-48-15" name="__codelineno-48-15" href="#__codelineno-48-15"></a>
+<a id="__codelineno-48-16" name="__codelineno-48-16" href="#__codelineno-48-16"></a>            <span class="c1"># Паркуемся на 1-6 часов</span>
+<a id="__codelineno-48-17" name="__codelineno-48-17" href="#__codelineno-48-17"></a>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Start parking at&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+<a id="__codelineno-48-18" name="__codelineno-48-18" href="#__codelineno-48-18"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">bat_ctrl_reactivate</span><span class="o">.</span><span class="n">succeed</span><span class="p">()</span>         <span class="c1"># &quot;разбудить&quot; контроллер</span>
+<a id="__codelineno-48-19" name="__codelineno-48-19" href="#__codelineno-48-19"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">bat_ctrl_reactivate</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">event</span><span class="p">()</span>     <span class="c1"># новое событие для следующего раза</span>
+<a id="__codelineno-48-20" name="__codelineno-48-20" href="#__codelineno-48-20"></a>            <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">360</span><span class="p">))</span>
+<a id="__codelineno-48-21" name="__codelineno-48-21" href="#__codelineno-48-21"></a>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Stop parking at&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+<a id="__codelineno-48-22" name="__codelineno-48-22" href="#__codelineno-48-22"></a>
+<a id="__codelineno-48-23" name="__codelineno-48-23" href="#__codelineno-48-23"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">bat_ctrl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+<a id="__codelineno-48-24" name="__codelineno-48-24" href="#__codelineno-48-24"></a>        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-48-25" name="__codelineno-48-25" href="#__codelineno-48-25"></a>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bat. ctrl. passivating at&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+<a id="__codelineno-48-26" name="__codelineno-48-26" href="#__codelineno-48-26"></a>            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">bat_ctrl_reactivate</span>             <span class="c1"># &quot;заснуть&quot;</span>
+<a id="__codelineno-48-27" name="__codelineno-48-27" href="#__codelineno-48-27"></a>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bat. ctrl. reactivated at&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+<a id="__codelineno-48-28" name="__codelineno-48-28" href="#__codelineno-48-28"></a>
+<a id="__codelineno-48-29" name="__codelineno-48-29" href="#__codelineno-48-29"></a>            <span class="c1"># Умная зарядка...</span>
+<a id="__codelineno-48-30" name="__codelineno-48-30" href="#__codelineno-48-30"></a>            <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">90</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="n">ev</span> <span class="o">=</span> <span class="n">EV</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+</code></pre></div>
+<p>Вывод:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>Bat. ctrl. passivating at 0
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>Start parking at 29
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>Bat. ctrl. reactivated at 29
+<a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a>Bat. ctrl. passivating at 60
+<a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a>Stop parking at 131
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Как работает паттерн?</p>
+<ol>
+<li><code>bat_ctrl</code> делает <code>yield self.bat_ctrl_reactivate</code> — «засыпает», ожидая события.</li>
+<li><code>drive</code> вызывает <code>self.bat_ctrl_reactivate.succeed()</code> — «будит» контроллер.</li>
+<li>После пробуждения создаётся <strong>новое</strong> событие (<code>env.event()</code>), чтобы контроллер мог заснуть снова в следующей итерации.</li>
+</ol>
+</div>
+<hr />
+<h2 id="_16">Ожидание завершения другого процесса<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<p>SimPy поддерживает <strong>составные условия ожидания</strong> — можно ждать выполнения нескольких событий одновременно.</p>
+<h3 id="and-">AND-условие (оба должны завершиться)<a class="headerlink" href="#and-" title="Permanent link">&para;</a></h3>
+<p>Оператор <code>&amp;</code> — ждём, пока <strong>оба</strong> события не произойдут:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">EV</span><span class="p">:</span>
+<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+<a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
+<a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">drive_proc</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="n">env</span><span class="p">))</span>
+<a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a>
+<a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">drive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+<a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a>        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-51-8" name="__codelineno-51-8" href="#__codelineno-51-8"></a>            <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">))</span>
+<a id="__codelineno-51-9" name="__codelineno-51-9" href="#__codelineno-51-9"></a>
+<a id="__codelineno-51-10" name="__codelineno-51-10" href="#__codelineno-51-10"></a>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Start parking at&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+<a id="__codelineno-51-11" name="__codelineno-51-11" href="#__codelineno-51-11"></a>            <span class="n">charging</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bat_ctrl</span><span class="p">(</span><span class="n">env</span><span class="p">))</span>
+<a id="__codelineno-51-12" name="__codelineno-51-12" href="#__codelineno-51-12"></a>            <span class="n">parking</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">360</span><span class="p">))</span>
+<a id="__codelineno-51-13" name="__codelineno-51-13" href="#__codelineno-51-13"></a>            <span class="k">yield</span> <span class="n">charging</span> <span class="o">&amp;</span> <span class="n">parking</span>  <span class="c1"># Ждём И зарядки, И окончания парковки</span>
+<a id="__codelineno-51-14" name="__codelineno-51-14" href="#__codelineno-51-14"></a>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Stop parking at&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+<a id="__codelineno-51-15" name="__codelineno-51-15" href="#__codelineno-51-15"></a>
+<a id="__codelineno-51-16" name="__codelineno-51-16" href="#__codelineno-51-16"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">bat_ctrl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+<a id="__codelineno-51-17" name="__codelineno-51-17" href="#__codelineno-51-17"></a>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bat. ctrl. started at&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+<a id="__codelineno-51-18" name="__codelineno-51-18" href="#__codelineno-51-18"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">90</span><span class="p">))</span>
+<a id="__codelineno-51-19" name="__codelineno-51-19" href="#__codelineno-51-19"></a>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bat. ctrl. done at&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="n">ev</span> <span class="o">=</span> <span class="n">EV</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+<a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">310</span><span class="p">)</span>
+</code></pre></div>
+<p>Вывод:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>Start parking at 21
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>Bat. ctrl. started at 21
+<a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>Bat. ctrl. done at 101
+<a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a>Stop parking at 186
+<a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a>Start parking at 207
+<a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a>Bat. ctrl. started at 207
+<a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a>Bat. ctrl. done at 279
+</code></pre></div>
+<p>Машина уезжает только когда <strong>и зарядка завершена, и время парковки истекло</strong>.</p>
+<h3 id="or-">OR-условие (достаточно одного)<a class="headerlink" href="#or-" title="Permanent link">&para;</a></h3>
+<p>Оператор <code>|</code> — ждём, пока <strong>хотя бы одно</strong> событие произойдёт:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">EV</span><span class="p">:</span>
+<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+<a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
+<a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">drive_proc</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="n">env</span><span class="p">))</span>
+<a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a>
+<a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">drive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+<a id="__codelineno-54-7" name="__codelineno-54-7" href="#__codelineno-54-7"></a>        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-54-8" name="__codelineno-54-8" href="#__codelineno-54-8"></a>            <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">))</span>
+<a id="__codelineno-54-9" name="__codelineno-54-9" href="#__codelineno-54-9"></a>
+<a id="__codelineno-54-10" name="__codelineno-54-10" href="#__codelineno-54-10"></a>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Start parking at&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+<a id="__codelineno-54-11" name="__codelineno-54-11" href="#__codelineno-54-11"></a>            <span class="n">charging</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bat_ctrl</span><span class="p">(</span><span class="n">env</span><span class="p">))</span>
+<a id="__codelineno-54-12" name="__codelineno-54-12" href="#__codelineno-54-12"></a>            <span class="n">parking</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">360</span><span class="p">)</span>
+<a id="__codelineno-54-13" name="__codelineno-54-13" href="#__codelineno-54-13"></a>            <span class="k">yield</span> <span class="n">charging</span> <span class="o">|</span> <span class="n">parking</span>  <span class="c1"># Ждём ИЛИ зарядки, ИЛИ окончания парковки</span>
+<a id="__codelineno-54-14" name="__codelineno-54-14" href="#__codelineno-54-14"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="n">charging</span><span class="o">.</span><span class="n">triggered</span><span class="p">:</span>
+<a id="__codelineno-54-15" name="__codelineno-54-15" href="#__codelineno-54-15"></a>                <span class="n">charging</span><span class="o">.</span><span class="n">interrupt</span><span class="p">(</span><span class="s1">&#39;Need to go!&#39;</span><span class="p">)</span>
+<a id="__codelineno-54-16" name="__codelineno-54-16" href="#__codelineno-54-16"></a>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Stop parking at&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+<a id="__codelineno-54-17" name="__codelineno-54-17" href="#__codelineno-54-17"></a>
+<a id="__codelineno-54-18" name="__codelineno-54-18" href="#__codelineno-54-18"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">bat_ctrl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+<a id="__codelineno-54-19" name="__codelineno-54-19" href="#__codelineno-54-19"></a>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bat. ctrl. started at&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+<a id="__codelineno-54-20" name="__codelineno-54-20" href="#__codelineno-54-20"></a>        <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-54-21" name="__codelineno-54-21" href="#__codelineno-54-21"></a>            <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">90</span><span class="p">))</span>
+<a id="__codelineno-54-22" name="__codelineno-54-22" href="#__codelineno-54-22"></a>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bat. ctrl. done at&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+<a id="__codelineno-54-23" name="__codelineno-54-23" href="#__codelineno-54-23"></a>        <span class="k">except</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Interrupt</span> <span class="k">as</span> <span class="n">i</span><span class="p">:</span>
+<a id="__codelineno-54-24" name="__codelineno-54-24" href="#__codelineno-54-24"></a>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bat. ctrl. interrupted at&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span> <span class="s1">&#39;msg:&#39;</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">cause</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">AND vs OR</p>
+<ul>
+<li><code>yield A &amp; B</code> — процесс продолжится, когда <strong>оба</strong> события A и B произойдут (аналог <code>asyncio.gather</code>).</li>
+<li><code>yield A | B</code> — процесс продолжится, когда <strong>любое</strong> из событий A или B произойдёт (аналог <code>asyncio.wait</code> с <code>FIRST_COMPLETED</code>).</li>
+</ul>
+<p>Это очень мощный механизм для моделирования сложной логики: «жди, пока ИЛИ закончится ремонт, ИЛИ пройдёт 2 часа — что раньше».</p>
+</div>
+<hr />
+<h2 id="_17">Реальное время<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<p>По умолчанию SimPy работает в <strong>виртуальном времени</strong> — симуляция выполняется максимально быстро. Но иногда нужно привязать модельное время к <strong>реальным часам</strong> — например, для демонстрации или управления реальным оборудованием.</p>
+<h3 id="_18">Обычная среда (мгновенно)<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>
+<a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">env</span><span class="p">):</span>
+<a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a>    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a>    <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-55-6" name="__codelineno-55-6" href="#__codelineno-55-6"></a>    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<a id="__codelineno-55-7" name="__codelineno-55-7" href="#__codelineno-55-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Duration of one simulation time unit: </span><span class="si">%.2f</span><span class="s1">s&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">))</span>
+<a id="__codelineno-55-8" name="__codelineno-55-8" href="#__codelineno-55-8"></a>
+<a id="__codelineno-55-9" name="__codelineno-55-9" href="#__codelineno-55-9"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<a id="__codelineno-55-10" name="__codelineno-55-10" href="#__codelineno-55-10"></a><span class="n">proc</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">example</span><span class="p">(</span><span class="n">env</span><span class="p">))</span>
+<a id="__codelineno-55-11" name="__codelineno-55-11" href="#__codelineno-55-11"></a><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="n">proc</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>Duration of one simulation time unit: 0.00s
+</code></pre></div>
+<h3 id="realtimeenvironment">RealtimeEnvironment<a class="headerlink" href="#realtimeenvironment" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">simpy.rt</span>
+<a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a>
+<a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">rt</span><span class="o">.</span><span class="n">RealtimeEnvironment</span><span class="p">(</span><span class="n">factor</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a><span class="n">proc</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">example</span><span class="p">(</span><span class="n">env</span><span class="p">))</span>
+<a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="n">proc</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>Duration of one simulation time unit: 0.10s
+</code></pre></div>
+<p>Параметр <code>factor</code> задаёт масштаб: <code>factor=0.1</code> означает, что 1 единица модельного времени = 0.1 секунды реального времени.</p>
+<div class="admonition info">
+<p class="admonition-title">strict-режим</p>
+<p>По умолчанию <code>RealtimeEnvironment</code> работает в <strong>strict-режиме</strong>: если симуляция не успевает за реальным временем (обработка события занимает больше, чем отведённый промежуток), выбрасывается <code>RuntimeError</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">slow_proc</span><span class="p">(</span><span class="n">env</span><span class="p">):</span>
+<a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.02</span><span class="p">)</span>    <span class="c1"># Слишком медленная обработка</span>
+<a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a>    <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a>
+<a id="__codelineno-59-5" name="__codelineno-59-5" href="#__codelineno-59-5"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">rt</span><span class="o">.</span><span class="n">RealtimeEnvironment</span><span class="p">(</span><span class="n">factor</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<a id="__codelineno-59-6" name="__codelineno-59-6" href="#__codelineno-59-6"></a><span class="n">proc</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">slow_proc</span><span class="p">(</span><span class="n">env</span><span class="p">))</span>
+<a id="__codelineno-59-7" name="__codelineno-59-7" href="#__codelineno-59-7"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-59-8" name="__codelineno-59-8" href="#__codelineno-59-8"></a>    <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="n">proc</span><span class="p">)</span>
+<a id="__codelineno-59-9" name="__codelineno-59-9" href="#__codelineno-59-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Everything alright&#39;</span><span class="p">)</span>
+<a id="__codelineno-59-10" name="__codelineno-59-10" href="#__codelineno-59-10"></a><span class="k">except</span> <span class="ne">RuntimeError</span><span class="p">:</span>
+<a id="__codelineno-59-11" name="__codelineno-59-11" href="#__codelineno-59-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Simulation is too slow&#39;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>Simulation is too slow
+</code></pre></div>
+<p>Чтобы отключить strict-режим (симуляция продолжится, даже если отстаёт):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">rt</span><span class="o">.</span><span class="n">RealtimeEnvironment</span><span class="p">(</span><span class="n">factor</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<hr />
+<p><strong>Подведём итог.</strong> SimPy — это мощный и элегантный инструмент для дискретно-событийного моделирования на Python. Его ключевые возможности:</p>
+<ul>
+<li><strong>Процессы</strong> на основе генераторов Python (<code>yield</code>) — интуитивное описание поведения во времени;</li>
+<li><strong>Ресурсы</strong> (<code>Resource</code>, <code>PriorityResource</code>, <code>PreemptiveResource</code>) — моделирование ограниченных ёмкостей с очередями;</li>
+<li><strong>Контейнеры</strong> (<code>Container</code>) и <strong>хранилища</strong> (<code>Store</code>) — для однородных и дискретных ресурсов;</li>
+<li><strong>Прерывания</strong> (<code>Interrupt</code>) — динамическое взаимодействие между процессами;</li>
+<li><strong>Составные условия</strong> (<code>&amp;</code>, <code>|</code>) — гибкая логика ожидания;</li>
+<li><strong>Реальное время</strong> (<code>RealtimeEnvironment</code>) — привязка к настоящим часам.</li>
+</ul>
+<p>Всё это доступно в нескольких строках Python-кода — без GUI, но с полным контролем и возможностью интеграции с любыми библиотеками Python-экосистемы.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

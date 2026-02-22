@@ -1,0 +1,1776 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Конспект курса «Имитационное моделирование» (ФКН ВШЭ)">
+      
+      
+      
+      
+        <link rel="prev" href="../07-single-queue/">
+      
+      
+        <link rel="next" href="../09-simpy/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>8. Сети массового обслуживания - Имитационное моделирование — Конспект</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href=".." title="Имитационное моделирование — Конспект" class="md-header__button md-logo" aria-label="Имитационное моделирование — Конспект" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Имитационное моделирование — Конспект
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              8. Сети массового обслуживания
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Светлая тема"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Светлая тема" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Тёмная тема"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Тёмная тема" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Главная
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-introduction/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  1. Введение в ИМ
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../02-system-dynamics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  2. Системная динамика
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../03-agent-based/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  3. Агентное моделирование
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../04-discrete-event/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  4. Дискретно-событийное моделирование
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../05-queueing-basics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  5. Основы ТМО
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../06-queueing-intro/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  6. Теория очередей — введение
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../07-single-queue/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  7. Анализ одиночной очереди
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  8. Сети массового обслуживания
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../09-simpy/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  9. SimPy — основы
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../10-simpy-practice/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  10. SimPy — практика
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../11-simulation-analysis/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  11. Моделирование и анализ
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../cheatsheet/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Шпаргалка
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Имитационное моделирование — Конспект" class="md-nav__button md-logo" aria-label="Имитационное моделирование — Конспект" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Имитационное моделирование — Конспект
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Введение в ИМ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-system-dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Системная динамика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-agent-based/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Агентное моделирование
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-discrete-event/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Дискретно-событийное моделирование
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-queueing-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Основы ТМО
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-queueing-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Теория очередей — введение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-single-queue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Анализ одиночной очереди
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Сети массового обслуживания
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Сети массового обслуживания
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это нужно
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Открытые сети
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Замкнутые сети
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Смешанные сети
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Последовательные сети
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сети продуктовой формы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Сети продуктовой формы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основная идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ключевые теоремы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ключевые теоремы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1963" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Теорема Джексона (1963) — открытые сети
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-1967" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Теорема Гордона-Ньюэлла (1967) — замкнутые сети
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bcmp-1975" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Теорема BCMP (1975)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Модель ремонтника
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Модель центрального сервера
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Типы сервисных центров
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Типы сервисных центров">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fixed-capacity-centers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Центры с фиксированной ёмкостью (Fixed-Capacity Centers)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-delay-centers-infinite-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Центры задержки (Delay Centers / Infinite Server)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-load-dependent-centers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Центры с зависимостью от нагрузки (Load-Dependent Centers)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-simpy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. SimPy — основы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-simpy-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. SimPy — практика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-simulation-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Моделирование и анализ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Шпаргалка
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это нужно
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Открытые сети
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Замкнутые сети
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Смешанные сети
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Последовательные сети
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сети продуктовой формы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Сети продуктовой формы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основная идея
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ключевые теоремы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ключевые теоремы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1963" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Теорема Джексона (1963) — открытые сети
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-1967" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Теорема Гордона-Ньюэлла (1967) — замкнутые сети
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bcmp-1975" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Теорема BCMP (1975)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Модель ремонтника
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Модель центрального сервера
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Типы сервисных центров
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Типы сервисных центров">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fixed-capacity-centers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Центры с фиксированной ёмкостью (Fixed-Capacity Centers)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-delay-centers-infinite-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Центры задержки (Delay Centers / Infinite Server)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-load-dependent-centers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Центры с зависимостью от нагрузки (Load-Dependent Centers)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">Сети массового обслуживания<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Привет! Мы уже разобрались с отдельными системами массового обслуживания (СМО) — одна очередь, один или несколько серверов. Но реальные системы редко устроены так просто. В этой лекции мы поговорим о <strong>сетях массового обслуживания</strong> — когда несколько СМО соединены друг с другом, и заявки путешествуют между ними.</p>
+<hr />
+<h2 id="_2">Зачем это нужно<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Представь себе любую реальную систему:</p>
+<ul>
+<li><strong>Компьютерная сеть:</strong> запрос пользователя сначала попадает на веб-сервер, потом на сервер приложений, потом в базу данных, потом обратно — и на каждом этапе есть очередь и обслуживание.</li>
+<li><strong>Производственная линия:</strong> деталь проходит через несколько станков — фрезерный, токарный, шлифовальный. У каждого станка своя очередь.</li>
+<li><strong>Больница:</strong> пациент приходит в регистратуру, потом к терапевту, потом на анализы, потом к специалисту — и на каждом этапе ждёт.</li>
+<li><strong>Call-центр:</strong> звонок сначала обрабатывается автоответчиком (IVR), потом переводится на оператора первой линии, а при необходимости — на специалиста.</li>
+</ul>
+<p>Моделировать каждый узел по отдельности бессмысленно — нам важно понимать <strong>взаимодействие</strong> между ними. Именно для этого и нужны сети массового обслуживания.</p>
+<div class="admonition note">
+<p class="admonition-title">Ключевая идея</p>
+<p>Сеть массового обслуживания — это набор <strong>сервисных центров</strong> (узлов), соединённых <strong>маршрутами</strong> перемещения заявок. Каждый узел — это отдельная СМО со своей очередью, своей дисциплиной обслуживания и своей интенсивностью.</p>
+</div>
+<hr />
+<h2 id="_3">Открытые сети<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><strong>Открытая сеть</strong> (Open Network) — это сеть, в которую заявки <strong>приходят извне</strong> и <strong>уходят наружу</strong>.</p>
+<pre class="mermaid"><code>flowchart LR
+    EXT["Внешний мир"] --&gt;|"λ"| A["Узел 1"]
+    A --&gt;|"p₁₂"| B["Узел 2"]
+    B --&gt;|"p₂₃"| C["Узел 3"]
+    A --&gt;|"p₁₃"| C
+    C --&gt;|"выход"| OUT["Внешний мир"]
+    B --&gt;|"выход"| OUT
+
+    style EXT fill:#e3f2fd,stroke:#1565C0
+    style OUT fill:#fce4ec,stroke:#C62828
+    style A fill:#fff3e0,stroke:#FF9800
+    style B fill:#fff3e0,stroke:#FF9800
+    style C fill:#fff3e0,stroke:#FF9800</code></pre>
+<p>Основные свойства открытых сетей:</p>
+<table>
+<thead>
+<tr>
+<th>Свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Внешние поступления</strong></td>
+<td>Заявки приходят в сеть извне с интенсивностью <span class="arithmatex">\(\lambda\)</span></td>
+</tr>
+<tr>
+<td><strong>Внешние уходы</strong></td>
+<td>Заявки покидают сеть после обслуживания</td>
+</tr>
+<tr>
+<td><strong>Переменное число заявок</strong></td>
+<td>Количество заявок в сети колеблется со временем</td>
+</tr>
+<tr>
+<td><strong>Пропускная способность</strong></td>
+<td>В стационарном режиме пропускная способность = интенсивности входа <span class="arithmatex">\(\lambda\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Пропускная способность</p>
+<p>В стационарном режиме (когда система «устаканилась») сколько заявок входит в сеть в единицу времени — столько же и выходит. Это следует из закона сохранения: если бы выход был меньше входа, заявки бы накапливались бесконечно.</p>
+</div>
+<p>Для каждого узла <span class="arithmatex">\(i\)</span> можно записать <strong>уравнение баланса потоков</strong>:</p>
+<div class="arithmatex">\[
+\Lambda_i = \lambda_i + \sum_{j=1}^{K} \Lambda_j \cdot p_{ji}
+\]</div>
+<p>где:</p>
+<ul>
+<li><span class="arithmatex">\(\Lambda_i\)</span> — суммарная интенсивность поступления в узел <span class="arithmatex">\(i\)</span>;</li>
+<li><span class="arithmatex">\(\lambda_i\)</span> — интенсивность внешнего потока в узел <span class="arithmatex">\(i\)</span>;</li>
+<li><span class="arithmatex">\(p_{ji}\)</span> — вероятность перехода из узла <span class="arithmatex">\(j\)</span> в узел <span class="arithmatex">\(i\)</span>.</li>
+</ul>
+<hr />
+<h2 id="_4">Замкнутые сети<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><strong>Замкнутая сеть</strong> (Closed Network) — это сеть, в которой <strong>нет внешних поступлений и уходов</strong>. Фиксированное число заявок <span class="arithmatex">\(N\)</span> бесконечно циркулирует между узлами.</p>
+<pre class="mermaid"><code>flowchart LR
+    A["Узел 1\n(CPU)"] --&gt;|"p₁₂"| B["Узел 2\n(Диск 1)"]
+    A --&gt;|"p₁₃"| C["Узел 3\n(Диск 2)"]
+    B --&gt;|"p₂₁"| A
+    C --&gt;|"p₃₁"| A
+
+    style A fill:#e8f5e9,stroke:#4CAF50
+    style B fill:#fff3e0,stroke:#FF9800
+    style C fill:#fff3e0,stroke:#FF9800</code></pre>
+<p>Основные свойства замкнутых сетей:</p>
+<table>
+<thead>
+<tr>
+<th>Свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Нет внешних потоков</strong></td>
+<td>Заявки не приходят и не уходят</td>
+</tr>
+<tr>
+<td><strong>Постоянное число заявок</strong></td>
+<td><span class="arithmatex">\(N = \text{const}\)</span> — всегда ровно <span class="arithmatex">\(N\)</span> заявок в сети</td>
+</tr>
+<tr>
+<td><strong>Пропускная способность</strong></td>
+<td>Определяется как поток через любое «разрезающее» ребро сети</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Как определить пропускную способность?</p>
+<p>В замкнутой сети нет «входа» и «выхода» в привычном смысле. Пропускная способность определяется как интенсивность потока через любую выбранную связь. Обычно выбирают связь, которая замыкает цикл (OUT <span class="arithmatex">\(\to\)</span> IN), и измеряют поток через неё.</p>
+</div>
+<p>Замкнутые сети идеально подходят для моделирования систем с <strong>фиксированным числом пользователей</strong> — например, терминальных систем с <span class="arithmatex">\(N\)</span> пользователями или производственных линий с <span class="arithmatex">\(N\)</span> деталями на конвейере.</p>
+<hr />
+<h2 id="_5">Смешанные сети<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p><strong>Смешанная сеть</strong> (Mixed Network) — это сеть, которая одновременно является открытой для одних классов заявок и замкнутой для других.</p>
+<pre class="mermaid"><code>flowchart LR
+    EXT["Внешний мир"] --&gt;|"Класс A (открытый)"| S["Сервер"]
+    S --&gt;|"Класс A"| OUT["Внешний мир"]
+    T1["Терминал 1"] --&gt;|"Класс B (замкнутый)"| S
+    S --&gt;|"Класс B"| T1
+    T2["Терминал 2"] --&gt;|"Класс B"| S
+    S --&gt;|"Класс B"| T2
+
+    style EXT fill:#e3f2fd,stroke:#1565C0
+    style OUT fill:#fce4ec,stroke:#C62828
+    style S fill:#fff3e0,stroke:#FF9800
+    style T1 fill:#e8f5e9,stroke:#4CAF50
+    style T2 fill:#e8f5e9,stroke:#4CAF50</code></pre>
+<p>Пример: компьютерная система, где:</p>
+<ul>
+<li><strong>Пакетные задания</strong> (batch jobs) приходят извне и уходят после обработки — <strong>открытая</strong> часть;</li>
+<li><strong>Интерактивные пользователи</strong> сидят за терминалами и постоянно отправляют запросы — <strong>замкнутая</strong> часть (число пользователей фиксировано).</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Зачем смешанные сети?</p>
+<p>Смешанные сети позволяют моделировать реальные системы, где разные типы нагрузки ведут себя принципиально по-разному. Это гораздо реалистичнее, чем пытаться «впихнуть» всё в одну открытую или одну замкнутую модель.</p>
+</div>
+<hr />
+<h2 id="_6">Последовательные сети<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p><strong>Последовательная сеть</strong> (Series Network, Tandem Network) — это простейший случай: <span class="arithmatex">\(k\)</span> узлов типа M/M/1, соединённых последовательно. Выход одного узла — вход следующего.</p>
+<pre class="mermaid"><code>flowchart LR
+    IN["λ"] --&gt; Q1["M/M/1\nμ₁"]
+    Q1 --&gt; Q2["M/M/1\nμ₂"]
+    Q2 --&gt; Q3["M/M/1\nμ₃"]
+    Q3 --&gt; OUT["выход"]
+
+    style IN fill:#e3f2fd,stroke:#1565C0
+    style OUT fill:#fce4ec,stroke:#C62828
+    style Q1 fill:#fff3e0,stroke:#FF9800
+    style Q2 fill:#fff3e0,stroke:#FF9800
+    style Q3 fill:#fff3e0,stroke:#FF9800</code></pre>
+<p>Ключевое свойство последовательных сетей: благодаря <strong>теореме Бёрка</strong> (Burke's theorem), выходной поток M/M/1-очереди в стационарном режиме является пуассоновским с той же интенсивностью <span class="arithmatex">\(\lambda\)</span>. Это означает, что:</p>
+<ol>
+<li>Каждый узел можно <strong>анализировать независимо</strong> от остальных.</li>
+<li>Входной поток в каждый узел — пуассоновский с интенсивностью <span class="arithmatex">\(\lambda\)</span>.</li>
+<li>Совместное распределение числа заявок в сети имеет <strong>продуктовую форму</strong>.</li>
+</ol>
+<div class="arithmatex">\[
+P(n_1, n_2, \ldots, n_k) = \prod_{i=1}^{k} P_i(n_i) = \prod_{i=1}^{k} (1 - \rho_i)\,\rho_i^{n_i}
+\]</div>
+<p>где <span class="arithmatex">\(\rho_i = \lambda / \mu_i\)</span> — загрузка <span class="arithmatex">\(i\)</span>-го узла.</p>
+<div class="admonition warning">
+<p class="admonition-title">Условие стабильности</p>
+<p>Для стабильности сети необходимо, чтобы <strong>каждый</strong> узел был стабилен: <span class="arithmatex">\(\rho_i &lt; 1\)</span> для всех <span class="arithmatex">\(i = 1, \ldots, k\)</span>. Если хотя бы один узел перегружен — вся сеть нестабильна.</p>
+</div>
+<hr />
+<h2 id="_7">Сети продуктовой формы<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>Последовательные сети — лишь частный случай гораздо более общего результата. <strong>Сети продуктовой формы</strong> (Product-Form Networks) — это класс сетей, для которых совместное стационарное распределение состояний разлагается в произведение.</p>
+<h3 id="_8">Основная идея<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>Совместная вероятность того, что в узле 1 находится <span class="arithmatex">\(n_1\)</span> заявок, в узле 2 — <span class="arithmatex">\(n_2\)</span> и т.д., равна:</p>
+<div class="arithmatex">\[
+P(n_1, n_2, \ldots, n_K) = \frac{1}{G} \prod_{i=1}^{K} f_i(n_i)
+\]</div>
+<p>где:</p>
+<ul>
+<li><span class="arithmatex">\(f_i(n_i)\)</span> — функция, зависящая только от состояния узла <span class="arithmatex">\(i\)</span>;</li>
+<li><span class="arithmatex">\(G\)</span> — <strong>нормализующая константа</strong>, обеспечивающая <span class="arithmatex">\(\sum P = 1\)</span>.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Почему это так важно?</p>
+<p>Продуктовая форма означает, что <strong>узлы ведут себя «почти» независимо</strong>. Это колоссальное упрощение! Вместо того чтобы анализировать экспоненциально большое пространство состояний всей сети, мы анализируем каждый узел по отдельности.</p>
+</div>
+<h3 id="_9">Ключевые теоремы<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h4 id="1963">Теорема Джексона (1963) — открытые сети<a class="headerlink" href="#1963" title="Permanent link">&para;</a></h4>
+<p><strong>Джексон</strong> (Jackson, 1963) доказал, что открытая сеть из <span class="arithmatex">\(K\)</span> узлов типа M/M/m имеет продуктовую форму при условии:</p>
+<ul>
+<li>Внешние поступления — пуассоновские;</li>
+<li>Времена обслуживания — экспоненциальные;</li>
+<li>Маршрутизация — вероятностная (Марковская).</li>
+</ul>
+<p>Тогда:</p>
+<div class="arithmatex">\[
+P(n_1, \ldots, n_K) = \prod_{i=1}^{K} P_i(n_i)
+\]</div>
+<p>где <span class="arithmatex">\(P_i(n_i)\)</span> — стационарное распределение для узла <span class="arithmatex">\(i\)</span>, рассматриваемого изолированно с входным потоком интенсивности <span class="arithmatex">\(\Lambda_i\)</span>.</p>
+<h4 id="-1967">Теорема Гордона-Ньюэлла (1967) — замкнутые сети<a class="headerlink" href="#-1967" title="Permanent link">&para;</a></h4>
+<p><strong>Гордон и Ньюэлл</strong> (Gordon, Newell, 1967) получили аналогичный результат для <strong>замкнутых</strong> сетей:</p>
+<div class="arithmatex">\[
+P(n_1, \ldots, n_K) = \frac{1}{G(N)} \prod_{i=1}^{K} f_i(n_i)
+\]</div>
+<p>где <span class="arithmatex">\(G(N)\)</span> — нормализующая константа, зависящая от общего числа заявок <span class="arithmatex">\(N\)</span> в сети. Вычисление <span class="arithmatex">\(G(N)\)</span> — отдельная вычислительная задача (об этом ниже — алгоритм Бузена).</p>
+<h4 id="bcmp-1975">Теорема BCMP (1975)<a class="headerlink" href="#bcmp-1975" title="Permanent link">&para;</a></h4>
+<p>Теорема <strong>Баскетта, Чанди, Мунца и Палачио</strong> (Baskett, Chandy, Muntz, Palacios, 1975) — самое общее условие продуктовой формы. Она допускает:</p>
+<ul>
+<li><strong>Несколько классов заявок</strong> (каждый со своим маршрутом);</li>
+<li><strong>Разные дисциплины обслуживания</strong> (FCFS, PS, LCFS-PR, IS);</li>
+<li><strong>Общие распределения</strong> времени обслуживания (не только экспоненциальные — при некоторых дисциплинах);</li>
+<li><strong>Открытые, замкнутые и смешанные</strong> сети.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Четыре типа узлов BCMP</p>
+<ol>
+<li><strong>FCFS</strong> (First Come, First Served) — обслуживание в порядке очереди. Требуется экспоненциальное распределение времени обслуживания.</li>
+<li><strong>PS</strong> (Processor Sharing) — все заявки обслуживаются одновременно, деля ресурс поровну. Допускается произвольное распределение.</li>
+<li><strong>LCFS-PR</strong> (Last Come, First Served with Preemptive Resume) — последний пришёл — первый обслужен, с возобновлением. Допускается произвольное распределение.</li>
+<li><strong>IS</strong> (Infinite Server) — бесконечное число серверов, нет очереди. Допускается произвольное распределение.</li>
+</ol>
+</div>
+<hr />
+<h2 id="_10">Модель ремонтника<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p><strong>Модель ремонтника</strong> (Machine Repairman Model) — классическая замкнутая сеть с двумя узлами.</p>
+<pre class="mermaid"><code>flowchart LR
+    W["Работающие машины\n(delay center, N серверов)"] --&gt;|"поломка\n(rate λ)"| R["Ремонтная мастерская\n(m ремонтников)"]
+    R --&gt;|"починка\n(rate μ)"| W
+
+    style W fill:#e8f5e9,stroke:#4CAF50
+    style R fill:#fce4ec,stroke:#C62828</code></pre>
+<p>Устройство модели:</p>
+<ul>
+<li><strong><span class="arithmatex">\(N\)</span> машин</strong> работают независимо. Каждая машина ломается через экспоненциально распределённое время с интенсивностью <span class="arithmatex">\(\lambda\)</span>.</li>
+<li>Сломанная машина поступает в <strong>ремонтную мастерскую</strong> с <span class="arithmatex">\(m\)</span> ремонтниками (<span class="arithmatex">\(m \leq N\)</span>).</li>
+<li>Время ремонта — экспоненциальное с интенсивностью <span class="arithmatex">\(\mu\)</span>.</li>
+<li>После ремонта машина возвращается в работу.</li>
+<li>Общее число заявок (машин) фиксировано: <span class="arithmatex">\(N = \text{const}\)</span>.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Применение Шерра (1967)</p>
+<p><strong>Шерр</strong> (Scherr, 1967) использовал модель ремонтника для анализа <strong>систем разделения времени</strong> (timesharing). В его интерпретации:</p>
+<ul>
+<li><strong>Машины</strong> = пользователи за терминалами (думают, набирают команды);</li>
+<li><strong>Ремонтная мастерская</strong> = центральный процессор (обрабатывает запросы);</li>
+<li><strong>Время работы</strong> = время «думания» пользователя (think time);</li>
+<li><strong>Время ремонта</strong> = время обработки запроса на CPU.</li>
+</ul>
+<p>Это была одна из первых успешных аналитических моделей производительности компьютерных систем!</p>
+</div>
+<p>Ключевые метрики модели:</p>
+<div class="arithmatex">\[
+\text{Среднее число работающих машин} = N - \bar{L}_R
+\]</div>
+<div class="arithmatex">\[
+\text{Пропускная способность} = \lambda \cdot (N - \bar{L}_R)
+\]</div>
+<p>где <span class="arithmatex">\(\bar{L}_R\)</span> — среднее число машин в ремонтной мастерской (в очереди + на ремонте).</p>
+<hr />
+<h2 id="_11">Модель центрального сервера<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p><strong>Модель центрального сервера</strong> (Central Server Model) — ещё одна замкнутая сеть, предложенная <strong>Бузеном</strong> (Buzen, 1973).</p>
+<pre class="mermaid"><code>flowchart TD
+    CPU["CPU\n(центральный сервер)"]
+    D1["Диск 1"]
+    D2["Диск 2"]
+    D3["Диск 3"]
+
+    CPU --&gt;|"p₁"| D1
+    CPU --&gt;|"p₂"| D2
+    CPU --&gt;|"p₃"| D3
+    D1 --&gt;|"1"| CPU
+    D2 --&gt;|"1"| CPU
+    D3 --&gt;|"1"| CPU
+
+    style CPU fill:#e3f2fd,stroke:#1565C0
+    style D1 fill:#fff3e0,stroke:#FF9800
+    style D2 fill:#fff3e0,stroke:#FF9800
+    style D3 fill:#fff3e0,stroke:#FF9800</code></pre>
+<p>Устройство модели:</p>
+<ul>
+<li><strong>CPU</strong> — центральный сервер, через который проходят все задания.</li>
+<li><strong>Диски</strong> (I/O-устройства) — периферийные узлы.</li>
+<li>После обработки на CPU задание с вероятностью <span class="arithmatex">\(p_i\)</span> направляется на диск <span class="arithmatex">\(i\)</span>, а с вероятностью <span class="arithmatex">\(p_0\)</span> покидает цикл (для замкнутой сети — возвращается «на вход» к CPU через терминал).</li>
+<li>После обращения к диску задание всегда возвращается на CPU.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Алгоритм Бузена</p>
+<p>Бузен предложил эффективный <strong>рекуррентный алгоритм</strong> для вычисления нормализующей константы <span class="arithmatex">\(G(N)\)</span> в замкнутых сетях продуктовой формы. Без этого алгоритма прямой подсчёт <span class="arithmatex">\(G(N)\)</span> потребовал бы перебора всех возможных состояний — а их число растёт комбинаторно.</p>
+<p>Алгоритм работает с таблицей <span class="arithmatex">\(g(n, k)\)</span>, где <span class="arithmatex">\(n\)</span> — число заявок, <span class="arithmatex">\(k\)</span> — число узлов:</p>
+<div class="arithmatex">\[
+g(n, k) = \sum_{j=0}^{n} f_k(j) \cdot g(n-j, k-1)
+\]</div>
+<p>Для M/M/1-узлов <span class="arithmatex">\(f_i(j) = \rho_i^j\)</span>, и формула упрощается:</p>
+<div class="arithmatex">\[
+g(n, k) = g(n, k-1) + \rho_k \cdot g(n-1, k)
+\]</div>
+</div>
+<p>Модель центрального сервера стала <strong>основой анализа производительности</strong> компьютерных систем в 1970-х годах и используется до сих пор (в обобщённом виде) для capacity planning.</p>
+<hr />
+<h2 id="_12">Типы сервисных центров<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>В сетях массового обслуживания узлы (сервисные центры) могут иметь разный характер. Выделяют три основных типа:</p>
+<h3 id="1-fixed-capacity-centers">1. Центры с фиксированной ёмкостью (Fixed-Capacity Centers)<a class="headerlink" href="#1-fixed-capacity-centers" title="Permanent link">&para;</a></h3>
+<p>Это классическая СМО с конечным числом серверов: <span class="arithmatex">\(m\)</span> серверов, очередь, дисциплина обслуживания.</p>
+<div class="arithmatex">\[
+\mu_i(n) = \begin{cases}
+n \cdot \mu_i, &amp; \text{если } n \leq m_i \\
+m_i \cdot \mu_i, &amp; \text{если } n &gt; m_i
+\end{cases}
+\]</div>
+<p><strong>Примеры:</strong> процессор (1 сервер), банк кассиров (<span class="arithmatex">\(m\)</span> окошек), пул потоков (<span class="arithmatex">\(m\)</span> потоков).</p>
+<h3 id="2-delay-centers-infinite-server">2. Центры задержки (Delay Centers / Infinite Server)<a class="headerlink" href="#2-delay-centers-infinite-server" title="Permanent link">&para;</a></h3>
+<p>У таких центров <strong>бесконечное число серверов</strong>: каждая заявка обслуживается немедленно, без ожидания в очереди.</p>
+<div class="arithmatex">\[
+\mu_i(n) = n \cdot \mu_i \quad \text{для любого } n
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">Где встречаются delay-центры?</p>
+<ul>
+<li><strong>Терминалы пользователей</strong> — каждый пользователь «думает» независимо, не ожидая других.</li>
+<li><strong>Сетевые каналы</strong> — если пропускная способность достаточна, каждый пакет передаётся без ожидания.</li>
+<li><strong>Параллельные вычисления</strong> — неограниченный пул ресурсов.</li>
+</ul>
+</div>
+<h3 id="3-load-dependent-centers">3. Центры с зависимостью от нагрузки (Load-Dependent Centers)<a class="headerlink" href="#3-load-dependent-centers" title="Permanent link">&para;</a></h3>
+<p>Наиболее общий случай: интенсивность обслуживания <span class="arithmatex">\(\mu_i(n)\)</span> зависит от текущего числа заявок <span class="arithmatex">\(n\)</span> в узле.</p>
+<div class="arithmatex">\[
+f_i(n_i) = \prod_{j=1}^{n_i} \frac{1}{\mu_i(j)}
+\]</div>
+<p>Это позволяет моделировать, например:</p>
+<ul>
+<li><strong>Многосерверные узлы</strong> (интенсивность растёт до <span class="arithmatex">\(m \cdot \mu\)</span>, потом постоянна);</li>
+<li><strong>Замедление при высокой нагрузке</strong> (thrashing, congestion);</li>
+<li><strong>Масштабируемые системы</strong> (авто-масштабирование облачных ресурсов).</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Тип центра</th>
+<th>Число серверов</th>
+<th>Очередь</th>
+<th><span class="arithmatex">\(\mu(n)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Фиксированная ёмкость</strong></td>
+<td><span class="arithmatex">\(m\)</span> (конечное)</td>
+<td>Да</td>
+<td><span class="arithmatex">\(\min(n, m) \cdot \mu\)</span></td>
+</tr>
+<tr>
+<td><strong>Центр задержки</strong></td>
+<td><span class="arithmatex">\(\infty\)</span></td>
+<td>Нет</td>
+<td><span class="arithmatex">\(n \cdot \mu\)</span></td>
+</tr>
+<tr>
+<td><strong>Зависимый от нагрузки</strong></td>
+<td>Переменное</td>
+<td>Зависит</td>
+<td>Произвольная <span class="arithmatex">\(\mu(n)\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Подведём итог.</strong> Сети массового обслуживания позволяют моделировать реальные многостадийные системы — от компьютерных сетей до производственных линий. Ключевой результат — <strong>продуктовая форма</strong> стационарного распределения: при определённых условиях (теоремы Джексона, Гордона-Ньюэлла, BCMP) совместное распределение разлагается в произведение, и каждый узел можно анализировать почти независимо. Модели ремонтника и центрального сервера — классические примеры замкнутых сетей, которые заложили основу аналитического моделирования производительности компьютерных систем.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

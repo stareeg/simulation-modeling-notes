@@ -1,0 +1,2211 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Конспект курса «Имитационное моделирование» (ФКН ВШЭ)">
+      
+      
+      
+      
+        <link rel="prev" href="../10-simpy-practice/">
+      
+      
+        <link rel="next" href="../cheatsheet/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>11. Моделирование и анализ - Имитационное моделирование — Конспект</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href=".." title="Имитационное моделирование — Конспект" class="md-header__button md-logo" aria-label="Имитационное моделирование — Конспект" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Имитационное моделирование — Конспект
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              11. Моделирование и анализ
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Светлая тема"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Светлая тема" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Тёмная тема"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Тёмная тема" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Главная
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-introduction/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  1. Введение в ИМ
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../02-system-dynamics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  2. Системная динамика
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../03-agent-based/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  3. Агентное моделирование
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../04-discrete-event/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  4. Дискретно-событийное моделирование
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../05-queueing-basics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  5. Основы ТМО
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../06-queueing-intro/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  6. Теория очередей — введение
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../07-single-queue/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  7. Анализ одиночной очереди
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../08-queueing-networks/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  8. Сети массового обслуживания
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../09-simpy/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  9. SimPy — основы
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../10-simpy-practice/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  10. SimPy — практика
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  11. Моделирование и анализ
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../cheatsheet/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Шпаргалка
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Имитационное моделирование — Конспект" class="md-nav__button md-logo" aria-label="Имитационное моделирование — Конспект" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Имитационное моделирование — Конспект
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Введение в ИМ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-system-dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Системная динамика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-agent-based/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Агентное моделирование
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-discrete-event/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Дискретно-событийное моделирование
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-queueing-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Основы ТМО
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-queueing-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Теория очередей — введение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-single-queue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Анализ одиночной очереди
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-queueing-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Сети массового обслуживания
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-simpy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. SimPy — основы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-simpy-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. SimPy — практика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Моделирование и анализ
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Моделирование и анализ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это нужно
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Системы, модели, симуляция
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Системы, модели, симуляция">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что такое система
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Состояние системы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Дискретные vs. непрерывные системы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Классификация моделей
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Аналитическое решение vs. симуляция
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Дискретно-событийная симуляция (детально)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Дискретно-событийная симуляция (детально)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#next-event-time-advance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Продвижение времени по событиям (Next-Event Time Advance)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Компоненты ДС-модели
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Блок-схема логики симуляции
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пример: одноканальная СМО
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Пример: одноканальная СМО">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачи
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Три выходные метрики
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Три выходные метрики">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Средняя задержка в очереди
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Среднее по времени число заявок в очереди
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Загрузка сервера
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Дискретные vs. непрерывные статистики
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Этапы симуляционного исследования
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Этапы симуляционного исследования">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подробнее о каждом этапе
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Преимущества и недостатки симуляции
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Преимущества и недостатки симуляции">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Преимущества
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Недостатки
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Генерация случайных чисел
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Генерация случайных чисел">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lcg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Линейный конгруэнтный генератор (LCG)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inverse-transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Метод обратного преобразования (Inverse Transform)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acceptance-rejection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Метод отбора (Acceptance-Rejection)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Анализ выходных данных
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Анализ выходных данных">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Переходный период vs. установившийся режим
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Доверительные интервалы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variance-reduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Методы снижения дисперсии (Variance Reduction)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Шпаргалка
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем это нужно
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Системы, модели, симуляция
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Системы, модели, симуляция">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что такое система
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Состояние системы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Дискретные vs. непрерывные системы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Классификация моделей
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Аналитическое решение vs. симуляция
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Дискретно-событийная симуляция (детально)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Дискретно-событийная симуляция (детально)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#next-event-time-advance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Продвижение времени по событиям (Next-Event Time Advance)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Компоненты ДС-модели
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Блок-схема логики симуляции
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пример: одноканальная СМО
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Пример: одноканальная СМО">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачи
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Три выходные метрики
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Три выходные метрики">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Средняя задержка в очереди
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Среднее по времени число заявок в очереди
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Загрузка сервера
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Дискретные vs. непрерывные статистики
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Этапы симуляционного исследования
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Этапы симуляционного исследования">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подробнее о каждом этапе
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Преимущества и недостатки симуляции
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Преимущества и недостатки симуляции">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Преимущества
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Недостатки
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Генерация случайных чисел
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Генерация случайных чисел">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lcg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Линейный конгруэнтный генератор (LCG)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inverse-transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Метод обратного преобразования (Inverse Transform)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acceptance-rejection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Метод отбора (Acceptance-Rejection)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Анализ выходных данных
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Анализ выходных данных">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Переходный период vs. установившийся режим
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Доверительные интервалы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variance-reduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Методы снижения дисперсии (Variance Reduction)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">Моделирование и анализ симуляций<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Привет! Сегодня мы поговорим о <strong>методологии</strong> имитационного моделирования --- не о конкретных инструментах, а о том, как правильно строить, верифицировать, валидировать и анализировать модели. Основной источник --- классический учебник Аверилла Лоу «Simulation Modeling and Analysis», который считается стандартным справочником в этой области уже более 30 лет.</p>
+<hr />
+<h2 id="_2">Зачем это нужно<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Имитационное моделирование --- это не просто программирование. Можно написать красивый код на SimPy или AnyLogic, запустить симуляцию, получить числа... и эти числа будут бессмысленными, если не соблюдена методология.</p>
+<p>Типичные ошибки:</p>
+<ul>
+<li>Модель не валидирована --- она не отражает реальную систему</li>
+<li>Выходные данные проанализированы как обычные числа, а не как <strong>случайные величины</strong></li>
+<li>Не учтён переходный период --- статистика «загрязнена» начальными условиями</li>
+<li>Недостаточно прогонов --- доверительные интервалы слишком широкие</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Главный посыл</p>
+<p>Симуляция --- это <strong>стохастический эксперимент</strong>. Один прогон --- это одна реализация случайного процесса. Делать выводы по одному прогону --- всё равно что бросить монетку один раз и заявить, что она всегда падает орлом.</p>
+</div>
+<hr />
+<h2 id="_3">Системы, модели, симуляция<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">Что такое система<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><strong>Система</strong> --- это совокупность сущностей (entities), которые взаимодействуют друг с другом для достижения некоторой логической цели. Примеры:</p>
+<ul>
+<li>Банковское отделение (клиенты, кассиры, очереди)</li>
+<li>Производственная линия (станки, детали, операторы)</li>
+<li>Компьютерная сеть (пакеты, маршрутизаторы, каналы)</li>
+</ul>
+<h3 id="_5">Состояние системы<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p><strong>Состояние системы</strong> --- это набор переменных, которые описывают систему в любой данный момент времени. Например, для банковского отделения:</p>
+<ul>
+<li>Число клиентов в очереди</li>
+<li>Статус каждого кассира (свободен / занят)</li>
+<li>Время прихода каждого клиента в очереди</li>
+</ul>
+<h3 id="vs">Дискретные vs. непрерывные системы<a class="headerlink" href="#vs" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Тип системы</th>
+<th>Состояние меняется...</th>
+<th>Пример</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Дискретная</strong></td>
+<td>Мгновенно, в отдельные моменты времени</td>
+<td>Банк: клиент пришёл, кассир освободился</td>
+</tr>
+<tr>
+<td><strong>Непрерывная</strong></td>
+<td>Плавно, в каждый момент времени</td>
+<td>Химический реактор: температура, давление</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">На практике</p>
+<p>Многие реальные системы содержат и дискретные, и непрерывные элементы. Но для моделирования обычно выбирают доминирующий тип и моделируют его, упрощая второй.</p>
+</div>
+<h3 id="_6">Классификация моделей<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>Модели можно классифицировать по трём измерениям:</p>
+<pre class="mermaid"><code>flowchart LR
+    subgraph "Измерение 1"
+        A1["Статическая"] ~~~ A2["Динамическая"]
+    end
+    subgraph "Измерение 2"
+        B1["Детерминированная"] ~~~ B2["Стохастическая"]
+    end
+    subgraph "Измерение 3"
+        C1["Непрерывная"] ~~~ C2["Дискретная"]
+    end</code></pre>
+<table>
+<thead>
+<tr>
+<th>Измерение</th>
+<th>Варианты</th>
+<th>Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Время</td>
+<td><strong>Статическая</strong> / <strong>Динамическая</strong></td>
+<td>Зависит ли модель от времени?</td>
+</tr>
+<tr>
+<td>Случайность</td>
+<td><strong>Детерминированная</strong> / <strong>Стохастическая</strong></td>
+<td>Есть ли случайные компоненты?</td>
+</tr>
+<tr>
+<td>Изменение состояния</td>
+<td><strong>Непрерывная</strong> / <strong>Дискретная</strong></td>
+<td>Как меняется состояние --- плавно или скачками?</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Дискретно-событийная симуляция (DES)</strong> --- это модель, которая является <strong>динамической</strong>, <strong>стохастической</strong> и <strong>дискретной</strong>.</p>
+<h3 id="vs_1">Аналитическое решение vs. симуляция<a class="headerlink" href="#vs_1" title="Permanent link">&para;</a></h3>
+<p>Для <strong>простых</strong> систем (одноканальная СМО с пуассоновским потоком и экспоненциальным обслуживанием) существуют аналитические формулы. Например, среднее время ожидания в очереди M/M/1:</p>
+<div class="arithmatex">\[W_q = \frac{\rho}{\mu(1 - \rho)}, \quad \text{где } \rho = \frac{\lambda}{\mu}\]</div>
+<p>Но для <strong>сложных</strong> систем (несколько типов заявок, приоритеты, зависимые распределения, ограниченные буферы) аналитических решений нет --- и тогда единственный путь --- <strong>симуляция</strong>.</p>
+<hr />
+<h2 id="-">Дискретно-событийная симуляция (детально)<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
+<h3 id="next-event-time-advance">Продвижение времени по событиям (Next-Event Time Advance)<a class="headerlink" href="#next-event-time-advance" title="Permanent link">&para;</a></h3>
+<p>Это ключевой механизм DES. Идея проста: модельное время <strong>не тикает</strong> равномерно, а <strong>прыгает</strong> от одного события к следующему, пропуская периоды бездействия.</p>
+<p>Алгоритм:</p>
+<ol>
+<li>Инициализация: время = 0, установить начальное состояние, запланировать первые события</li>
+<li>Из списка событий выбрать ближайшее по времени</li>
+<li>Продвинуть модельные часы до этого момента</li>
+<li>Обработать событие (обновить состояние, запланировать новые события, обновить счётчики)</li>
+<li>Проверить условие остановки. Если не выполнено --- перейти к шагу 2</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Эффективность</p>
+<p>Если между двумя событиями проходит 1000 единиц модельного времени --- алгоритм просто переставляет часы на 1000 вперёд за одну операцию. Не нужно обрабатывать каждый «тик» --- это делает DES чрезвычайно быстрым.</p>
+</div>
+<h3 id="-_1">Компоненты ДС-модели<a class="headerlink" href="#-_1" title="Permanent link">&para;</a></h3>
+<p>По классификации Лоу, каждая ДС-модель включает:</p>
+<table>
+<thead>
+<tr>
+<th>Компонент</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Состояние системы</strong> (System state)</td>
+<td>Переменные, описывающие систему в текущий момент</td>
+</tr>
+<tr>
+<td><strong>Модельные часы</strong> (Simulation clock)</td>
+<td>Текущее модельное время</td>
+</tr>
+<tr>
+<td><strong>Список событий</strong> (Event list)</td>
+<td>Запланированные будущие события с временами наступления</td>
+</tr>
+<tr>
+<td><strong>Статистические счётчики</strong> (Statistical counters)</td>
+<td>Накопители статистики (суммы, интегралы и т.д.)</td>
+</tr>
+<tr>
+<td><strong>Подпрограмма инициализации</strong></td>
+<td>Установка начального состояния</td>
+</tr>
+<tr>
+<td><strong>Подпрограмма продвижения времени</strong> (Timing routine)</td>
+<td>Выбор ближайшего события и продвижение часов</td>
+</tr>
+<tr>
+<td><strong>Подпрограммы обработки событий</strong> (Event routines)</td>
+<td>Логика обработки каждого типа событий</td>
+</tr>
+<tr>
+<td><strong>Генератор случайных чисел</strong> (Library routines)</td>
+<td>Генерация случайных величин с нужными распределениями</td>
+</tr>
+<tr>
+<td><strong>Генератор отчётов</strong> (Report generator)</td>
+<td>Вычисление итоговой статистики</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-_2">Блок-схема логики симуляции<a class="headerlink" href="#-_2" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    INIT["Инициализация\n- Время := 0\n- Состояние := начальное\n- Запланировать первые события\n- Обнулить счётчики"]
+    EMPTY{"Список событий\nпуст?"}
+    TIMING["Timing routine:\nИзвлечь ближайшее событие,\nпродвинуть часы"]
+    EVENT["Event routine:\n- Обновить состояние\n- Запланировать новые события\n- Обновить статистические счётчики"]
+    STOP{"Условие\nостановки?"}
+    REPORT["Report generator:\nВычислить и вывести\nитоговую статистику"]
+
+    INIT --&gt; EMPTY
+    EMPTY -- Нет --&gt; TIMING
+    TIMING --&gt; EVENT
+    EVENT --&gt; STOP
+    STOP -- Нет --&gt; EMPTY
+    STOP -- Да --&gt; REPORT
+    EMPTY -- Да --&gt; REPORT
+
+    style INIT fill:#e8f4f8,stroke:#2196F3
+    style REPORT fill:#e8f5e9,stroke:#4CAF50
+    style STOP fill:#fff3e0,stroke:#FF9800</code></pre>
+<hr />
+<h2 id="_7">Пример: одноканальная СМО<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>Рассмотрим классическую задачу --- <strong>система массового обслуживания с одним сервером</strong> (single-server queueing system). Это каноничный пример из книги Лоу.</p>
+<h3 id="_8">Постановка задачи<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Один сервер, одна очередь FIFO</li>
+<li>Заявки приходят с <strong>независимыми одинаково распределёнными</strong> (IID) интервалами между приходами</li>
+<li>Время обслуживания каждой заявки --- IID случайная величина</li>
+<li>Нужно оценить три показателя качества</li>
+</ul>
+<h3 id="_9">Три выходные метрики<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h4 id="1">1. Средняя задержка в очереди<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<div class="arithmatex">\[\hat{d}(n) = \frac{\sum_{i=1}^{n} D_i}{n}\]</div>
+<p>где <span class="arithmatex">\(D_i\)</span> --- задержка <span class="arithmatex">\(i\)</span>-й заявки в очереди (время от прихода до начала обслуживания), <span class="arithmatex">\(n\)</span> --- число обслуженных заявок.</p>
+<div class="admonition note">
+<p class="admonition-title">Дискретная статистика</p>
+<p>Это <strong>дискретно-временная статистика</strong> (discrete-time statistic) --- мы записываем значение для каждой заявки, а затем усредняем.</p>
+</div>
+<h4 id="2">2. Среднее по времени число заявок в очереди<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<div class="arithmatex">\[\hat{q}(n) = \frac{\int_0^{T(n)} Q(t)\, dt}{T(n)}\]</div>
+<p>где <span class="arithmatex">\(Q(t)\)</span> --- число заявок в очереди в момент <span class="arithmatex">\(t\)</span>, а <span class="arithmatex">\(T(n)\)</span> --- время обслуживания <span class="arithmatex">\(n\)</span>-й заявки.</p>
+<p>Поскольку <span class="arithmatex">\(Q(t)\)</span> --- кусочно-постоянная функция (она меняется только в моменты событий), интеграл вычисляется как сумма прямоугольников:</p>
+<div class="arithmatex">\[\int_0^{T(n)} Q(t)\, dt = \sum_{j} Q_j \cdot \Delta t_j\]</div>
+<div class="admonition note">
+<p class="admonition-title">Непрерывная статистика</p>
+<p>Это <strong>непрерывно-временная статистика</strong> (continuous-time statistic) --- мы интегрируем функцию по времени, а затем делим на общее время.</p>
+</div>
+<h4 id="3">3. Загрузка сервера<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
+<div class="arithmatex">\[\hat{u}(n) = \frac{\int_0^{T(n)} B(t)\, dt}{T(n)}\]</div>
+<p>где <span class="arithmatex">\(B(t) = 1\)</span>, если сервер занят в момент <span class="arithmatex">\(t\)</span>, и <span class="arithmatex">\(B(t) = 0\)</span>, если сервер свободен.</p>
+<p>Загрузка --- это доля времени, в течение которого сервер был занят. Это тоже непрерывно-временная статистика.</p>
+<h3 id="vs_2">Дискретные vs. непрерывные статистики<a class="headerlink" href="#vs_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Тип</th>
+<th>Как собирается</th>
+<th>Как вычисляется среднее</th>
+<th>Пример</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Дискретно-временная</strong></td>
+<td>Записываем значение для каждой заявки</td>
+<td><span class="arithmatex">\(\bar{X} = \frac{1}{n}\sum X_i\)</span></td>
+<td>Задержка в очереди</td>
+</tr>
+<tr>
+<td><strong>Непрерывно-временная</strong></td>
+<td>Записываем значение функции на каждом интервале</td>
+<td><span class="arithmatex">\(\bar{Y} = \frac{1}{T}\int_0^T Y(t)\,dt\)</span></td>
+<td>Длина очереди, загрузка</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_10">Этапы симуляционного исследования<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>Лоу выделяет следующие этапы <strong>грамотного</strong> симуляционного исследования:</p>
+<pre class="mermaid"><code>flowchart TD
+    S1["1. Сформулировать задачу\nи спланировать исследование"]
+    S2["2. Собрать данные\nо реальной системе"]
+    S3["3. Построить концептуальную модель\n(на бумаге / в голове)"]
+    S4["4. Перевести в симуляционную модель\n(код / инструмент)"]
+    S5["5. Верифицировать программу\n(код делает то, что задумано?)"]
+    S6["6. Валидировать модель\n(модель отражает реальность?)"]
+    S7["7. Спланировать эксперименты\n(сценарии, число прогонов)"]
+    S8["8. Выполнить прогоны"]
+    S9["9. Проанализировать выходные данные\n(доверительные интервалы, сравнение)"]
+    S10["10. Документировать и представить результаты"]
+
+    S1 --&gt; S2
+    S2 --&gt; S3
+    S3 --&gt; S4
+    S4 --&gt; S5
+    S5 --&gt; S6
+    S6 --&gt;|Модель неадекватна| S3
+    S6 --&gt;|Модель адекватна| S7
+    S7 --&gt; S8
+    S8 --&gt; S9
+    S9 --&gt; S10
+
+    style S1 fill:#e8f4f8,stroke:#2196F3
+    style S6 fill:#fff3e0,stroke:#FF9800
+    style S10 fill:#e8f5e9,stroke:#4CAF50</code></pre>
+<h3 id="_11">Подробнее о каждом этапе<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p><strong>1. Формулировка задачи.</strong> Что именно мы хотим узнать? Какие альтернативы сравниваем? Какие метрики нас интересуют?</p>
+<p><strong>2. Сбор данных.</strong> Данные о реальной системе: распределения времён обслуживания, интервалов между приходами, маршруты заявок. Без данных модель --- фантазия.</p>
+<p><strong>3. Концептуальная модель.</strong> Упрощённое описание системы: какие сущности, какие процессы, какие ресурсы, какие допущения. Это самый важный этап --- ошибка здесь приведёт к бесполезной модели.</p>
+<p><strong>4. Трансляция в симуляционную модель.</strong> Перевод концептуальной модели в код (SimPy, AnyLogic, Arena и т.д.).</p>
+<p><strong>5. Верификация.</strong> Проверяем, что программа делает то, что мы задумали. Отладка, трассировка, проверка на простых примерах с известным ответом.</p>
+<div class="admonition info">
+<p class="admonition-title">Верификация vs. Валидация</p>
+<p><strong>Верификация</strong> --- «правильно ли мы строим модель?» (код соответствует спецификации).
+<strong>Валидация</strong> --- «правильную ли модель мы строим?» (модель соответствует реальности).</p>
+</div>
+<p><strong>6. Валидация.</strong> Сравниваем выходы модели с данными реальной системы. Если расхождение велико --- возвращаемся к концептуальной модели.</p>
+<p><strong>7. Планирование экспериментов.</strong> Сколько прогонов нужно? Какие сценарии сравнивать? Какие параметры варьировать?</p>
+<p><strong>8. Выполнение прогонов.</strong> Запуск симуляции с разными seed-ами для получения статистически независимых реализаций.</p>
+<p><strong>9. Анализ выходных данных.</strong> Построение доверительных интервалов, проверка гипотез, сравнение альтернатив. Это не просто «посмотреть на среднее» --- это полноценный статистический анализ.</p>
+<p><strong>10. Документация и представление.</strong> Результаты должны быть понятны лицам, принимающим решения, а не только разработчику модели.</p>
+<hr />
+<h2 id="_12">Преимущества и недостатки симуляции<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<h3 id="_13">Преимущества<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Гибкость.</strong> Можно моделировать системы любой сложности, для которых нет аналитических решений.</li>
+<li><strong>Любые метрики.</strong> Можно измерить всё, что угодно: средние, квантили, распределения, корреляции.</li>
+<li><strong>What-if анализ.</strong> Можно сравнивать альтернативные конфигурации системы без изменения реальной системы.</li>
+<li><strong>Контроль условий.</strong> Можно повторить эксперимент с теми же случайными числами, изменив только один параметр.</li>
+<li><strong>Визуализация.</strong> Анимация модели помогает обнаружить неожиданное поведение и объяснить результаты заказчику.</li>
+<li><strong>Безопасность.</strong> Можно моделировать аварии, пиковые нагрузки и экстремальные ситуации без риска.</li>
+</ul>
+<h3 id="_14">Недостатки<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Стохастический выход.</strong> Результат одного прогона --- случайная величина. Нужно несколько прогонов и статистический анализ, чтобы получить достоверные выводы.</li>
+<li><strong>Трудоёмкость.</strong> Построение хорошей модели занимает время: сбор данных, программирование, валидация, эксперименты.</li>
+<li><strong>Сложность валидации.</strong> Доказать, что модель адекватно отражает реальность, --- нетривиальная задача.</li>
+<li><strong>Ложное чувство точности.</strong> Красивая анимация и десять знаков после запятой не означают, что результат верный.</li>
+<li><strong>Не даёт оптимального решения.</strong> Симуляция --- это эксперимент, а не оптимизация. Она оценивает заданные сценарии, но не ищет лучший автоматически (хотя существуют гибриды симуляции и оптимизации).</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Помни</p>
+<p>Симуляция --- это <strong>инструмент анализа</strong>, а не волшебная кнопка. Качество результата зависит от качества модели и правильности статистического анализа.</p>
+</div>
+<hr />
+<h2 id="_15">Генерация случайных чисел<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p>Любая стохастическая симуляция нуждается в <strong>генераторе случайных чисел</strong>. Вот краткий обзор основных методов.</p>
+<h3 id="lcg">Линейный конгруэнтный генератор (LCG)<a class="headerlink" href="#lcg" title="Permanent link">&para;</a></h3>
+<p>Основной генератор <strong>псевдослучайных</strong> чисел, равномерно распределённых на <span class="arithmatex">\([0, 1)\)</span>:</p>
+<div class="arithmatex">\[X_{n+1} = (a \cdot X_n + c) \mod m\]</div>
+<div class="arithmatex">\[U_n = \frac{X_n}{m}\]</div>
+<p>где <span class="arithmatex">\(a\)</span> --- множитель, <span class="arithmatex">\(c\)</span> --- приращение, <span class="arithmatex">\(m\)</span> --- модуль, <span class="arithmatex">\(X_0\)</span> --- начальное значение (seed).</p>
+<div class="admonition note">
+<p class="admonition-title">Псевдослучайность</p>
+<p>Числа <strong>не</strong> являются по-настоящему случайными --- последовательность полностью определяется seed-ом. Но если параметры выбраны правильно, статистические свойства последовательности неотличимы от настоящей случайной.</p>
+</div>
+<h3 id="inverse-transform">Метод обратного преобразования (Inverse Transform)<a class="headerlink" href="#inverse-transform" title="Permanent link">&para;</a></h3>
+<p>Для генерации случайной величины <span class="arithmatex">\(X\)</span> с функцией распределения <span class="arithmatex">\(F(x)\)</span>:</p>
+<ol>
+<li>Сгенерировать <span class="arithmatex">\(U \sim \text{Uniform}(0, 1)\)</span></li>
+<li>Вычислить <span class="arithmatex">\(X = F^{-1}(U)\)</span></li>
+</ol>
+<p>Пример: <strong>экспоненциальное распределение</strong> с параметром <span class="arithmatex">\(\lambda\)</span>:</p>
+<div class="arithmatex">\[F(x) = 1 - e^{-\lambda x} \quad \Rightarrow \quad X = -\frac{1}{\lambda} \ln(1 - U) = -\frac{1}{\lambda} \ln U\]</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">exponential</span><span class="p">(</span><span class="n">lam</span><span class="p">):</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Генерация экспоненциально распределённой СВ</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="sd">    методом обратного преобразования.&quot;&quot;&quot;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">u</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>  <span class="c1"># U ~ Uniform(0, 1)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="k">return</span> <span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">/</span> <span class="n">lam</span>
+</code></pre></div>
+<h3 id="acceptance-rejection">Метод отбора (Acceptance-Rejection)<a class="headerlink" href="#acceptance-rejection" title="Permanent link">&para;</a></h3>
+<p>Используется, когда <span class="arithmatex">\(F^{-1}\)</span> сложно или невозможно вычислить:</p>
+<ol>
+<li>Найти «мажоранту» <span class="arithmatex">\(c \cdot g(x) \geq f(x)\)</span> для всех <span class="arithmatex">\(x\)</span>, где <span class="arithmatex">\(g(x)\)</span> --- плотность, из которой легко генерировать</li>
+<li>Сгенерировать <span class="arithmatex">\(Y \sim g\)</span> и <span class="arithmatex">\(U \sim \text{Uniform}(0, 1)\)</span></li>
+<li>Если <span class="arithmatex">\(U \leq \frac{f(Y)}{c \cdot g(Y)}\)</span> --- принять <span class="arithmatex">\(X = Y\)</span>, иначе --- повторить</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">На практике</p>
+<p>В Python не нужно реализовывать эти методы вручную --- модуль <code>random</code> уже содержит генераторы для всех основных распределений: <code>random.expovariate()</code>, <code>random.gauss()</code>, <code>random.triangular()</code> и т.д.</p>
+</div>
+<hr />
+<h2 id="_16">Анализ выходных данных<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<p>Это, пожалуй, самая недооценённая часть имитационного моделирования. Многие строят модель, запускают один прогон и принимают решение на основе одного числа. Это грубейшая ошибка.</p>
+<h3 id="vs_3">Переходный период vs. установившийся режим<a class="headerlink" href="#vs_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Тип анализа</th>
+<th>Что моделируем</th>
+<th>Пример</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Терминирующая симуляция</strong> (Transient / Terminating)</td>
+<td>Система с естественным началом и концом</td>
+<td>Банк: открылся в 9:00, закрылся в 17:00</td>
+</tr>
+<tr>
+<td><strong>Стационарная симуляция</strong> (Steady-state)</td>
+<td>Система работает «вечно», интересует установившийся режим</td>
+<td>Колл-центр 24/7, интернет-сервер</td>
+</tr>
+</tbody>
+</table>
+<p>Для <strong>стационарной</strong> симуляции критически важно учитывать <strong>переходный период</strong> (warm-up period): в начале симуляции система «пуста» --- в очередях никого, серверы простаивают. Статистика за этот период не отражает установившегося поведения.</p>
+<pre class="mermaid"><code>flowchart LR
+    A["Начало симуляции\n(система пуста)"] --&gt; B["Переходный период\n(warm-up)"]
+    B --&gt; C["Установившийся режим\n(собираем статистику)"]
+    C --&gt; D["Конец симуляции"]
+
+    style A fill:#ffebee,stroke:#f44336
+    style B fill:#fff3e0,stroke:#FF9800
+    style C fill:#e8f5e9,stroke:#4CAF50
+    style D fill:#e8f4f8,stroke:#2196F3</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Что делать?</p>
+<p>Нужно «отбросить» данные за переходный период. Метод Уэлча (Welch's method) помогает определить длительность переходного периода: запускаем несколько прогонов, усредняем метрику по прогонам, сглаживаем скользящим средним и визуально определяем, когда кривая «стабилизируется».</p>
+</div>
+<h3 id="_17">Доверительные интервалы<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>Результат симуляции --- <strong>случайная величина</strong>. Чтобы оценить среднее, нужно:</p>
+<ol>
+<li>Выполнить <span class="arithmatex">\(k\)</span> <strong>независимых</strong> прогонов (с разными seed-ами)</li>
+<li>Для каждого прогона вычислить интересующую метрику <span class="arithmatex">\(\bar{X}_1, \bar{X}_2, \ldots, \bar{X}_k\)</span></li>
+<li>Построить доверительный интервал:</li>
+</ol>
+<div class="arithmatex">\[\bar{X} \pm t_{k-1, 1-\alpha/2} \cdot \frac{S}{\sqrt{k}}\]</div>
+<p>где <span class="arithmatex">\(\bar{X}\)</span> --- среднее по прогонам, <span class="arithmatex">\(S\)</span> --- стандартное отклонение, <span class="arithmatex">\(t_{k-1, 1-\alpha/2}\)</span> --- квантиль распределения Стьюдента.</p>
+<div class="admonition note">
+<p class="admonition-title">Сколько прогонов?</p>
+<p>Минимум --- 3--5 прогонов, чтобы хоть как-то оценить разброс. Для публикации --- обычно 10--30 прогонов. Точное число зависит от желаемой ширины доверительного интервала.</p>
+</div>
+<h3 id="variance-reduction">Методы снижения дисперсии (Variance Reduction)<a class="headerlink" href="#variance-reduction" title="Permanent link">&para;</a></h3>
+<p>Чтобы получить более точные оценки при том же числе прогонов, используют специальные техники:</p>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Идея</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Общие случайные числа</strong> (Common Random Numbers, CRN)</td>
+<td>Сравнивать два сценария с одинаковыми случайными числами --- разница будет менее шумной</td>
+</tr>
+<tr>
+<td><strong>Антитетические переменные</strong> (Antithetic Variates)</td>
+<td>Если в одном прогоне использовали <span class="arithmatex">\(U\)</span>, в парном --- <span class="arithmatex">\(1-U\)</span>. Отрицательная корреляция снижает дисперсию среднего</td>
+</tr>
+<tr>
+<td><strong>Контрольные переменные</strong> (Control Variates)</td>
+<td>Используем вспомогательную величину с известным средним для коррекции оценки</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">Итого</p>
+<p>Имитационное моделирование --- это не только код, но и <strong>методология</strong>. Правильная формулировка задачи, валидация модели, грамотный статистический анализ выходных данных --- всё это не менее важно, чем сама программа. Книга Лоу «Simulation Modeling and Analysis» --- незаменимый справочник для всех, кто занимается симуляцией серьёзно.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
