@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Конспект курса «Имитационное моделирование» (ФКН ВШЭ)">
+        <meta name="description" content="Конспект курса «Имитационное моделирование»">
       
       
       
@@ -53,6 +53,8 @@
     
       <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -90,7 +92,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
     <a href=".." title="Имитационное моделирование — Конспект" class="md-header__button md-logo" aria-label="Имитационное моделирование — Конспект" data-md-component="logo">
       
@@ -202,264 +206,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Главная
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../01-introduction/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  1. Введение в ИМ
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../02-system-dynamics/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  2. Системная динамика
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../03-agent-based/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  3. Агентное моделирование
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../04-discrete-event/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  4. Дискретно-событийное моделирование
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../05-queueing-basics/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  5. Основы ТМО
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../06-queueing-intro/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  6. Теория очередей — введение
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
-        
-  
-  
-    
-  
-  7. Анализ одиночной очереди
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../08-queueing-networks/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  8. Сети массового обслуживания
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../09-simpy/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  9. SimPy — основы
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../10-simpy-practice/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  10. SimPy — практика
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../11-simulation-analysis/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  11. Моделирование и анализ
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../cheatsheet/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Шпаргалка
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -473,10 +219,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Имитационное моделирование — Конспект" class="md-nav__button md-logo" aria-label="Имитационное моделирование — Конспект" data-md-component="logo">
       
@@ -1707,11 +1451,11 @@
 
 
 <h1 id="_1">Анализ одиночной очереди<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>Привет! Сегодня мы разберёмся с аналитическим подходом к теории массового обслуживания — будем считать характеристики очередей <strong>по формулам</strong>, без единой симуляции. Конспект написан по материалам курса «Имитационное моделирование» (НИУ ВШЭ). Если ты когда-нибудь задавался вопросом «а можно ли посчитать среднее время ожидания на бумажке?» — можно, и сейчас мы этому научимся.</p>
+<p>Суть вот в чём: здесь мы считаем характеристики очередей <strong>по формулам</strong>, без единой симуляции. Аналитический подход к теории массового обслуживания -- подставил параметры, получил метрику.</p>
 <hr />
 <h2 id="_2">Зачем это нужно<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Весь этот раздел — это <strong>аналитический тулкит</strong> для оценки производительности систем обслуживания. Вместо того чтобы запускать дискретно-событийную симуляцию и ждать, пока она сойдётся, мы получаем точные формулы.</p>
-<p>Три ключевые модели, которые мы разберём:</p>
+<p>Весь этот раздел -- <strong>аналитический тулкит</strong> для оценки производительности систем обслуживания. Вместо того чтобы запускать дискретно-событийную симуляцию и ждать, пока она сойдётся, мы получаем точные формулы.</p>
+<p>Три ключевые модели:</p>
 <table>
 <thead>
 <tr>
@@ -1722,17 +1466,17 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>M/M/1</strong></td>
+<td><mark>M/M/1</mark></td>
 <td>Один сервер, бесконечная очередь</td>
-<td>Фундамент всей теории — начинаем отсюда</td>
+<td>Фундамент всей теории -- начинаем отсюда</td>
 </tr>
 <tr>
-<td><strong>M/M/m</strong></td>
+<td><mark>M/M/m</mark></td>
 <td><span class="arithmatex">\(m\)</span> серверов, бесконечная очередь</td>
 <td>Несколько одинаковых каналов обслуживания</td>
 </tr>
 <tr>
-<td><strong>M/M/m/B</strong></td>
+<td><mark>M/M/m/B</mark></td>
 <td><span class="arithmatex">\(m\)</span> серверов, конечный буфер <span class="arithmatex">\(B\)</span></td>
 <td>Реальные системы с ограниченной памятью</td>
 </tr>
@@ -1740,17 +1484,17 @@
 </table>
 <div class="admonition tip">
 <p class="admonition-title">Почему формулы, а не симуляция?</p>
-<p>Формулы дают <strong>мгновенный</strong> ответ: подставил параметры — получил метрику. Симуляция может потребовать миллионы итераций для получения стабильной оценки. Конечно, формулы работают только для «красивых» моделей с экспоненциальными распределениями, но они дают отличную интуицию и первое приближение для любой реальной системы.</p>
+<p>Формулы дают <strong>мгновенный</strong> ответ: подставил параметры -- получил метрику. Симуляция может потребовать миллионы итераций для получения стабильной оценки. Конечно, формулы работают только для "красивых" моделей с экспоненциальными распределениями, но они дают отличную интуицию и первое приближение для любой реальной системы.</p>
 </div>
 <hr />
 <h2 id="_3">Процессы рождения и гибели<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>В основе всех наших моделей лежит <strong>процесс рождения и гибели</strong> (Birth-Death Process). Это непрерывная марковская цепь, где состояние — число заявок в системе.</p>
+<p>В основе всех наших моделей лежит <mark>процесс рождения и гибели</mark> (Birth-Death Process). Это непрерывная марковская цепь, где состояние -- число заявок в системе.</p>
 <h3 id="_4">Идея<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Состояние</strong> <span class="arithmatex">\(n\)</span> = в системе находится <span class="arithmatex">\(n\)</span> заявок (и в очереди, и на обслуживании).</li>
-<li><strong>Рождение</strong> (birth) — приход новой заявки. Интенсивность перехода из <span class="arithmatex">\(n\)</span> в <span class="arithmatex">\(n+1\)</span> равна <span class="arithmatex">\(\lambda_n\)</span>.</li>
-<li><strong>Гибель</strong> (death) — завершение обслуживания. Интенсивность перехода из <span class="arithmatex">\(n\)</span> в <span class="arithmatex">\(n-1\)</span> равна <span class="arithmatex">\(\mu_n\)</span>.</li>
-<li>Переходы возможны только на ±1 (никаких «прыжков» через состояния).</li>
+<li><strong>Рождение</strong> (birth) -- приход новой заявки. Интенсивность перехода из <span class="arithmatex">\(n\)</span> в <span class="arithmatex">\(n+1\)</span> равна <span class="arithmatex">\(\lambda_n\)</span>.</li>
+<li><strong>Гибель</strong> (death) -- завершение обслуживания. Интенсивность перехода из <span class="arithmatex">\(n\)</span> в <span class="arithmatex">\(n-1\)</span> равна <span class="arithmatex">\(\mu_n\)</span>.</li>
+<li>Переходы возможны только на <span class="arithmatex">\(\pm 1\)</span> (никаких "прыжков" через состояния).</li>
 </ul>
 <h3 id="_5">Диаграмма состояний<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>stateDiagram-v2
@@ -1761,16 +1505,16 @@
     state "3" as s3
     state "..." as dots
 
-    s0 --&gt; s1 : λ₀
-    s1 --&gt; s0 : μ₁
-    s1 --&gt; s2 : λ₁
-    s2 --&gt; s1 : μ₂
-    s2 --&gt; s3 : λ₂
-    s3 --&gt; s2 : μ₃
-    s3 --&gt; dots : λ₃
-    dots --&gt; s3 : μ₄</code></pre>
+    s0 --&gt; s1 : l0
+    s1 --&gt; s0 : mu1
+    s1 --&gt; s2 : l1
+    s2 --&gt; s1 : mu2
+    s2 --&gt; s3 : l2
+    s3 --&gt; s2 : mu3
+    s3 --&gt; dots : l3
+    dots --&gt; s3 : mu4</code></pre>
 <h3 id="_6">Стационарное распределение<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p>В стационарном режиме (steady state) поток вероятности «влево» из каждого состояния равен потоку «вправо». Это даёт уравнения баланса:</p>
+<p>В стационарном режиме (steady state) поток вероятности "влево" из каждого состояния равен потоку "вправо". Это даёт уравнения баланса:</p>
 <div class="arithmatex">\[
 \lambda_n \, p_n = \mu_{n+1} \, p_{n+1}, \quad n = 0, 1, 2, \ldots
 \]</div>
@@ -1784,15 +1528,15 @@ p_0 = \left( \sum_{n=0}^{\infty} \prod_{i=0}^{n-1} \frac{\lambda_i}{\mu_{i+1}} \
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Условие существования стационара</p>
-<p>Стационарное распределение существует тогда и только тогда, когда ряд <span class="arithmatex">\(\sum p_n\)</span> сходится. Если заявки приходят быстрее, чем система успевает обслуживать, — стационара нет, очередь растёт до бесконечности.</p>
+<p>Стационарное распределение существует тогда и только тогда, когда ряд <span class="arithmatex">\(\sum p_n\)</span> сходится. Если заявки приходят быстрее, чем система успевает обслуживать, -- стационара нет, очередь растёт до бесконечности.</p>
 </div>
 <hr />
 <h2 id="mm1">Очередь M/M/1<a class="headerlink" href="#mm1" title="Permanent link">&para;</a></h2>
-<p>Это самая простая и самая знаменитая модель. Нотация Кендалла: <strong>M/M/1</strong> — марковские (экспоненциальные) приходы, марковское обслуживание, один сервер.</p>
+<p>Это самая простая и самая знаменитая модель. <mark>Нотация Кендалла</mark>: <mark>M/M/1</mark> -- марковские (экспоненциальные) приходы, марковское обслуживание, один сервер.</p>
 <h3 id="_7">Предположения<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Заявки приходят по пуассоновскому процессу с интенсивностью <span class="arithmatex">\(\lambda\)</span>.</li>
-<li>Время обслуживания — экспоненциальное с параметром <span class="arithmatex">\(\mu\)</span> (среднее время обслуживания <span class="arithmatex">\(1/\mu\)</span>).</li>
+<li>Время обслуживания -- экспоненциальное с параметром <span class="arithmatex">\(\mu\)</span> (среднее время обслуживания <span class="arithmatex">\(\frac{1}{\mu}\)</span>).</li>
 <li>Один сервер.</li>
 <li>Очередь бесконечная (FIFO).</li>
 <li>Нет ограничений на число заявок в системе.</li>
@@ -1801,17 +1545,19 @@ p_0 = \left( \sum_{n=0}^{\infty} \prod_{i=0}^{n-1} \frac{\lambda_i}{\mu_{i+1}} \
 <div class="arithmatex">\[
 \rho = \frac{\lambda}{\mu}
 \]</div>
+<p><span class="arithmatex">\(\rho\)</span> -- это загрузка системы, и именно она определяет, как себя чувствует очередь. При <span class="arithmatex">\(\rho = 0.5\)</span> сервер занят половину времени, очереди маленькие, всё спокойно. При <span class="arithmatex">\(\rho = 0.9\)</span> -- очереди начинают взрываться. При <span class="arithmatex">\(\rho = 0.99\)</span> -- средняя длина очереди порядка 99 заявок. Мораль простая: не нагружай систему выше 70-80%, если хочешь спать спокойно.</p>
+<p>Зависимость нелинейная и коварная. Кажется, что разница между 80% и 90% загрузки -- "всего 10 процентных пунктов". Но среднее число заявок в системе при этом растёт с 4 до 9 -- больше чем вдвое. А с 90% до 99% -- рост с 9 до 99, в одиннадцать раз. Вот почему опытные инженеры закладывают серьёзный запас по мощности.</p>
 <div class="admonition warning">
 <p class="admonition-title">Условие стабильности</p>
 <p>Система стабильна (стационарное распределение существует) тогда и только тогда, когда <span class="arithmatex">\(\rho &lt; 1\)</span>. Если <span class="arithmatex">\(\rho \geq 1\)</span>, очередь будет расти неограниченно.</p>
 </div>
 <h3 id="_8">Основные формулы<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<p>Для M/M/1 это частный случай процесса рождения-гибели с <span class="arithmatex">\(\lambda_n = \lambda\)</span> и <span class="arithmatex">\(\mu_n = \mu\)</span> для всех <span class="arithmatex">\(n\)</span>. Получаем геометрическое распределение числа заявок:</p>
+<p>Для <mark>M/M/1</mark> это частный случай процесса рождения-гибели с <span class="arithmatex">\(\lambda_n = \lambda\)</span> и <span class="arithmatex">\(\mu_n = \mu\)</span> для всех <span class="arithmatex">\(n\)</span>. Получаем геометрическое распределение числа заявок:</p>
 <div class="arithmatex">\[
 p_n = (1 - \rho)\,\rho^n, \quad n = 0, 1, 2, \ldots
 \]</div>
 <h3 id="mm1_1">Полная таблица результатов M/M/1<a class="headerlink" href="#mm1_1" title="Permanent link">&para;</a></h3>
-<p>Вот все 26 ключевых результатов, собранных в одну таблицу. Рекомендую распечатать и повесить на стену.</p>
+<p>Погнали -- все 26 ключевых результатов в одной таблице.</p>
 <table>
 <thead>
 <tr>
@@ -1824,8 +1570,8 @@ p_n = (1 - \rho)\,\rho^n, \quad n = 0, 1, 2, \ldots
 <tbody>
 <tr>
 <td>1</td>
-<td>Трафик-интенсивность</td>
-<td><span class="arithmatex">\(\rho = \lambda / \mu\)</span></td>
+<td><mark>Traffic intensity</mark></td>
+<td><span class="arithmatex">\(\rho = \frac{\lambda}{\mu}\)</span></td>
 <td>Доля времени, когда сервер занят</td>
 </tr>
 <tr>
@@ -1849,19 +1595,19 @@ p_n = (1 - \rho)\,\rho^n, \quad n = 0, 1, 2, \ldots
 <tr>
 <td>5</td>
 <td>Среднее число заявок в системе</td>
-<td><span class="arithmatex">\(E[n] = \dfrac{\rho}{1-\rho}\)</span></td>
+<td><span class="arithmatex">\(E[n] = \frac{\rho}{1-\rho}\)</span></td>
 <td>Включает и очередь, и обслуживание</td>
 </tr>
 <tr>
 <td>6</td>
 <td>Дисперсия числа заявок</td>
-<td><span class="arithmatex">\(Var[n] = \dfrac{\rho}{(1-\rho)^2}\)</span></td>
+<td><span class="arithmatex">\(Var[n] = \frac{\rho}{(1-\rho)^2}\)</span></td>
 <td>Большой разброс при <span class="arithmatex">\(\rho \to 1\)</span></td>
 </tr>
 <tr>
 <td>7</td>
 <td>Среднее число в очереди</td>
-<td><span class="arithmatex">\(E[n_q] = \dfrac{\rho^2}{1-\rho}\)</span></td>
+<td><span class="arithmatex">\(E[n_q] = \frac{\rho^2}{1-\rho}\)</span></td>
 <td>Только ждущие (без обслуживаемых)</td>
 </tr>
 <tr>
@@ -1873,20 +1619,20 @@ p_n = (1 - \rho)\,\rho^n, \quad n = 0, 1, 2, \ldots
 <tr>
 <td>9</td>
 <td>Среднее время отклика</td>
-<td><span class="arithmatex">\(E[r] = \dfrac{1/\mu}{1-\rho}\)</span></td>
+<td><span class="arithmatex">\(E[r] = \frac{1/\mu}{1-\rho}\)</span></td>
 <td>Полное время в системе (ожидание + обслуживание)</td>
 </tr>
 <tr>
 <td>10</td>
 <td>Среднее время ожидания</td>
-<td><span class="arithmatex">\(E[w] = \dfrac{\rho/\mu}{1-\rho}\)</span></td>
+<td><span class="arithmatex">\(E[w] = \frac{\rho/\mu}{1-\rho}\)</span></td>
 <td>Только время в очереди</td>
 </tr>
 <tr>
 <td>11</td>
 <td>Среднее время обслуживания</td>
-<td><span class="arithmatex">\(E[s] = 1/\mu\)</span></td>
-<td>По условию — экспоненциальное</td>
+<td><span class="arithmatex">\(E[s] = \frac{1}{\mu}\)</span></td>
+<td>По условию -- экспоненциальное</td>
 </tr>
 <tr>
 <td>12</td>
@@ -1896,21 +1642,21 @@ p_n = (1 - \rho)\,\rho^n, \quad n = 0, 1, 2, \ldots
 </tr>
 <tr>
 <td>13</td>
-<td>Закон Литтла (система)</td>
+<td><mark>Закон Литтла</mark> (система)</td>
 <td><span class="arithmatex">\(E[n] = \lambda \cdot E[r]\)</span></td>
 <td>Фундаментальная связь</td>
 </tr>
 <tr>
 <td>14</td>
-<td>Закон Литтла (очередь)</td>
+<td><mark>Закон Литтла</mark> (очередь)</td>
 <td><span class="arithmatex">\(E[n_q] = \lambda \cdot E[w]\)</span></td>
-<td>Применён к подсистеме «очередь»</td>
+<td>Применён к подсистеме "очередь"</td>
 </tr>
 <tr>
 <td>15</td>
-<td>Закон Литтла (сервер)</td>
+<td><mark>Закон Литтла</mark> (сервер)</td>
 <td><span class="arithmatex">\(E[n_s] = \lambda \cdot E[s] = \rho\)</span></td>
-<td>Применён к подсистеме «сервер»</td>
+<td>Применён к подсистеме "сервер"</td>
 </tr>
 <tr>
 <td>16</td>
@@ -1932,26 +1678,26 @@ p_n = (1 - \rho)\,\rho^n, \quad n = 0, 1, 2, \ldots
 </tr>
 <tr>
 <td>19</td>
-<td>P(≥ <span class="arithmatex">\(k\)</span> заявок)</td>
+<td>P(<span class="arithmatex">\(\geq k\)</span> заявок)</td>
 <td><span class="arithmatex">\(\rho^k\)</span></td>
 <td>Вероятность хвоста</td>
 </tr>
 <tr>
 <td>20</td>
-<td>P(&gt; <span class="arithmatex">\(k\)</span> заявок)</td>
+<td>P(<span class="arithmatex">\(&gt; k\)</span> заявок)</td>
 <td><span class="arithmatex">\(\rho^{k+1}\)</span></td>
 <td>Строго больше <span class="arithmatex">\(k\)</span></td>
 </tr>
 <tr>
 <td>21</td>
 <td>Дисперсия времени отклика</td>
-<td><span class="arithmatex">\(Var[r] = \dfrac{1}{\mu^2(1-\rho)^2}\)</span></td>
+<td><span class="arithmatex">\(Var[r] = \frac{1}{\mu^2(1-\rho)^2}\)</span></td>
 <td>Растёт квадратично при <span class="arithmatex">\(\rho \to 1\)</span></td>
 </tr>
 <tr>
 <td>22</td>
 <td>Дисперсия времени ожидания</td>
-<td><span class="arithmatex">\(Var[w] = \dfrac{\rho(2-\rho)}{\mu^2(1-\rho)^2}\)</span></td>
+<td><span class="arithmatex">\(Var[w] = \frac{\rho(2-\rho)}{\mu^2(1-\rho)^2}\)</span></td>
 <td>Большой разброс при загрузке</td>
 </tr>
 <tr>
@@ -1963,29 +1709,29 @@ p_n = (1 - \rho)\,\rho^n, \quad n = 0, 1, 2, \ldots
 <tr>
 <td>24</td>
 <td>Квантиль времени отклика</td>
-<td><span class="arithmatex">\(r_p = \dfrac{-\ln(1-p)}{\mu(1-\rho)}\)</span></td>
+<td><span class="arithmatex">\(r_p = \frac{-\ln(1-p)}{\mu(1-\rho)}\)</span></td>
 <td><span class="arithmatex">\(p\)</span>-й перцентиль</td>
 </tr>
 <tr>
 <td>25</td>
 <td>Коэфф. вариации <span class="arithmatex">\(n\)</span></td>
-<td><span class="arithmatex">\(C_n = \dfrac{1}{\sqrt{\rho}}\)</span></td>
+<td><span class="arithmatex">\(C_n = \frac{1}{\sqrt{\rho}}\)</span></td>
 <td>Относительный разброс</td>
 </tr>
 <tr>
 <td>26</td>
 <td>Остаточное время обслуживания</td>
-<td><span class="arithmatex">\(E[s_e] = 1/\mu\)</span></td>
-<td>Для экспоненциального — равно среднему (memoryless!)</td>
+<td><span class="arithmatex">\(E[s_e] = \frac{1}{\mu}\)</span></td>
+<td>Для экспоненциального -- равно среднему (memoryless!)</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition info">
-<p class="admonition-title">Закон Литтла — универсальный инструмент</p>
-<p>Закон Литтла (<span class="arithmatex">\(L = \lambda W\)</span>) не требует никаких предположений о распределениях — он работает для <strong>любой</strong> стабильной системы. Его можно применять к системе в целом, к очереди отдельно, к серверу отдельно. Это, пожалуй, самый мощный результат во всей теории очередей.</p>
+<p class="admonition-title">Закон Литтла -- универсальный инструмент</p>
+<p><mark>Закон Литтла</mark> (<span class="arithmatex">\(L = \lambda W\)</span>) не требует никаких предположений о распределениях -- он работает для <strong>любой</strong> стабильной системы. Его можно применять к системе в целом, к очереди отдельно, к серверу отдельно. Это, пожалуй, самый мощный результат во всей теории очередей.</p>
 </div>
 <h3 id="_9">Поведение при росте нагрузки<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<p>Обрати внимание: при <span class="arithmatex">\(\rho \to 1\)</span> практически все метрики уходят в бесконечность. Это не баг, а фича — система на пределе работает крайне нестабильно.</p>
+<p>Главное -- при <span class="arithmatex">\(\rho \to 1\)</span> практически все метрики уходят в бесконечность. Это не баг, а фича -- система на пределе работает крайне нестабильно.</p>
 <table>
 <thead>
 <tr>
@@ -2037,15 +1783,16 @@ p_n = (1 - \rho)\,\rho^n, \quad n = 0, 1, 2, \ldots
 <div class="admonition warning">
 <p class="admonition-title">Нелинейный рост</p>
 <p>Увеличение загрузки с 0.9 до 0.99 (всего на 10%) увеличивает среднюю длину очереди в <strong>12 раз</strong>! Это интуитивно неочевидно и является одной из главных причин, почему системы проектируют с запасом по мощности.</p>
+<p>Посмотри на таблицу выше -- рост E[n] от <span class="arithmatex">\(\rho\)</span> выглядит как хоккейная клюшка. До 0.5 -- почти плоско. После 0.8 -- начинается вертикальный взлёт. Формула <span class="arithmatex">\(\frac{\rho}{1-\rho}\)</span> содержит <span class="arithmatex">\((1-\rho)\)</span> в знаменателе, и когда <span class="arithmatex">\(\rho\)</span> подбирается к единице, знаменатель стремится к нулю, а дробь -- к бесконечности. Вот почему золотое правило -- держи загрузку ниже 70-80%.</p>
 </div>
 <hr />
 <h2 id="_10">Пример: сетевой шлюз<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
-<p>Рассмотрим конкретный пример — сетевой маршрутизатор (gateway), который обрабатывает пакеты.</p>
+<p>Рассмотрим конкретный пример -- сетевой маршрутизатор (gateway), который обрабатывает пакеты.</p>
 <h3 id="_11">Условия задачи<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Интенсивность поступления пакетов: <span class="arithmatex">\(\lambda = 125\)</span> пакетов/с</li>
 <li>Скорость обработки: <span class="arithmatex">\(\mu = 500\)</span> пакетов/с</li>
-<li>Трафик-интенсивность: <span class="arithmatex">\(\rho = 125/500 = 0.25\)</span></li>
+<li><mark>Traffic intensity</mark>: <span class="arithmatex">\(\rho = \frac{125}{500} = 0.25\)</span></li>
 </ul>
 <h3 id="_12">Вычисление метрик<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <div class="arithmatex">\[
@@ -2062,10 +1809,10 @@ E[n_q] = \frac{0.25^2}{1 - 0.25} = \frac{0.0625}{0.75} = 0.083
 \]</div>
 <div class="admonition success">
 <p class="admonition-title">Результаты</p>
-<p>При загрузке 25% шлюз работает комфортно: в среднем в системе всего <strong>0.33 пакета</strong>, а полное время обработки — <strong>2.67 мс</strong>. Из них 2 мс — само обслуживание, и только 0.67 мс — ожидание в очереди.</p>
+<p>При загрузке 25% шлюз работает комфортно: в среднем в системе всего <strong>0.33 пакета</strong>, а полное время обработки -- <strong>2.67 мс</strong>. Из них 2 мс -- само обслуживание, и только 0.67 мс -- ожидание в очереди.</p>
 </div>
 <h3 id="_13">Вероятность переполнения буфера<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
-<p>А теперь практический вопрос: <strong>сколько буферов нужно</strong>, чтобы вероятность потери пакета была пренебрежимо мала?</p>
+<p>Практический вопрос: <strong>сколько буферов нужно</strong>, чтобы вероятность потери пакета была пренебрежимо мала?</p>
 <p>Вероятность того, что в системе больше <span class="arithmatex">\(B\)</span> пакетов (буфер переполнен):</p>
 <div class="arithmatex">\[
 P(n &gt; B) = \rho^{B+1} = 0.25^{B+1}
@@ -2110,19 +1857,20 @@ P(n &gt; B) = \rho^{B+1} = 0.25^{B+1}
 </table>
 <div class="admonition tip">
 <p class="admonition-title">Сколько буферов для потерь &lt; <span class="arithmatex">\(10^{-6}\)</span>?</p>
-<p>Нам нужно <span class="arithmatex">\(0.25^{B+1} &lt; 10^{-6}\)</span>, то есть <span class="arithmatex">\((B+1) \cdot \ln(0.25) &lt; -6 \cdot \ln(10)\)</span>.</p>
+<p>Нужно <span class="arithmatex">\(0.25^{B+1} &lt; 10^{-6}\)</span>, то есть <span class="arithmatex">\((B+1) \cdot \ln(0.25) &lt; -6 \cdot \ln(10)\)</span>.</p>
 <div class="arithmatex">\[B + 1 &gt; \frac{6 \cdot \ln 10}{\ln 4} = \frac{6 \cdot 2.303}{1.386} \approx 9.97\]</div>
-<p>Значит, <span class="arithmatex">\(B \geq 9\)</span> — достаточно <strong>всего 9 буферных позиций</strong> для гарантии потерь менее одной на миллион! При низкой загрузке (<span class="arithmatex">\(\rho = 0.25\)</span>) буферы почти не нужны.</p>
+<p>Значит, <span class="arithmatex">\(B \geq 9\)</span> -- достаточно <strong>всего 9 буферных позиций</strong> для гарантии потерь менее одной на миллион! При низкой загрузке (<span class="arithmatex">\(\rho = 0.25\)</span>) буферы почти не нужны.</p>
 </div>
+<p>9 буферов для <span class="arithmatex">\(\rho = 0.25\)</span> -- это действительно немного, потому что при низкой загрузке очередь почти всегда пуста. Но если бы <span class="arithmatex">\(\rho = 0.9\)</span>, для той же гарантии потерь <span class="arithmatex">\(&lt; 10^{-6}\)</span> потребовалось бы уже около <strong>131 буферной позиции</strong> (считай: <span class="arithmatex">\(0.9^{B+1} &lt; 10^{-6}\)</span>, то есть <span class="arithmatex">\(B + 1 &gt; \frac{6 \ln 10}{\ln(1/0.9)} \approx 131.1\)</span>). Вот почему архитекторы систем закладывают запас -- при росте нагрузки потребности в буферах растут драматически.</p>
 <hr />
 <h2 id="mmm">Очередь M/M/m<a class="headerlink" href="#mmm" title="Permanent link">&para;</a></h2>
-<p>Теперь усложняем: вместо одного сервера у нас <span class="arithmatex">\(m\)</span> параллельных одинаковых серверов. Заявка занимает первый свободный сервер; если все заняты — встаёт в общую очередь.</p>
+<p>Теперь усложняем: вместо одного сервера -- <span class="arithmatex">\(m\)</span> параллельных одинаковых серверов. Заявка занимает первый свободный сервер; если все заняты -- встаёт в общую очередь.</p>
 <h3 id="_14">Параметры<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
 <ul>
 <li><span class="arithmatex">\(m\)</span> серверов, каждый с интенсивностью обслуживания <span class="arithmatex">\(\mu\)</span></li>
 <li>Суммарная интенсивность обслуживания (когда все заняты): <span class="arithmatex">\(m\mu\)</span></li>
-<li>Трафик-интенсивность <strong>на один сервер</strong>: <span class="arithmatex">\(\rho = \dfrac{\lambda}{m\mu}\)</span> (должна быть <span class="arithmatex">\(&lt; 1\)</span>)</li>
-<li>Суммарная нагрузка: <span class="arithmatex">\(a = \lambda / \mu = m\rho\)</span></li>
+<li><mark>Traffic intensity</mark> <strong>на один сервер</strong>: <span class="arithmatex">\(\rho = \frac{\lambda}{m\mu}\)</span> (должна быть <span class="arithmatex">\(&lt; 1\)</span>)</li>
+<li>Суммарная нагрузка: <span class="arithmatex">\(a = \frac{\lambda}{\mu} = m\rho\)</span></li>
 </ul>
 <h3 id="_15">Диаграмма состояний<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>stateDiagram-v2
@@ -2135,32 +1883,32 @@ P(n &gt; B) = \rho^{B+1} = 0.25^{B+1}
     state "..." as dots1
     state "..." as dots2
 
-    s0 --&gt; s1 : λ
-    s1 --&gt; s0 : μ
-    s1 --&gt; s2 : λ
-    s2 --&gt; s1 : 2μ
-    s2 --&gt; dots1 : λ
-    dots1 --&gt; s2 : 3μ
-    dots1 --&gt; sm : λ
-    sm --&gt; dots1 : mμ
-    sm --&gt; sm1 : λ
-    sm1 --&gt; sm : mμ
-    sm1 --&gt; dots2 : λ
-    dots2 --&gt; sm1 : mμ</code></pre>
-<p>Обрати внимание: пока <span class="arithmatex">\(n \leq m\)</span>, интенсивность обслуживания растёт (подключаются новые серверы: <span class="arithmatex">\(\mu_n = n\mu\)</span>). Когда <span class="arithmatex">\(n &gt; m\)</span>, все серверы заняты и <span class="arithmatex">\(\mu_n = m\mu\)</span>.</p>
+    s0 --&gt; s1 : l
+    s1 --&gt; s0 : mu
+    s1 --&gt; s2 : l
+    s2 --&gt; s1 : 2mu
+    s2 --&gt; dots1 : l
+    dots1 --&gt; s2 : 3mu
+    dots1 --&gt; sm : l
+    sm --&gt; dots1 : m*mu
+    sm --&gt; sm1 : l
+    sm1 --&gt; sm : m*mu
+    sm1 --&gt; dots2 : l
+    dots2 --&gt; sm1 : m*mu</code></pre>
+<p>Пока <span class="arithmatex">\(n \leq m\)</span>, интенсивность обслуживания растёт (подключаются новые серверы: <span class="arithmatex">\(\mu_n = n\mu\)</span>). Когда <span class="arithmatex">\(n &gt; m\)</span>, все серверы заняты и <span class="arithmatex">\(\mu_n = m\mu\)</span>.</p>
 <h3 id="_16">Вероятность пустой системы<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
 <div class="arithmatex">\[
 p_0 = \left[ \sum_{k=0}^{m-1} \frac{(m\rho)^k}{k!} + \frac{(m\rho)^m}{m!(1-\rho)} \right]^{-1}
 \]</div>
 <h3 id="c">Формула Эрланга C<a class="headerlink" href="#c" title="Permanent link">&para;</a></h3>
-<p>Вероятность того, что все серверы заняты и заявка будет ждать в очереди:</p>
+<p>Вероятность того, что все серверы заняты и заявка будет ждать в очереди -- <mark>формула Эрланга C</mark>:</p>
 <div class="arithmatex">\[
-C(m, a) = \frac{\dfrac{a^m}{m!} \cdot \dfrac{1}{1-\rho}}{\displaystyle\sum_{k=0}^{m-1} \frac{a^k}{k!} + \frac{a^m}{m!} \cdot \frac{1}{1-\rho}}
+C(m, a) = \frac{\frac{a^m}{m!} \cdot \frac{1}{1-\rho}}{\displaystyle\sum_{k=0}^{m-1} \frac{a^k}{k!} + \frac{a^m}{m!} \cdot \frac{1}{1-\rho}}
 \]</div>
-<p>где <span class="arithmatex">\(a = m\rho = \lambda/\mu\)</span>.</p>
+<p>где <span class="arithmatex">\(a = m\rho = \frac{\lambda}{\mu}\)</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Формула Эрланга C</p>
-<p>Эта формула названа в честь <strong>Агнера Краруп Эрланга</strong> — датского инженера, который в начале XX века разработал математическую теорию телефонных сетей. Его работы — фундамент всей теории массового обслуживания.</p>
+<p>Названа в честь <strong>Агнера Краруп Эрланга</strong> -- датского инженера, который в начале XX века разработал математическую теорию телефонных сетей. Его работы -- фундамент всей теории массового обслуживания.</p>
 </div>
 <h3 id="mmm_1">Метрики M/M/m<a class="headerlink" href="#mmm_1" title="Permanent link">&para;</a></h3>
 <div class="arithmatex">\[
@@ -2180,8 +1928,8 @@ E[n] = E[n_q] + a
 <thead>
 <tr>
 <th>Метрика</th>
-<th>M/M/1</th>
-<th>M/M/m</th>
+<th><mark>M/M/1</mark></th>
+<th><mark>M/M/m</mark></th>
 </tr>
 </thead>
 <tbody>
@@ -2192,8 +1940,8 @@ E[n] = E[n_q] + a
 </tr>
 <tr>
 <td>Загрузка</td>
-<td><span class="arithmatex">\(\rho = \lambda/\mu\)</span></td>
-<td><span class="arithmatex">\(\rho = \lambda/(m\mu)\)</span></td>
+<td><span class="arithmatex">\(\rho = \frac{\lambda}{\mu}\)</span></td>
+<td><span class="arithmatex">\(\rho = \frac{\lambda}{m\mu}\)</span></td>
 </tr>
 <tr>
 <td>Условие стабильности</td>
@@ -2207,37 +1955,39 @@ E[n] = E[n_q] + a
 </tr>
 <tr>
 <td><span class="arithmatex">\(E[n_q]\)</span></td>
-<td><span class="arithmatex">\(\dfrac{\rho^2}{1-\rho}\)</span></td>
-<td><span class="arithmatex">\(\dfrac{\rho \cdot C(m,a)}{1-\rho}\)</span></td>
+<td><span class="arithmatex">\(\frac{\rho^2}{1-\rho}\)</span></td>
+<td><span class="arithmatex">\(\frac{\rho \cdot C(m,a)}{1-\rho}\)</span></td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(E[w]\)</span></td>
-<td><span class="arithmatex">\(\dfrac{\rho/\mu}{1-\rho}\)</span></td>
-<td><span class="arithmatex">\(\dfrac{C(m,a)}{m\mu(1-\rho)}\)</span></td>
+<td><span class="arithmatex">\(\frac{\rho/\mu}{1-\rho}\)</span></td>
+<td><span class="arithmatex">\(\frac{C(m,a)}{m\mu(1-\rho)}\)</span></td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(E[r]\)</span></td>
-<td><span class="arithmatex">\(\dfrac{1/\mu}{1-\rho}\)</span></td>
-<td><span class="arithmatex">\(E[w] + 1/\mu\)</span></td>
+<td><span class="arithmatex">\(\frac{1/\mu}{1-\rho}\)</span></td>
+<td><span class="arithmatex">\(E[w] + \frac{1}{\mu}\)</span></td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(E[n]\)</span></td>
-<td><span class="arithmatex">\(\dfrac{\rho}{1-\rho}\)</span></td>
-<td><span class="arithmatex">\(E[n_q] + \lambda/\mu\)</span></td>
+<td><span class="arithmatex">\(\frac{\rho}{1-\rho}\)</span></td>
+<td><span class="arithmatex">\(E[n_q] + \frac{\lambda}{\mu}\)</span></td>
 </tr>
 </tbody>
 </table>
 <div class="admonition info">
 <p class="admonition-title">Эффект масштаба</p>
-<p>Один сервер с производительностью <span class="arithmatex">\(m\mu\)</span> <strong>всегда лучше</strong>, чем <span class="arithmatex">\(m\)</span> серверов с производительностью <span class="arithmatex">\(\mu\)</span> каждый (при одинаковой суммарной мощности). Это связано с тем, что при нескольких серверах возможна ситуация, когда один сервер простаивает, а перед другим — очередь. Единый быстрый сервер такого не допускает.</p>
+<p>Один сервер с производительностью <span class="arithmatex">\(m\mu\)</span> <strong>всегда лучше</strong>, чем <span class="arithmatex">\(m\)</span> серверов с производительностью <span class="arithmatex">\(\mu\)</span> каждый (при одинаковой суммарной мощности). При нескольких серверах возможна ситуация, когда один сервер простаивает, а перед другим -- очередь. Единый быстрый сервер такого не допускает.</p>
 </div>
+<p>Важно понимать: добавление серверов -- это не линейное улучшение. Два сервера при <span class="arithmatex">\(\rho = 0.8\)</span> -- это не "вдвое лучше", чем один. Работает закон убывающей отдачи: первый дополнительный сервер даёт огромный выигрыш (разгружает перегруженную систему), а каждый следующий -- всё меньше и меньше. В какой-то момент добавлять серверы становится просто невыгодно -- лучше оптимизировать время обслуживания или перепроектировать архитектуру.</p>
 <hr />
 <h2 id="mmmb">Очередь M/M/m/B<a class="headerlink" href="#mmmb" title="Permanent link">&para;</a></h2>
-<p>В реальных системах буфер конечный — будь то память маршрутизатора, количество мест в зале ожидания или ёмкость call-центра. Модель <strong>M/M/m/B</strong> учитывает это.</p>
+<p>В реальных системах буфер конечный -- память маршрутизатора, количество мест в зале ожидания, ёмкость call-центра. Модель <mark>M/M/m/B</mark> учитывает это.</p>
+<p>Ключевой инсайт этой модели: конечный буфер = потери. Это модель для call-центров (линия занята -- клиент слышит гудки), сетевых маршрутизаторов (буфер полон -- пакет отброшен), парковок (мест нет -- машина уезжает), больничных приёмных (все койки заняты -- пациента перенаправляют). Везде, где есть физический лимит на количество ожидающих, работает именно эта модель.</p>
 <h3 id="_17">Параметры<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
 <ul>
 <li><span class="arithmatex">\(m\)</span> серверов</li>
-<li><span class="arithmatex">\(B\)</span> — максимальное число заявок в системе (включая обслуживаемых)</li>
+<li><span class="arithmatex">\(B\)</span> -- максимальное число заявок в системе (включая обслуживаемых)</li>
 <li>Если все <span class="arithmatex">\(B\)</span> мест заняты, новая заявка <strong>теряется</strong> (блокировка)</li>
 </ul>
 <h3 id="mmm_2">Ключевые отличия от M/M/m<a class="headerlink" href="#mmm_2" title="Permanent link">&para;</a></h3>
@@ -2245,8 +1995,8 @@ E[n] = E[n_q] + a
 <thead>
 <tr>
 <th>Свойство</th>
-<th>M/M/m</th>
-<th>M/M/m/B</th>
+<th><mark>M/M/m</mark></th>
+<th><mark>M/M/m/B</mark></th>
 </tr>
 </thead>
 <tbody>
@@ -2274,7 +2024,7 @@ E[n] = E[n_q] + a
 </table>
 <div class="admonition warning">
 <p class="admonition-title">Всегда стабильна!</p>
-<p>M/M/m/B <strong>всегда</strong> имеет стационарное распределение, даже если <span class="arithmatex">\(\rho \geq 1\)</span>. Причина проста: число заявок ограничено сверху числом <span class="arithmatex">\(B\)</span>, поэтому очередь не может расти бесконечно. Конечно, при <span class="arithmatex">\(\rho \geq 1\)</span> потери будут огромными, но формально система стабильна.</p>
+<p><mark>M/M/m/B</mark> <strong>всегда</strong> имеет стационарное распределение, даже если <span class="arithmatex">\(\rho \geq 1\)</span>. Причина проста: число заявок ограничено сверху числом <span class="arithmatex">\(B\)</span>, поэтому очередь не может расти бесконечно. При <span class="arithmatex">\(\rho \geq 1\)</span> потери будут огромными, но формально система стабильна.</p>
 </div>
 <h3 id="_18">Стационарные вероятности<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
 <p>Для M/M/1/B (один сервер, буфер <span class="arithmatex">\(B\)</span>):</p>
@@ -2289,11 +2039,11 @@ p_n = \frac{1}{B+1}, \quad n = 0, 1, \ldots, B
 <p>Для общего случая M/M/m/B:</p>
 <div class="arithmatex">\[
 p_n = \begin{cases}
-\dfrac{a^n}{n!}\,p_0, &amp; 0 \leq n \leq m \\[10pt]
-\dfrac{a^n}{m!\,m^{n-m}}\,p_0, &amp; m &lt; n \leq B
+\frac{a^n}{n!}\,p_0, &amp; 0 \leq n \leq m \\[10pt]
+\frac{a^n}{m!\,m^{n-m}}\,p_0, &amp; m &lt; n \leq B
 \end{cases}
 \]</div>
-<p>где <span class="arithmatex">\(a = \lambda/\mu\)</span>, а <span class="arithmatex">\(p_0\)</span> находится из нормировки <span class="arithmatex">\(\sum_{n=0}^{B} p_n = 1\)</span>.</p>
+<p>где <span class="arithmatex">\(a = \frac{\lambda}{\mu}\)</span>, а <span class="arithmatex">\(p_0\)</span> находится из нормировки <span class="arithmatex">\(\sum_{n=0}^{B} p_n = 1\)</span>.</p>
 <h3 id="_19">Интенсивность потерь<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
 <p>Заявки теряются, когда система заполнена (все <span class="arithmatex">\(B\)</span> мест заняты):</p>
 <div class="arithmatex">\[
@@ -2305,23 +2055,23 @@ p_n = \begin{cases}
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Вероятность блокировки</p>
-<p><span class="arithmatex">\(p_B\)</span> — это вероятность того, что пришедшая заявка будет потеряна. Это ключевая метрика качества обслуживания (QoS) в телекоммуникациях и сетевых системах.</p>
+<p><span class="arithmatex">\(p_B\)</span> -- это вероятность того, что пришедшая заявка будет потеряна. Это ключевая метрика качества обслуживания (QoS) в телекоммуникациях и сетевых системах.</p>
 </div>
 <h3 id="_20">Метрики<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
-<p>Все метрики вычисляются аналогично M/M/m, но с учётом конечного пространства состояний:</p>
+<p>Все метрики вычисляются аналогично <mark>M/M/m</mark>, но с учётом конечного пространства состояний:</p>
 <div class="arithmatex">\[
 E[n] = \sum_{n=0}^{B} n \cdot p_n
 \]</div>
 <div class="arithmatex">\[
 E[n_q] = \sum_{n=m+1}^{B} (n - m) \cdot p_n
 \]</div>
-<p>Закон Литтла применяется с <strong>эффективной</strong> интенсивностью:</p>
+<p><mark>Закон Литтла</mark> применяется с <strong>эффективной</strong> интенсивностью:</p>
 <div class="arithmatex">\[
 E[r] = \frac{E[n]}{\lambda_{\text{eff}}}, \quad E[w] = \frac{E[n_q]}{\lambda_{\text{eff}}}
 \]</div>
 <hr />
 <h2 id="_21">Другие модели<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
-<p>M/M/1, M/M/m и M/M/m/B — это «чистые» модели с экспоненциальными распределениями. Но в реальности время обслуживания часто <strong>не экспоненциальное</strong>. Для таких случаев существуют расширения.</p>
+<p><mark>M/M/1</mark>, <mark>M/M/m</mark> и <mark>M/M/m/B</mark> -- это "чистые" модели с экспоненциальными распределениями. Но в реальности время обслуживания часто <strong>не экспоненциальное</strong>. Для таких случаев существуют расширения.</p>
 <h3 id="_22">Обзор моделей<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -2335,7 +2085,7 @@ E[r] = \frac{E[n]}{\lambda_{\text{eff}}}, \quad E[w] = \frac{E[n_q]}{\lambda_{\t
 <tr>
 <td><strong>M/G/1</strong></td>
 <td>Пуассоновский вход, <strong>произвольное</strong> (General) время обслуживания, 1 сервер</td>
-<td>Формула Поллачека--Хинчина: <span class="arithmatex">\(E[n_q] = \frac{\rho^2(1+C_s^2)}{2(1-\rho)}\)</span>, где <span class="arithmatex">\(C_s\)</span> — коэффициент вариации времени обслуживания</td>
+<td><mark>Формула Поллачека--Хинчина</mark>: <span class="arithmatex">\(E[n_q] = \frac{\rho^2(1+C_s^2)}{2(1-\rho)}\)</span>, где <span class="arithmatex">\(C_s\)</span> -- коэффициент вариации времени обслуживания</td>
 </tr>
 <tr>
 <td><strong>M/D/1</strong></td>
@@ -2345,36 +2095,36 @@ E[r] = \frac{E[n]}{\lambda_{\text{eff}}}, \quad E[w] = \frac{E[n_q]}{\lambda_{\t
 <tr>
 <td><strong>M/G/<span class="arithmatex">\(\infty\)</span></strong></td>
 <td>Бесконечное число серверов (каждый клиент сразу обслуживается)</td>
-<td>Нет ожидания. Число заявок в системе — пуассоновское с параметром <span class="arithmatex">\(\lambda/\mu\)</span>. Модель «чистой задержки»</td>
+<td>Нет ожидания. Число заявок в системе -- пуассоновское с параметром <span class="arithmatex">\(\frac{\lambda}{\mu}\)</span>. Модель "чистой задержки"</td>
 </tr>
 <tr>
 <td><strong>G/M/1</strong></td>
 <td><strong>Произвольный</strong> вход, экспоненциальное обслуживание, 1 сервер</td>
-<td>Решается через уравнение для <span class="arithmatex">\(\sigma\)</span> — единственного корня <span class="arithmatex">\(\sigma = A^*(\mu - \mu\sigma)\)</span> на <span class="arithmatex">\((0,1)\)</span></td>
+<td>Решается через уравнение для <span class="arithmatex">\(\sigma\)</span> -- единственного корня <span class="arithmatex">\(\sigma = A^*(\mu - \mu\sigma)\)</span> на <span class="arithmatex">\((0,1)\)</span></td>
 </tr>
 <tr>
 <td><strong>G/G/m</strong></td>
 <td>Произвольный вход, произвольное обслуживание, <span class="arithmatex">\(m\)</span> серверов</td>
-<td>Точных формул нет — используются приближения (напр., формула Кингмана для G/G/1) или симуляция</td>
+<td>Точных формул нет -- используются приближения (напр., формула Кингмана для G/G/1) или симуляция</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition tip">
-<p class="admonition-title">Формула Поллачека--Хинчина — жемчужина теории</p>
-<p>Для M/G/1 среднее число заявок в очереди зависит только от <strong>первых двух моментов</strong> распределения обслуживания (среднее и дисперсия). Это значит, что детали распределения не так важны — важны среднее и вариабельность. Экспоненциальное распределение (<span class="arithmatex">\(C_s = 1\)</span>) — это «средний» случай; детерминированное (<span class="arithmatex">\(C_s = 0\)</span>) — лучший; а гиперэкспоненциальное (<span class="arithmatex">\(C_s &gt; 1\)</span>) — хуже.</p>
+<p class="admonition-title">Формула Поллачека--Хинчина -- жемчужина теории</p>
+<p>Для M/G/1 среднее число заявок в очереди зависит только от <strong>первых двух моментов</strong> распределения обслуживания (среднее и дисперсия). Детали распределения не так важны -- важны среднее и вариабельность. Экспоненциальное распределение (<span class="arithmatex">\(C_s = 1\)</span>) -- "средний" случай; детерминированное (<span class="arithmatex">\(C_s = 0\)</span>) -- лучший; а гиперэкспоненциальное (<span class="arithmatex">\(C_s &gt; 1\)</span>) -- хуже.</p>
 </div>
 <h3 id="_23">Как выбрать модель?<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>flowchart TD
-    A["Известны параметры системы"] --&gt; B{"Вход пуассоновский?"}
-    B --&gt;|Да| C{"Обслуживание экспоненциальное?"}
-    B --&gt;|Нет| D{"Обслуживание экспоненциальное?"}
-    C --&gt;|Да| E{"Сколько серверов?"}
-    C --&gt;|Нет| F["M/G/1\n(Поллачек—Хинчин)"]
+    A["Параметры известны"] --&gt; B{"Вход пуассоновский?"}
+    B --&gt;|Да| C{"Обсл. экспоненц.?"}
+    B --&gt;|Нет| D{"Обсл. экспоненц.?"}
+    C --&gt;|Да| E{"Серверов?"}
+    C --&gt;|Нет| F["M/G/1 (Поллачек-Хинчин)"]
     D --&gt;|Да| G["G/M/1"]
-    D --&gt;|Нет| H["G/G/m\n(приближения или симуляция)"]
+    D --&gt;|Нет| H["G/G/m (приближения)"]
     E --&gt;|1| I["M/M/1"]
     E --&gt;|m| J{"Буфер конечный?"}
-    J --&gt;|Нет| K["M/M/m\n(Эрланг C)"]
+    J --&gt;|Нет| K["M/M/m (Эрланг C)"]
     J --&gt;|Да| L["M/M/m/B"]
 
     style I fill:#e8f5e9,stroke:#4CAF50
@@ -2385,17 +2135,17 @@ E[r] = \frac{E[n]}{\lambda_{\text{eff}}}, \quad E[w] = \frac{E[n_q]}{\lambda_{\t
     style H fill:#f3e5f5,stroke:#9C27B0</code></pre>
 <hr />
 <h2 id="_24">Итоги<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
-<p>Давай подведём итоги того, что мы сегодня разобрали:</p>
+<p>Короче говоря, вот что мы разобрали:</p>
 <ol>
-<li><strong>Процесс рождения-гибели</strong> — общая рамка для анализа очередей через стационарные вероятности.</li>
-<li><strong>M/M/1</strong> — базовая модель с 26 аналитическими результатами. Запомни главное: <span class="arithmatex">\(E[n] = \rho/(1-\rho)\)</span>, и при <span class="arithmatex">\(\rho \to 1\)</span> всё взрывается.</li>
-<li><strong>M/M/m</strong> — расширение на <span class="arithmatex">\(m\)</span> серверов; появляется формула Эрланга C для вероятности ожидания.</li>
-<li><strong>M/M/m/B</strong> — конечный буфер, заявки теряются при переполнении; система всегда стабильна.</li>
-<li><strong>Другие модели</strong> (M/G/1, M/D/1 и т.д.) — позволяют ослабить предположение об экспоненциальности.</li>
+<li><mark>Процесс рождения-гибели</mark> -- общая рамка для анализа очередей через стационарные вероятности.</li>
+<li><mark>M/M/1</mark> -- базовая модель с 26 аналитическими результатами. Главное: <span class="arithmatex">\(E[n] = \frac{\rho}{1-\rho}\)</span>, и при <span class="arithmatex">\(\rho \to 1\)</span> всё взрывается.</li>
+<li><mark>M/M/m</mark> -- расширение на <span class="arithmatex">\(m\)</span> серверов; появляется <mark>формула Эрланга C</mark> для вероятности ожидания.</li>
+<li><mark>M/M/m/B</mark> -- конечный буфер, заявки теряются при переполнении; система всегда стабильна.</li>
+<li><strong>Другие модели</strong> (M/G/1, M/D/1 и т.д.) -- позволяют ослабить предположение об экспоненциальности.</li>
 </ol>
 <div class="admonition success">
 <p class="admonition-title">Главный вывод</p>
-<p>Аналитические модели очередей — мощный инструмент для <strong>быстрой оценки</strong> производительности систем. Они не заменяют симуляцию для сложных случаев, но дают отличную интуицию и первое приближение. Если твоя система хоть как-то похожа на M/M/1 — начни с формулы, а уже потом думай, нужна ли симуляция.</p>
+<p>Аналитические модели очередей -- мощный инструмент для <strong>быстрой оценки</strong> производительности систем. Они не заменяют симуляцию для сложных случаев, но дают отличную интуицию и первое приближение. Если система хоть как-то похожа на M/M/1 -- начни с формулы, а уже потом думай, нужна ли симуляция.</p>
 </div>
 
 
@@ -2454,7 +2204,7 @@ E[r] = \frac{E[n]}{\lambda_{\text{eff}}}, \quad E[w] = \frac{E[n_q]}{\lambda_{\t
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>

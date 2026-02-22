@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Конспект курса «Имитационное моделирование» (ФКН ВШЭ)">
+        <meta name="description" content="Конспект курса «Имитационное моделирование»">
       
       
       
@@ -51,6 +51,8 @@
     
       <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -88,7 +90,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
     <a href=".." title="Имитационное моделирование — Конспект" class="md-header__button md-logo" aria-label="Имитационное моделирование — Конспект" data-md-component="logo">
       
@@ -200,264 +204,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Главная
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../01-introduction/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  1. Введение в ИМ
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../02-system-dynamics/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  2. Системная динамика
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../03-agent-based/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  3. Агентное моделирование
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../04-discrete-event/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  4. Дискретно-событийное моделирование
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../05-queueing-basics/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  5. Основы ТМО
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../06-queueing-intro/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  6. Теория очередей — введение
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../07-single-queue/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  7. Анализ одиночной очереди
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../08-queueing-networks/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  8. Сети массового обслуживания
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../09-simpy/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  9. SimPy — основы
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../10-simpy-practice/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  10. SimPy — практика
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../11-simulation-analysis/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  11. Моделирование и анализ
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Шпаргалка
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -471,10 +217,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Имитационное моделирование — Конспект" class="md-nav__button md-logo" aria-label="Имитационное моделирование — Конспект" data-md-component="logo">
       
@@ -1105,10 +849,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#b-mmnn-n" class="md-nav__link">
+  <a href="#b-mmnn" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Эрланг B --- СМО с отказами (\(M/M/n/n\), \(n\) каналов, без очереди)
+        Эрланг B --- \(M/M/n/n\) (без очереди)
       
     </span>
   </a>
@@ -1116,10 +860,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-1-m-mm1m1" class="md-nav__link">
+  <a href="#mm1m1-1-m" class="md-nav__link">
     <span class="md-ellipsis">
       
-        СМО с ожиданием --- 1 канал, \(m\) мест в очереди (\(M/M/1/m{+}1\))
+        \(M/M/1/m{+}1\) (1 канал, \(m\) мест в очереди)
       
     </span>
   </a>
@@ -1471,10 +1215,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#b-mmnn-n" class="md-nav__link">
+  <a href="#b-mmnn" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Эрланг B --- СМО с отказами (\(M/M/n/n\), \(n\) каналов, без очереди)
+        Эрланг B --- \(M/M/n/n\) (без очереди)
       
     </span>
   </a>
@@ -1482,10 +1226,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-1-m-mm1m1" class="md-nav__link">
+  <a href="#mm1m1-1-m" class="md-nav__link">
     <span class="md-ellipsis">
       
-        СМО с ожиданием --- 1 канал, \(m\) мест в очереди (\(M/M/1/m{+}1\))
+        \(M/M/1/m{+}1\) (1 канал, \(m\) мест в очереди)
       
     </span>
   </a>
@@ -1593,63 +1337,61 @@
 
 
 <h1 id="_1">Шпаргалка по имитационному моделированию<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p>Все ключевые определения, формулы и справочные материалы курса <strong>«Имитационное моделирование»</strong> в одном месте.</p>
-</blockquote>
+<p>Все ключевые определения, формулы и справочные материалы курса в одном месте.</p>
 <hr />
 <h2 id="_2">Краткое резюме по темам<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="1">1. Введение в ИМ<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>Имитационная модель --- это исполняемая модель системы, которая воспроизводит её поведение во времени. Три основных подхода --- системная динамика, агентное моделирование и дискретно-событийное моделирование --- покрывают задачи от стратегического до операционного уровня. ИМ применяется, когда аналитическое решение невозможно из-за сложности, нелинейности или стохастичности системы.</p>
+<p>Имитационная модель --- исполняемая модель системы, воспроизводящая её поведение во времени. Три подхода --- системная динамика, агентное моделирование и дискретно-событийное моделирование. ИМ применяется, когда аналитическое решение невозможно из-за сложности, нелинейности или стохастичности.</p>
 <h3 id="2">2. Системная динамика<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>Подход Форрестера: система описывается через накопители, потоки и петли обратной связи (усиливающие R и балансирующие B). Работает на макроуровне с агрегированными показателями и непрерывным временем. Классический пример --- модель диффузии Басса.</p>
+<p>Подход Форрестера: накопители, потоки и петли обратной связи (усиливающие R, балансирующие B). Макроуровень, агрегированные показатели, непрерывное время. Пример --- модель диффузии Басса.</p>
 <h3 id="3">3. Агентное моделирование<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<p>Система описывается «снизу вверх»: множество автономных агентов с локальными правилами порождают сложное глобальное поведение (эмерджентность). Подходит для задач с неоднородностью участников --- эпидемиология, социальные системы, рынки. Охватывает диапазон от микро- до макроуровня.</p>
+<p>Система «снизу вверх»: автономные агенты с локальными правилами порождают <mark>эмерджентность</mark>. Эпидемиология, социальные системы, рынки.</p>
 <h3 id="4-">4. Дискретно-событийное моделирование<a class="headerlink" href="#4-" title="Permanent link">&para;</a></h3>
-<p>Модельное время продвигается скачками от события к событию; состояние системы меняется только в эти дискретные моменты. Основные элементы --- сущности (заявки), ресурсы, очереди, процессы. Рабочая лошадка для логистики, производства и сервисных систем.</p>
+<p>Время продвигается скачками от события к событию. Основные элементы --- сущности, ресурсы, очереди, процессы. Логистика, производство, сервисные системы.</p>
 <h3 id="5">5. Основы теории массового обслуживания<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
-<p>СМО состоит из входящего потока заявок, каналов обслуживания и очереди (или отказа). Простейший (пуассоновский) поток обладает свойствами стационарности, ординарности и отсутствия последействия. Поведение СМО описывается марковскими процессами и уравнениями Колмогорова.</p>
+<p>СМО: входящий поток, каналы обслуживания, очередь. <mark>Пуассоновский поток</mark>: стационарность, ординарность, отсутствие последействия. Марковские процессы, уравнения Колмогорова.</p>
 <h3 id="6-">6. Теория очередей --- введение<a class="headerlink" href="#6-" title="Permanent link">&para;</a></h3>
-<p>Нотация Кендалла <span class="arithmatex">\(A/S/m/B/K/SD\)</span> систематизирует описание СМО. Закон Литтла <span class="arithmatex">\(E[n] = \lambda \cdot E[r]\)</span> связывает среднее число заявок в системе с интенсивностью потока и средним временем пребывания. Основные распределения: экспоненциальное (M), общее (G), детерминированное (D).</p>
+<p>Нотация Кендалла <span class="arithmatex">\(A/S/m/B/K/SD\)</span>. <mark>Закон Литтла</mark> <span class="arithmatex">\(E[n] = \lambda \cdot E[r]\)</span>. Распределения: M (экспоненциальное), G (общее), D (детерминированное).</p>
 <h3 id="7">7. Анализ одиночной очереди<a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
-<p>Модели M/M/1, M/M/m и M/M/m/B --- точные формулы для стационарных характеристик (загрузка, длина очереди, время ожидания, вероятность отказа). Формулы Эрланга B и C позволяют рассчитать системы с отказами и с ожиданием соответственно. Загрузка <span class="arithmatex">\(\rho &lt; 1\)</span> --- необходимое условие устойчивости.</p>
+<p>M/M/1, M/M/m, M/M/m/B --- формулы для стационарных характеристик. Формулы Эрланга B и C. Условие устойчивости: <span class="arithmatex">\(\rho &lt; 1\)</span>.</p>
 <h3 id="8">8. Сети массового обслуживания<a class="headerlink" href="#8" title="Permanent link">&para;</a></h3>
-<p>Открытые сети (заявки приходят извне и уходят) и замкнутые сети (фиксированное число заявок циркулирует внутри). Теорема Джексона: в открытой сети с пуассоновскими потоками и экспоненциальным обслуживанием стационарное распределение имеет продуктовую форму. Каждый узел можно анализировать независимо.</p>
+<p>Открытые и замкнутые сети. Теорема Джексона: продуктовая форма стационарного распределения. Каждый узел можно анализировать независимо.</p>
 <h3 id="9-simpy-">9. SimPy --- основы<a class="headerlink" href="#9-simpy-" title="Permanent link">&para;</a></h3>
-<p>SimPy --- библиотека дискретно-событийного моделирования на Python, основанная на генераторах (yield). Основные абстракции: Environment, Process, Resource, Container, Store. Процессы взаимодействуют через события (timeout, request, put, get).</p>
+<p>Библиотека DES на Python (генераторы, yield). Абстракции: Environment, Process, Resource, Container, Store.</p>
 <h3 id="10-simpy-">10. SimPy --- практика<a class="headerlink" href="#10-simpy-" title="Permanent link">&para;</a></h3>
-<p>Построение полных моделей: автомойка, кинотеатр, склад. Сбор статистики, визуализация результатов, анализ чувствительности. Практика использования Resource, Container и Store для реальных задач.</p>
+<p>Полные модели: автомойка, кинотеатр. Сбор статистики, анализ чувствительности. Resource, Container, Store.</p>
 <h3 id="11">11. Моделирование и анализ<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
-<p>Методология симуляционного исследования по Law: формулировка задачи, сбор данных, построение модели, верификация, валидация, планирование экспериментов, анализ результатов. Важность многократных прогонов, доверительных интервалов и анализа переходного режима.</p>
+<p>Методология по Law: формулировка, сбор данных, модель, верификация, валидация, эксперименты, анализ. Многократные прогоны, доверительные интервалы, переходный режим.</p>
 <hr />
 <h2 id="_3">Ключевые определения<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <dl>
 <dt><strong>Имитационная модель</strong></dt>
-<dd>Исполняемая (executable) модель системы --- набор правил, по которым из текущего состояния строится следующее. Запуск этих правил многократно порождает траекторию поведения системы во времени.</dd>
+<dd>Исполняемая модель системы --- набор правил, по которым из текущего состояния строится следующее. Запуск порождает траекторию поведения во времени.</dd>
 <dt><strong>Системная динамика</strong></dt>
-<dd>Подход к моделированию на макроуровне через агрегированные <strong>накопители</strong> (stocks, интегралы), <strong>потоки</strong> (flows, производные) и <strong>петли обратной связи</strong> (усиливающие R --- «снежный ком», балансирующие B --- «термостат»).</dd>
+<dd>Макроуровень: <mark>накопители</mark> (stocks), <mark>потоки</mark> (flows) и петли обратной связи (R --- усиливающие, B --- балансирующие).</dd>
 <dt><strong>Агентное моделирование (ABM)</strong></dt>
-<dd>Подход «снизу вверх»: <strong>агент</strong> --- автономная сущность с локальными правилами поведения; <strong>среда</strong> --- пространство, в котором агенты взаимодействуют; <strong>эмерджентность</strong> --- глобальное поведение, возникающее из локальных правил и не заложенное в них явно.</dd>
+<dd>Агент --- автономная сущность с локальными правилами; среда --- пространство взаимодействия; <mark>эмерджентность</mark> --- глобальное поведение из локальных правил.</dd>
 <dt><strong>Дискретно-событийное моделирование (DES)</strong></dt>
-<dd>Подход, в котором <strong>событие</strong> --- мгновенное изменение состояния системы; <strong>состояние системы</strong> --- набор переменных, описывающих систему в данный момент; время продвигается скачками от события к событию.</dd>
+<dd>Событие --- мгновенное изменение состояния; время продвигается скачками от события к событию.</dd>
 <dt><strong>Система массового обслуживания (СМО)</strong></dt>
-<dd>Система, состоящая из входящего потока заявок, <strong>каналов</strong> (серверов) обслуживания, <strong>очереди</strong> (буфера ожидания) и дисциплины обслуживания. <strong>Заявка</strong> --- единица работы, поступающая на обслуживание.</dd>
+<dd>Входящий поток заявок + каналы обслуживания + очередь + дисциплина обслуживания.</dd>
 <dt><strong>Простейший (пуассоновский) поток</strong></dt>
-<dd>Поток событий, обладающий тремя свойствами: <em>стационарность</em> (интенсивность <span class="arithmatex">\(\lambda\)</span> постоянна), <em>ординарность</em> (вероятность двух событий одновременно пренебрежимо мала), <em>отсутствие последействия</em> (будущие события не зависят от прошлых). Интервалы между событиями распределены экспоненциально.</dd>
+<dd>Стационарность (<span class="arithmatex">\(\lambda\)</span> = const), ординарность, отсутствие последействия. Интервалы распределены экспоненциально.</dd>
 <dt><strong>Марковский процесс</strong></dt>
-<dd>Случайный процесс, в котором будущее состояние зависит только от текущего состояния и не зависит от предыстории (свойство отсутствия памяти). Для непрерывного времени описывается уравнениями Колмогорова.</dd>
+<dd>Будущее зависит только от текущего состояния (свойство отсутствия памяти). Непрерывное время --- уравнения Колмогорова.</dd>
 <dt><strong>Нотация Кендалла <span class="arithmatex">\(A/S/m/B/K/SD\)</span></strong></dt>
-<dd>Стандартная система обозначений для СМО: <span class="arithmatex">\(A\)</span> --- распределение интервалов прихода, <span class="arithmatex">\(S\)</span> --- распределение времени обслуживания, <span class="arithmatex">\(m\)</span> --- число каналов, <span class="arithmatex">\(B\)</span> --- ёмкость буфера, <span class="arithmatex">\(K\)</span> --- размер источника, <span class="arithmatex">\(SD\)</span> --- дисциплина очереди.</dd>
+<dd><span class="arithmatex">\(A\)</span> --- распределение приходов, <span class="arithmatex">\(S\)</span> --- обслуживания, <span class="arithmatex">\(m\)</span> --- каналы, <span class="arithmatex">\(B\)</span> --- буфер, <span class="arithmatex">\(K\)</span> --- источник, <span class="arithmatex">\(SD\)</span> --- дисциплина.</dd>
 <dt><strong>Закон Литтла</strong></dt>
-<dd>Фундаментальное соотношение теории очередей: среднее число заявок в системе равно произведению интенсивности входящего потока на среднее время пребывания: <span class="arithmatex">\(E[n] = \lambda \cdot E[r]\)</span>. Справедлив для любой устойчивой системы.</dd>
+<dd><span class="arithmatex">\(E[n] = \lambda \cdot E[r]\)</span>. Среднее число заявок = интенсивность <span class="arithmatex">\(\times\)</span> среднее время пребывания. Любая устойчивая система.</dd>
 <dt><strong>Продуктовая форма сети</strong></dt>
-<dd>Свойство сети СМО (теорема Джексона), при котором совместное стационарное распределение числа заявок в узлах факторизуется в произведение маргинальных распределений отдельных узлов: <span class="arithmatex">\(P(n_1, n_2, \ldots, n_K) = \prod_{i=1}^{K} p_i(n_i)\)</span>.</dd>
+<dd>Теорема Джексона: <span class="arithmatex">\(P(n_1, n_2, \ldots, n_K) = \prod_{i=1}^{K} p_i(n_i)\)</span>.</dd>
 </dl>
 <hr />
 <h2 id="_4">Основные формулы<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <h3 id="_5">Пуассоновский поток<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>Вероятность <span class="arithmatex">\(m\)</span> событий за время <span class="arithmatex">\(\tau\)</span>:</p>
 <div class="arithmatex">\[P_m(\tau) = \frac{(\lambda\tau)^m}{m!}\,e^{-\lambda\tau}\]</div>
-<p>Распределение интервалов между событиями (экспоненциальное):</p>
+<p>Распределение интервалов (экспоненциальное):</p>
 <div class="arithmatex">\[F(t) = 1 - e^{-\lambda t}, \qquad E[T] = \frac{1}{\lambda}, \qquad D[T] = \frac{1}{\lambda^2}\]</div>
 <hr />
 <h3 id="_6">Закон Литтла<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
@@ -1675,19 +1417,14 @@
 </tr>
 </tbody>
 </table>
-<p>где <span class="arithmatex">\(E[n]\)</span> --- среднее число заявок в системе, <span class="arithmatex">\(E[n_q]\)</span> --- в очереди, <span class="arithmatex">\(E[r]\)</span> --- среднее время пребывания, <span class="arithmatex">\(E[w]\)</span> --- среднее время ожидания, <span class="arithmatex">\(E[s]\)</span> --- среднее время обслуживания.</p>
 <hr />
 <h3 id="_7">Процессы гибели и размножения<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<p>Стационарное распределение:</p>
 <div class="arithmatex">\[p_k = \frac{\lambda_0 \lambda_1 \cdots \lambda_{k-1}}{\mu_1 \mu_2 \cdots \mu_k}\, p_0, \qquad k = 1, 2, \ldots\]</div>
 <div class="arithmatex">\[p_0 = \left(1 + \sum_{k=1}^{\infty}\frac{\lambda_0 \lambda_1 \cdots \lambda_{k-1}}{\mu_1 \mu_2 \cdots \mu_k}\right)^{-1}\]</div>
 <hr />
 <h3 id="_8">Уравнения Колмогорова (стационарные)<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<p>Для каждого состояния <span class="arithmatex">\(k\)</span> в стационарном режиме:</p>
 <div class="arithmatex">\[\sum_{\substack{j \neq k}} q_{jk}\, p_j = \left(\sum_{\substack{j \neq k}} q_{kj}\right) p_k\]</div>
-<blockquote>
-<p>Сумма потоков вероятности <strong>в</strong> состояние <span class="arithmatex">\(k\)</span> равна сумме потоков <strong>из</strong> состояния <span class="arithmatex">\(k\)</span>.</p>
-</blockquote>
+<p>Сумма потоков вероятности <strong>в</strong> состояние <span class="arithmatex">\(k\)</span> = сумма потоков <strong>из</strong> состояния <span class="arithmatex">\(k\)</span>.</p>
 <hr />
 <h3 id="mm1">M/M/1<a class="headerlink" href="#mm1" title="Permanent link">&para;</a></h3>
 <table>
@@ -1699,31 +1436,31 @@
 </thead>
 <tbody>
 <tr>
-<td>Загрузка (условие устойчивости)</td>
-<td><span class="arithmatex">\(\rho = \dfrac{\lambda}{\mu} &lt; 1\)</span></td>
+<td>Загрузка</td>
+<td><span class="arithmatex">\(\rho = \frac{\lambda}{\mu} &lt; 1\)</span></td>
 </tr>
 <tr>
-<td>Вероятность <span class="arithmatex">\(n\)</span> заявок в системе</td>
-<td><span class="arithmatex">\(p_n = (1 - \rho)\,\rho^n\)</span></td>
+<td><span class="arithmatex">\(p_n\)</span></td>
+<td><span class="arithmatex">\((1 - \rho)\,\rho^n\)</span></td>
 </tr>
 <tr>
-<td>Среднее число заявок в системе</td>
-<td><span class="arithmatex">\(E[n] = \dfrac{\rho}{1 - \rho}\)</span></td>
+<td><span class="arithmatex">\(E[n]\)</span></td>
+<td><span class="arithmatex">\(\frac{\rho}{1 - \rho}\)</span></td>
 </tr>
 <tr>
-<td>Среднее число заявок в очереди</td>
-<td><span class="arithmatex">\(E[n_q] = \dfrac{\rho^2}{1 - \rho}\)</span></td>
+<td><span class="arithmatex">\(E[n_q]\)</span></td>
+<td><span class="arithmatex">\(\frac{\rho^2}{1 - \rho}\)</span></td>
 </tr>
 <tr>
-<td>Среднее время пребывания</td>
-<td><span class="arithmatex">\(E[r] = \dfrac{1/\mu}{1 - \rho}\)</span></td>
+<td><span class="arithmatex">\(E[r]\)</span></td>
+<td><span class="arithmatex">\(\frac{1/\mu}{1 - \rho}\)</span></td>
 </tr>
 <tr>
-<td>Среднее время ожидания</td>
-<td><span class="arithmatex">\(E[w] = \dfrac{\rho / \mu}{1 - \rho}\)</span></td>
+<td><span class="arithmatex">\(E[w]\)</span></td>
+<td><span class="arithmatex">\(\frac{\rho / \mu}{1 - \rho}\)</span></td>
 </tr>
 <tr>
-<td>Коэффициент использования канала</td>
+<td>Коэф. использования</td>
 <td><span class="arithmatex">\(U = \rho\)</span></td>
 </tr>
 </tbody>
@@ -1740,32 +1477,32 @@
 <tbody>
 <tr>
 <td>Загрузка на канал</td>
-<td><span class="arithmatex">\(\rho = \dfrac{\lambda}{m\mu} &lt; 1\)</span></td>
+<td><span class="arithmatex">\(\rho = \frac{\lambda}{m\mu} &lt; 1\)</span></td>
 </tr>
 <tr>
-<td>Суммарная нагрузка</td>
-<td><span class="arithmatex">\(a = \dfrac{\lambda}{\mu}\)</span></td>
+<td>Нагрузка</td>
+<td><span class="arithmatex">\(a = \frac{\lambda}{\mu}\)</span></td>
 </tr>
 <tr>
-<td>Вероятность пустой системы</td>
-<td><span class="arithmatex">\(p_0 = \left[\sum_{k=0}^{m-1}\dfrac{a^k}{k!} + \dfrac{a^m}{m!}\cdot\dfrac{1}{1-\rho}\right]^{-1}\)</span></td>
+<td><span class="arithmatex">\(p_0\)</span></td>
+<td><span class="arithmatex">\(\left[\sum_{k=0}^{m-1}\frac{a^k}{k!} + \frac{a^m}{m!}\cdot\frac{1}{1-\rho}\right]^{-1}\)</span></td>
 </tr>
 <tr>
-<td>Формула Эрланга C (вероятность ожидания)</td>
-<td><span class="arithmatex">\(C(m, a) = \dfrac{\dfrac{a^m}{m!}\cdot\dfrac{1}{1-\rho}}{\sum_{k=0}^{m-1}\dfrac{a^k}{k!} + \dfrac{a^m}{m!}\cdot\dfrac{1}{1-\rho}}\)</span></td>
+<td>Эрланг C</td>
+<td><span class="arithmatex">\(C(m, a) = \frac{\frac{a^m}{m!}\cdot\frac{1}{1-\rho}}{\sum_{k=0}^{m-1}\frac{a^k}{k!} + \frac{a^m}{m!}\cdot\frac{1}{1-\rho}}\)</span></td>
 </tr>
 <tr>
-<td>Среднее число в очереди</td>
-<td><span class="arithmatex">\(E[n_q] = C(m,a)\cdot\dfrac{\rho}{1-\rho}\)</span></td>
+<td><span class="arithmatex">\(E[n_q]\)</span></td>
+<td><span class="arithmatex">\(C(m,a)\cdot\frac{\rho}{1-\rho}\)</span></td>
 </tr>
 <tr>
-<td>Среднее время ожидания</td>
-<td><span class="arithmatex">\(E[w] = \dfrac{C(m,a)}{m\mu(1-\rho)}\)</span></td>
+<td><span class="arithmatex">\(E[w]\)</span></td>
+<td><span class="arithmatex">\(\frac{C(m,a)}{m\mu(1-\rho)}\)</span></td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h3 id="b-mmnn-n">Эрланг B --- СМО с отказами (<span class="arithmatex">\(M/M/n/n\)</span>, <span class="arithmatex">\(n\)</span> каналов, без очереди)<a class="headerlink" href="#b-mmnn-n" title="Permanent link">&para;</a></h3>
+<h3 id="b-mmnn">Эрланг B --- <span class="arithmatex">\(M/M/n/n\)</span> (без очереди)<a class="headerlink" href="#b-mmnn" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -1776,32 +1513,32 @@
 <tbody>
 <tr>
 <td>Нагрузка</td>
-<td><span class="arithmatex">\(a = \dfrac{\lambda}{\mu}\)</span></td>
+<td><span class="arithmatex">\(a = \frac{\lambda}{\mu}\)</span></td>
 </tr>
 <tr>
-<td>Вероятность пустой системы</td>
-<td><span class="arithmatex">\(p_0 = \left(\sum_{k=0}^{n}\dfrac{a^k}{k!}\right)^{-1}\)</span></td>
+<td><span class="arithmatex">\(p_0\)</span></td>
+<td><span class="arithmatex">\(\left(\sum_{k=0}^{n}\frac{a^k}{k!}\right)^{-1}\)</span></td>
 </tr>
 <tr>
-<td>Вероятность отказа (формула Эрланга B)</td>
-<td><span class="arithmatex">\(P_{\text{отк}} = B(n, a) = \dfrac{\dfrac{a^n}{n!}}{\sum_{k=0}^{n}\dfrac{a^k}{k!}}\)</span></td>
+<td><span class="arithmatex">\(P_{\text{отк}}\)</span> (Эрланг B)</td>
+<td><span class="arithmatex">\(B(n, a) = \frac{\frac{a^n}{n!}}{\sum_{k=0}^{n}\frac{a^k}{k!}}\)</span></td>
 </tr>
 <tr>
-<td>Относительная пропускная способность</td>
+<td>Относит. пропускная способность</td>
 <td><span class="arithmatex">\(Q = 1 - P_{\text{отк}}\)</span></td>
 </tr>
 <tr>
-<td>Абсолютная пропускная способность</td>
+<td>Абсолют. пропускная способность</td>
 <td><span class="arithmatex">\(A = \lambda\, Q\)</span></td>
 </tr>
 <tr>
-<td>Среднее число занятых каналов</td>
+<td>Среднее занятых каналов</td>
 <td><span class="arithmatex">\(\bar{k} = a\,(1 - P_{\text{отк}})\)</span></td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h3 id="-1-m-mm1m1">СМО с ожиданием --- 1 канал, <span class="arithmatex">\(m\)</span> мест в очереди (<span class="arithmatex">\(M/M/1/m{+}1\)</span>)<a class="headerlink" href="#-1-m-mm1m1" title="Permanent link">&para;</a></h3>
+<h3 id="mm1m1-1-m"><span class="arithmatex">\(M/M/1/m{+}1\)</span> (1 канал, <span class="arithmatex">\(m\)</span> мест в очереди)<a class="headerlink" href="#mm1m1-1-m" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -1811,47 +1548,45 @@
 </thead>
 <tbody>
 <tr>
-<td>Загрузка</td>
-<td><span class="arithmatex">\(\rho = \dfrac{\lambda}{\mu}\)</span></td>
+<td><span class="arithmatex">\(\rho\)</span></td>
+<td><span class="arithmatex">\(\frac{\lambda}{\mu}\)</span></td>
 </tr>
 <tr>
-<td>Вероятность пустой системы (<span class="arithmatex">\(\rho \neq 1\)</span>)</td>
-<td><span class="arithmatex">\(p_0 = \dfrac{1 - \rho}{1 - \rho^{m+2}}\)</span></td>
+<td><span class="arithmatex">\(p_0\)</span> (<span class="arithmatex">\(\rho \neq 1\)</span>)</td>
+<td><span class="arithmatex">\(\frac{1 - \rho}{1 - \rho^{m+2}}\)</span></td>
 </tr>
 <tr>
-<td>Вероятность <span class="arithmatex">\(n\)</span> заявок</td>
-<td><span class="arithmatex">\(p_n = \rho^n\, p_0, \quad n = 0, 1, \ldots, m{+}1\)</span></td>
+<td><span class="arithmatex">\(p_n\)</span></td>
+<td><span class="arithmatex">\(\rho^n\, p_0, \quad n = 0, \ldots, m{+}1\)</span></td>
 </tr>
 <tr>
-<td>Вероятность потери (буфер полон)</td>
-<td><span class="arithmatex">\(P_{\text{отк}} = p_{m+1} = \rho^{m+1}\, p_0\)</span></td>
+<td><span class="arithmatex">\(P_{\text{отк}}\)</span></td>
+<td><span class="arithmatex">\(\rho^{m+1}\, p_0\)</span></td>
 </tr>
 <tr>
-<td>Среднее число в системе</td>
-<td><span class="arithmatex">\(E[n] = \dfrac{\rho}{1-\rho} - \dfrac{(m+2)\,\rho^{m+2}}{1 - \rho^{m+2}}\)</span></td>
+<td><span class="arithmatex">\(E[n]\)</span></td>
+<td><span class="arithmatex">\(\frac{\rho}{1-\rho} - \frac{(m+2)\,\rho^{m+2}}{1 - \rho^{m+2}}\)</span></td>
 </tr>
 <tr>
-<td>Среднее число в очереди</td>
-<td><span class="arithmatex">\(E[n_q] = E[n] - (1 - p_0)\)</span></td>
+<td><span class="arithmatex">\(E[n_q]\)</span></td>
+<td><span class="arithmatex">\(E[n] - (1 - p_0)\)</span></td>
 </tr>
 <tr>
-<td>Среднее время пребывания</td>
-<td><span class="arithmatex">\(E[r] = \dfrac{E[n]}{\lambda(1 - P_{\text{отк}})}\)</span></td>
+<td><span class="arithmatex">\(E[r]\)</span></td>
+<td><span class="arithmatex">\(\frac{E[n]}{\lambda(1 - P_{\text{отк}})}\)</span></td>
 </tr>
 <tr>
-<td>Среднее время ожидания</td>
-<td><span class="arithmatex">\(E[w] = E[r] - \dfrac{1}{\mu}\)</span></td>
+<td><span class="arithmatex">\(E[w]\)</span></td>
+<td><span class="arithmatex">\(E[r] - \frac{1}{\mu}\)</span></td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h3 id="_9">Открытая сеть Джексона<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<p>Пусть сеть из <span class="arithmatex">\(K\)</span> узлов, каждый --- <span class="arithmatex">\(M/M/m_i\)</span>. Эффективные интенсивности:</p>
+<p>Эффективные интенсивности:</p>
 <div class="arithmatex">\[\Lambda_i = \gamma_i + \sum_{j=1}^{K} \Lambda_j\, r_{ji}, \quad i = 1, \ldots, K\]</div>
-<p>где <span class="arithmatex">\(\gamma_i\)</span> --- внешний поток в узел <span class="arithmatex">\(i\)</span>, <span class="arithmatex">\(r_{ji}\)</span> --- вероятность перехода из <span class="arithmatex">\(j\)</span> в <span class="arithmatex">\(i\)</span>.</p>
-<p>Продуктовая форма стационарного распределения:</p>
+<p>Продуктовая форма:</p>
 <div class="arithmatex">\[P(n_1, n_2, \ldots, n_K) = \prod_{i=1}^{K} p_i(n_i)\]</div>
-<p>где <span class="arithmatex">\(p_i(n_i)\)</span> --- стационарное распределение изолированного узла <span class="arithmatex">\(i\)</span> с интенсивностью <span class="arithmatex">\(\Lambda_i\)</span>.</p>
 <hr />
 <h2 id="simpy-">SimPy --- краткий справочник<a class="headerlink" href="#simpy-" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">simpy</span>
@@ -1883,18 +1618,18 @@
 <a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="c1"># === Ресурс с вытеснением ===</span>
 <a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="n">res</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">PreemptiveResource</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
 <a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
-<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="c1"># === Контейнер (Container) --- хранилище однородного ресурса ===</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="c1"># === Контейнер (Container) --- однородный ресурс ===</span>
 <a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="n">tank</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="k">yield</span> <span class="n">tank</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span>                     <span class="c1"># положить amount единиц</span>
 <a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="k">yield</span> <span class="n">tank</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span>                     <span class="c1"># забрать amount единиц</span>
 <a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="nb">print</span><span class="p">(</span><span class="n">tank</span><span class="o">.</span><span class="n">level</span><span class="p">)</span>                          <span class="c1"># текущий уровень</span>
 <a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>
-<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="c1"># === Хранилище (Store) --- хранилище объектов ===</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="c1"># === Хранилище (Store) --- объекты ===</span>
 <a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="n">store</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Store</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="k">yield</span> <span class="n">store</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>                      <span class="c1"># положить объект</span>
 <a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="n">item</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">store</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>                   <span class="c1"># забрать объект</span>
 <a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>
-<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="c1"># === FilterStore --- хранилище с фильтрацией ===</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="c1"># === FilterStore --- с фильтрацией ===</span>
 <a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="n">fstore</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">FilterStore</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="n">item</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">fstore</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">&quot;A&quot;</span><span class="p">)</span>
 <a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>
@@ -1934,53 +1669,53 @@
 <thead>
 <tr>
 <th>Позиция</th>
-<th>Обозначение</th>
+<th>Обозн.</th>
 <th>Смысл</th>
-<th>Типичные значения</th>
+<th>Значения</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>1</td>
 <td><span class="arithmatex">\(A\)</span></td>
-<td>Распределение интервалов прихода</td>
-<td><strong>M</strong> --- экспоненциальное (марковское), <strong>D</strong> --- детерминированное, <strong>G</strong> --- произвольное (general), <strong><span class="arithmatex">\(E_k\)</span></strong> --- Эрланга порядка <span class="arithmatex">\(k\)</span></td>
+<td>Распределение приходов</td>
+<td><strong>M</strong>, <strong>D</strong>, <strong>G</strong>, <span class="arithmatex">\(E_k\)</span></td>
 </tr>
 <tr>
 <td>2</td>
 <td><span class="arithmatex">\(S\)</span></td>
-<td>Распределение времени обслуживания</td>
-<td><strong>M</strong>, <strong>D</strong>, <strong>G</strong>, <strong><span class="arithmatex">\(E_k\)</span></strong> --- аналогично</td>
+<td>Распределение обслуживания</td>
+<td><strong>M</strong>, <strong>D</strong>, <strong>G</strong>, <span class="arithmatex">\(E_k\)</span></td>
 </tr>
 <tr>
 <td>3</td>
 <td><span class="arithmatex">\(m\)</span></td>
-<td>Число каналов (серверов)</td>
+<td>Число каналов</td>
 <td><span class="arithmatex">\(1, 2, \ldots\)</span></td>
 </tr>
 <tr>
 <td>4</td>
 <td><span class="arithmatex">\(B\)</span></td>
-<td>Ёмкость системы (каналы + очередь)</td>
-<td><span class="arithmatex">\(m, m{+}1, \ldots, \infty\)</span> (по умолчанию <span class="arithmatex">\(\infty\)</span>)</td>
+<td>Ёмкость системы</td>
+<td><span class="arithmatex">\(m, \ldots, \infty\)</span> (по умолч. <span class="arithmatex">\(\infty\)</span>)</td>
 </tr>
 <tr>
 <td>5</td>
 <td><span class="arithmatex">\(K\)</span></td>
-<td>Размер источника (число потенциальных заявок)</td>
-<td><span class="arithmatex">\(1, 2, \ldots, \infty\)</span> (по умолчанию <span class="arithmatex">\(\infty\)</span>)</td>
+<td>Размер источника</td>
+<td><span class="arithmatex">\(1, \ldots, \infty\)</span> (по умолч. <span class="arithmatex">\(\infty\)</span>)</td>
 </tr>
 <tr>
 <td>6</td>
 <td><span class="arithmatex">\(SD\)</span></td>
 <td>Дисциплина очереди</td>
-<td><strong>FIFO</strong> (по умолчанию), <strong>LIFO</strong>, <strong>SIRO</strong> (случайный выбор), <strong>PR</strong> (приоритетная)</td>
+<td><strong>FIFO</strong>, <strong>LIFO</strong>, <strong>SIRO</strong>, <strong>PR</strong></td>
 </tr>
 </tbody>
 </table>
 <div class="admonition tip">
 <p class="admonition-title">Сокращённая запись</p>
-<p>Если <span class="arithmatex">\(B = \infty\)</span>, <span class="arithmatex">\(K = \infty\)</span> и <span class="arithmatex">\(SD = \text{FIFO}\)</span>, их обычно опускают. Например, <strong>M/M/1</strong> означает <span class="arithmatex">\(M/M/1/\infty/\infty/\text{FIFO}\)</span>.</p>
+<p>Если <span class="arithmatex">\(B = \infty\)</span>, <span class="arithmatex">\(K = \infty\)</span> и <span class="arithmatex">\(SD = \text{FIFO}\)</span>, их опускают. Пример: <strong>M/M/1</strong> = <span class="arithmatex">\(M/M/1/\infty/\infty/\text{FIFO}\)</span>.</p>
 </div>
 <h3 id="_11">Примеры<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <table>
@@ -1993,31 +1728,31 @@
 <tbody>
 <tr>
 <td><span class="arithmatex">\(M/M/1\)</span></td>
-<td>1 канал, пуассоновский поток, экспоненциальное обслуживание, бесконечная очередь</td>
+<td>1 канал, пуассоновский поток, эксп. обслуживание, <span class="arithmatex">\(\infty\)</span> очередь</td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(M/M/m\)</span></td>
-<td><span class="arithmatex">\(m\)</span> каналов, бесконечная очередь</td>
+<td><span class="arithmatex">\(m\)</span> каналов, <span class="arithmatex">\(\infty\)</span> очередь</td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(M/M/m/m\)</span></td>
-<td><span class="arithmatex">\(m\)</span> каналов, <strong>без очереди</strong> (система с отказами, Эрланг B)</td>
+<td><span class="arithmatex">\(m\)</span> каналов, без очереди (Эрланг B)</td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(M/M/1/K\)</span></td>
-<td>1 канал, буфер на <span class="arithmatex">\(K\)</span> мест (включая обслуживаемую заявку)</td>
+<td>1 канал, буфер на <span class="arithmatex">\(K\)</span> мест</td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(M/G/1\)</span></td>
-<td>1 канал, произвольное обслуживание (формула Поллачека--Хинчина)</td>
+<td>1 канал, произвольное обслуживание (Поллачек--Хинчин)</td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(M/D/1\)</span></td>
-<td>1 канал, детерминированное (фиксированное) время обслуживания</td>
+<td>1 канал, детерминированное обслуживание</td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(G/G/m\)</span></td>
-<td>Наиболее общий случай --- точных формул, как правило, нет</td>
+<td>Общий случай --- точных формул нет</td>
 </tr>
 </tbody>
 </table>
@@ -2033,27 +1768,27 @@
 <tbody>
 <tr>
 <td><span class="arithmatex">\(\lambda\)</span></td>
-<td>Интенсивность входящего потока (заявок/ед. времени)</td>
+<td>Интенсивность входящего потока</td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(\mu\)</span></td>
-<td>Интенсивность обслуживания (заявок/ед. времени на 1 канал)</td>
+<td>Интенсивность обслуживания (на 1 канал)</td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(\rho\)</span></td>
-<td>Загрузка системы (<span class="arithmatex">\(\lambda / \mu\)</span> для 1 канала, <span class="arithmatex">\(\lambda / (m\mu)\)</span> для <span class="arithmatex">\(m\)</span> каналов)</td>
+<td>Загрузка (<span class="arithmatex">\(\lambda / \mu\)</span> или <span class="arithmatex">\(\lambda / (m\mu)\)</span>)</td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(a = \lambda/\mu\)</span></td>
-<td>Предложенная нагрузка (в Эрлангах)</td>
+<td>Предложенная нагрузка (Эрланг)</td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(m\)</span></td>
-<td>Число каналов обслуживания</td>
+<td>Число каналов</td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(p_n\)</span></td>
-<td>Вероятность <span class="arithmatex">\(n\)</span> заявок в системе в стационарном режиме</td>
+<td>Вероятность <span class="arithmatex">\(n\)</span> заявок в стац. режиме</td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(E[n]\)</span></td>
@@ -2065,11 +1800,11 @@
 </tr>
 <tr>
 <td><span class="arithmatex">\(E[r]\)</span></td>
-<td>Среднее время пребывания заявки в системе</td>
+<td>Среднее время пребывания</td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(E[w]\)</span></td>
-<td>Среднее время ожидания в очереди</td>
+<td>Среднее время ожидания</td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(E[s] = 1/\mu\)</span></td>
@@ -2089,8 +1824,6 @@
 </tr>
 </tbody>
 </table>
-<hr />
-<p><em>Шпаргалка подготовлена на основе материалов курса «Имитационное моделирование» (ФКН ВШЭ).</em></p>
 
 
 
@@ -2148,7 +1881,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>

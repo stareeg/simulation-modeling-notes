@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Конспект курса «Имитационное моделирование» (ФКН ВШЭ)">
+        <meta name="description" content="Конспект курса «Имитационное моделирование»">
       
       
       
@@ -53,6 +53,8 @@
     
       <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -90,7 +92,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
     <a href=".." title="Имитационное моделирование — Конспект" class="md-header__button md-logo" aria-label="Имитационное моделирование — Конспект" data-md-component="logo">
       
@@ -202,264 +206,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Главная
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../01-introduction/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  1. Введение в ИМ
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../02-system-dynamics/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  2. Системная динамика
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../03-agent-based/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  3. Агентное моделирование
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../04-discrete-event/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  4. Дискретно-событийное моделирование
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../05-queueing-basics/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  5. Основы ТМО
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../06-queueing-intro/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  6. Теория очередей — введение
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../07-single-queue/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  7. Анализ одиночной очереди
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../08-queueing-networks/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  8. Сети массового обслуживания
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../09-simpy/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  9. SimPy — основы
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../10-simpy-practice/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  10. SimPy — практика
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
-        
-  
-  
-    
-  
-  11. Моделирование и анализ
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../cheatsheet/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Шпаргалка
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -473,10 +219,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Имитационное моделирование — Конспект" class="md-nav__button md-logo" aria-label="Имитационное моделирование — Конспект" data-md-component="logo">
       
@@ -1709,14 +1453,14 @@
 
 
 <h1 id="_1">Моделирование и анализ симуляций<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>Привет! Сегодня мы поговорим о <strong>методологии</strong> имитационного моделирования --- не о конкретных инструментах, а о том, как правильно строить, верифицировать, валидировать и анализировать модели. Основной источник --- классический учебник Аверилла Лоу «Simulation Modeling and Analysis», который считается стандартным справочником в этой области уже более 30 лет.</p>
+<p>Погнали разбираться с <strong>методологией</strong> имитационного моделирования --- не с конкретными инструментами, а с тем, как правильно строить, верифицировать, валидировать и анализировать модели. Основной источник --- классический учебник Аверилла Лоу "Simulation Modeling and Analysis".</p>
 <hr />
 <h2 id="_2">Зачем это нужно<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>Имитационное моделирование --- это не просто программирование. Можно написать красивый код на SimPy или AnyLogic, запустить симуляцию, получить числа... и эти числа будут бессмысленными, если не соблюдена методология.</p>
 <p>Типичные ошибки:</p>
 <ul>
 <li>Модель не валидирована --- она не отражает реальную систему</li>
-<li>Выходные данные проанализированы как обычные числа, а не как <strong>случайные величины</strong></li>
+<li>Выходные данные проанализированы как обычные числа, а не как <mark>случайные величины</mark></li>
 <li>Не учтён переходный период --- статистика «загрязнена» начальными условиями</li>
 <li>Недостаточно прогонов --- доверительные интервалы слишком широкие</li>
 </ul>
@@ -1727,14 +1471,14 @@
 <hr />
 <h2 id="_3">Системы, модели, симуляция<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <h3 id="_4">Что такое система<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p><strong>Система</strong> --- это совокупность сущностей (entities), которые взаимодействуют друг с другом для достижения некоторой логической цели. Примеры:</p>
+<p><mark>Система</mark> --- это совокупность сущностей (entities), которые взаимодействуют друг с другом для достижения некоторой логической цели. Примеры:</p>
 <ul>
 <li>Банковское отделение (клиенты, кассиры, очереди)</li>
 <li>Производственная линия (станки, детали, операторы)</li>
 <li>Компьютерная сеть (пакеты, маршрутизаторы, каналы)</li>
 </ul>
 <h3 id="_5">Состояние системы<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p><strong>Состояние системы</strong> --- это набор переменных, которые описывают систему в любой данный момент времени. Например, для банковского отделения:</p>
+<p><mark>Состояние системы</mark> --- это набор переменных, которые описывают систему в любой данный момент времени. Например, для банковского отделения:</p>
 <ul>
 <li>Число клиентов в очереди</li>
 <li>Статус каждого кассира (свободен / занят)</li>
@@ -1773,7 +1517,7 @@
         A1["Статическая"] ~~~ A2["Динамическая"]
     end
     subgraph "Измерение 2"
-        B1["Детерминированная"] ~~~ B2["Стохастическая"]
+        B1["Детерминир."] ~~~ B2["Стохастическая"]
     end
     subgraph "Измерение 3"
         C1["Непрерывная"] ~~~ C2["Дискретная"]
@@ -1804,7 +1548,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Дискретно-событийная симуляция (DES)</strong> --- это модель, которая является <strong>динамической</strong>, <strong>стохастической</strong> и <strong>дискретной</strong>.</p>
+<p><mark>Дискретно-событийная симуляция (DES)</mark> --- это модель, которая является <strong>динамической</strong>, <strong>стохастической</strong> и <strong>дискретной</strong>.</p>
 <h3 id="vs_1">Аналитическое решение vs. симуляция<a class="headerlink" href="#vs_1" title="Permanent link">&para;</a></h3>
 <p>Для <strong>простых</strong> систем (одноканальная СМО с пуассоновским потоком и экспоненциальным обслуживанием) существуют аналитические формулы. Например, среднее время ожидания в очереди M/M/1:</p>
 <div class="arithmatex">\[W_q = \frac{\rho}{\mu(1 - \rho)}, \quad \text{где } \rho = \frac{\lambda}{\mu}\]</div>
@@ -1812,7 +1556,7 @@
 <hr />
 <h2 id="-">Дискретно-событийная симуляция (детально)<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
 <h3 id="next-event-time-advance">Продвижение времени по событиям (Next-Event Time Advance)<a class="headerlink" href="#next-event-time-advance" title="Permanent link">&para;</a></h3>
-<p>Это ключевой механизм DES. Идея проста: модельное время <strong>не тикает</strong> равномерно, а <strong>прыгает</strong> от одного события к следующему, пропуская периоды бездействия.</p>
+<p>Суть в том, что модельное время <strong>не тикает</strong> равномерно, а <strong>прыгает</strong> от одного события к следующему, пропуская периоды бездействия.</p>
 <p>Алгоритм:</p>
 <ol>
 <li>Инициализация: время = 0, установить начальное состояние, запланировать первые события</li>
@@ -1836,51 +1580,51 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Состояние системы</strong> (System state)</td>
+<td><strong>Состояние системы</strong></td>
 <td>Переменные, описывающие систему в текущий момент</td>
 </tr>
 <tr>
-<td><strong>Модельные часы</strong> (Simulation clock)</td>
+<td><strong>Модельные часы</strong></td>
 <td>Текущее модельное время</td>
 </tr>
 <tr>
-<td><strong>Список событий</strong> (Event list)</td>
+<td><mark>Список событий</mark></td>
 <td>Запланированные будущие события с временами наступления</td>
 </tr>
 <tr>
-<td><strong>Статистические счётчики</strong> (Statistical counters)</td>
+<td><strong>Стат. счётчики</strong></td>
 <td>Накопители статистики (суммы, интегралы и т.д.)</td>
 </tr>
 <tr>
-<td><strong>Подпрограмма инициализации</strong></td>
+<td><strong>Инициализация</strong></td>
 <td>Установка начального состояния</td>
 </tr>
 <tr>
-<td><strong>Подпрограмма продвижения времени</strong> (Timing routine)</td>
+<td><strong>Timing routine</strong></td>
 <td>Выбор ближайшего события и продвижение часов</td>
 </tr>
 <tr>
-<td><strong>Подпрограммы обработки событий</strong> (Event routines)</td>
+<td><strong>Event routines</strong></td>
 <td>Логика обработки каждого типа событий</td>
 </tr>
 <tr>
-<td><strong>Генератор случайных чисел</strong> (Library routines)</td>
+<td><strong>Генератор СЧ</strong></td>
 <td>Генерация случайных величин с нужными распределениями</td>
 </tr>
 <tr>
-<td><strong>Генератор отчётов</strong> (Report generator)</td>
+<td><strong>Report generator</strong></td>
 <td>Вычисление итоговой статистики</td>
 </tr>
 </tbody>
 </table>
 <h3 id="-_2">Блок-схема логики симуляции<a class="headerlink" href="#-_2" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>flowchart TD
-    INIT["Инициализация\n- Время := 0\n- Состояние := начальное\n- Запланировать первые события\n- Обнулить счётчики"]
-    EMPTY{"Список событий\nпуст?"}
-    TIMING["Timing routine:\nИзвлечь ближайшее событие,\nпродвинуть часы"]
-    EVENT["Event routine:\n- Обновить состояние\n- Запланировать новые события\n- Обновить статистические счётчики"]
-    STOP{"Условие\nостановки?"}
-    REPORT["Report generator:\nВычислить и вывести\nитоговую статистику"]
+    INIT["Инициализация:&lt;br&gt;t:=0, состояние,&lt;br&gt;первые события"]
+    EMPTY{"Список событий&lt;br&gt;пуст?"}
+    TIMING["Timing routine:&lt;br&gt;ближайшее событие,&lt;br&gt;продвинуть часы"]
+    EVENT["Event routine:&lt;br&gt;обновить состояние,&lt;br&gt;новые события, стат."]
+    STOP{"Условие&lt;br&gt;остановки?"}
+    REPORT["Report generator:&lt;br&gt;итоговая статистика"]
 
     INIT --&gt; EMPTY
     EMPTY -- Нет --&gt; TIMING
@@ -1909,7 +1653,7 @@
 <p>где <span class="arithmatex">\(D_i\)</span> --- задержка <span class="arithmatex">\(i\)</span>-й заявки в очереди (время от прихода до начала обслуживания), <span class="arithmatex">\(n\)</span> --- число обслуженных заявок.</p>
 <div class="admonition note">
 <p class="admonition-title">Дискретная статистика</p>
-<p>Это <strong>дискретно-временная статистика</strong> (discrete-time statistic) --- мы записываем значение для каждой заявки, а затем усредняем.</p>
+<p>Это <mark>дискретно-временная статистика</mark> (discrete-time statistic) --- мы записываем значение для каждой заявки, а затем усредняем.</p>
 </div>
 <h4 id="2">2. Среднее по времени число заявок в очереди<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
 <div class="arithmatex">\[\hat{q}(n) = \frac{\int_0^{T(n)} Q(t)\, dt}{T(n)}\]</div>
@@ -1918,7 +1662,7 @@
 <div class="arithmatex">\[\int_0^{T(n)} Q(t)\, dt = \sum_{j} Q_j \cdot \Delta t_j\]</div>
 <div class="admonition note">
 <p class="admonition-title">Непрерывная статистика</p>
-<p>Это <strong>непрерывно-временная статистика</strong> (continuous-time statistic) --- мы интегрируем функцию по времени, а затем делим на общее время.</p>
+<p>Это <mark>непрерывно-временная статистика</mark> (continuous-time statistic) --- мы интегрируем функцию по времени, а затем делим на общее время.</p>
 </div>
 <h4 id="3">3. Загрузка сервера<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
 <div class="arithmatex">\[\hat{u}(n) = \frac{\int_0^{T(n)} B(t)\, dt}{T(n)}\]</div>
@@ -1953,24 +1697,24 @@
 <h2 id="_10">Этапы симуляционного исследования<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <p>Лоу выделяет следующие этапы <strong>грамотного</strong> симуляционного исследования:</p>
 <pre class="mermaid"><code>flowchart TD
-    S1["1. Сформулировать задачу\nи спланировать исследование"]
-    S2["2. Собрать данные\nо реальной системе"]
-    S3["3. Построить концептуальную модель\n(на бумаге / в голове)"]
-    S4["4. Перевести в симуляционную модель\n(код / инструмент)"]
-    S5["5. Верифицировать программу\n(код делает то, что задумано?)"]
-    S6["6. Валидировать модель\n(модель отражает реальность?)"]
-    S7["7. Спланировать эксперименты\n(сценарии, число прогонов)"]
+    S1["1. Сформулировать&lt;br&gt;задачу"]
+    S2["2. Собрать данные&lt;br&gt;о реальной системе"]
+    S3["3. Концептуальная&lt;br&gt;модель"]
+    S4["4. Перевести&lt;br&gt;в код / инструмент"]
+    S5["5. Верификация&lt;br&gt;(код корректен?)"]
+    S6["6. Валидация&lt;br&gt;(модель верна?)"]
+    S7["7. Спланировать&lt;br&gt;эксперименты"]
     S8["8. Выполнить прогоны"]
-    S9["9. Проанализировать выходные данные\n(доверительные интервалы, сравнение)"]
-    S10["10. Документировать и представить результаты"]
+    S9["9. Анализ выходов&lt;br&gt;(дов. интервалы)"]
+    S10["10. Документировать&lt;br&gt;результаты"]
 
     S1 --&gt; S2
     S2 --&gt; S3
     S3 --&gt; S4
     S4 --&gt; S5
     S5 --&gt; S6
-    S6 --&gt;|Модель неадекватна| S3
-    S6 --&gt;|Модель адекватна| S7
+    S6 --&gt;|Неадекватна| S3
+    S6 --&gt;|Адекватна| S7
     S7 --&gt; S8
     S8 --&gt; S9
     S9 --&gt; S10
@@ -1979,15 +1723,14 @@
     style S6 fill:#fff3e0,stroke:#FF9800
     style S10 fill:#e8f5e9,stroke:#4CAF50</code></pre>
 <h3 id="_11">Подробнее о каждом этапе<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
-<p><strong>1. Формулировка задачи.</strong> Что именно мы хотим узнать? Какие альтернативы сравниваем? Какие метрики нас интересуют?</p>
+<p><strong>1. Формулировка задачи.</strong> Не "сформулируй задачу" в общем смысле, а запиши конкретный вопрос. Не "исследовать банковское отделение", а "сколько кассиров нужно, чтобы 95% клиентов ждали меньше 5 минут?". Не "оптимизировать колл-центр", а "можно ли сократить штат с 20 до 15 операторов, если допустимый процент потерянных звонков -- 3%?". Чем конкретнее вопрос -- тем полезнее будет результат.</p>
 <p><strong>2. Сбор данных.</strong> Данные о реальной системе: распределения времён обслуживания, интервалов между приходами, маршруты заявок. Без данных модель --- фантазия.</p>
 <p><strong>3. Концептуальная модель.</strong> Упрощённое описание системы: какие сущности, какие процессы, какие ресурсы, какие допущения. Это самый важный этап --- ошибка здесь приведёт к бесполезной модели.</p>
 <p><strong>4. Трансляция в симуляционную модель.</strong> Перевод концептуальной модели в код (SimPy, AnyLogic, Arena и т.д.).</p>
 <p><strong>5. Верификация.</strong> Проверяем, что программа делает то, что мы задумали. Отладка, трассировка, проверка на простых примерах с известным ответом.</p>
 <div class="admonition info">
 <p class="admonition-title">Верификация vs. Валидация</p>
-<p><strong>Верификация</strong> --- «правильно ли мы строим модель?» (код соответствует спецификации).
-<strong>Валидация</strong> --- «правильную ли модель мы строим?» (модель соответствует реальности).</p>
+<p><mark>Верификация</mark> --- «правильно ли мы строим модель?» (код соответствует спецификации). <mark>Валидация</mark> --- «правильную ли модель мы строим?» (модель соответствует реальности).</p>
 </div>
 <p><strong>6. Валидация.</strong> Сравниваем выходы модели с данными реальной системы. Если расхождение велико --- возвращаемся к концептуальной модели.</p>
 <p><strong>7. Планирование экспериментов.</strong> Сколько прогонов нужно? Какие сценарии сравнивать? Какие параметры варьировать?</p>
@@ -1997,11 +1740,12 @@
 <hr />
 <h2 id="_12">Преимущества и недостатки симуляции<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
 <h3 id="_13">Преимущества<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>Главное преимущество: можно экспериментировать без риска. Хочешь проверить, что будет, если убрать 2 кассы в супермаркете? В реальности -- скандал, жалобы, потерянные клиенты. В симуляции -- просто поменяй параметр <code>num_cashiers = 8</code> на <code>num_cashiers = 6</code>, запусти прогон и посмотри на цифры. Никто не пострадал, а ты уже знаешь ответ.</p>
 <ul>
 <li><strong>Гибкость.</strong> Можно моделировать системы любой сложности, для которых нет аналитических решений.</li>
 <li><strong>Любые метрики.</strong> Можно измерить всё, что угодно: средние, квантили, распределения, корреляции.</li>
 <li><strong>What-if анализ.</strong> Можно сравнивать альтернативные конфигурации системы без изменения реальной системы.</li>
-<li><strong>Контроль условий.</strong> Можно повторить эксперимент с теми же случайными числами, изменив только один параметр.</li>
+<li><strong>Контроль условий.</strong> Можно повторить эксперимент с теми же случайными числами, изменив только один параметр. Это как в физическом эксперименте: меняешь одну переменную, остальное фиксировано -- и видишь чистый эффект.</li>
 <li><strong>Визуализация.</strong> Анимация модели помогает обнаружить неожиданное поведение и объяснить результаты заказчику.</li>
 <li><strong>Безопасность.</strong> Можно моделировать аварии, пиковые нагрузки и экстремальные ситуации без риска.</li>
 </ul>
@@ -2019,15 +1763,16 @@
 </div>
 <hr />
 <h2 id="_15">Генерация случайных чисел<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
-<p>Любая стохастическая симуляция нуждается в <strong>генераторе случайных чисел</strong>. Вот краткий обзор основных методов.</p>
+<p>Любая стохастическая симуляция нуждается в <strong>генераторе случайных чисел</strong>.</p>
 <h3 id="lcg">Линейный конгруэнтный генератор (LCG)<a class="headerlink" href="#lcg" title="Permanent link">&para;</a></h3>
 <p>Основной генератор <strong>псевдослучайных</strong> чисел, равномерно распределённых на <span class="arithmatex">\([0, 1)\)</span>:</p>
-<div class="arithmatex">\[X_{n+1} = (a \cdot X_n + c) \mod m\]</div>
+<div class="arithmatex">\[X_{n+1} = (a \cdot X_n + c) \bmod m\]</div>
 <div class="arithmatex">\[U_n = \frac{X_n}{m}\]</div>
 <p>где <span class="arithmatex">\(a\)</span> --- множитель, <span class="arithmatex">\(c\)</span> --- приращение, <span class="arithmatex">\(m\)</span> --- модуль, <span class="arithmatex">\(X_0\)</span> --- начальное значение (seed).</p>
 <div class="admonition note">
 <p class="admonition-title">Псевдослучайность</p>
 <p>Числа <strong>не</strong> являются по-настоящему случайными --- последовательность полностью определяется seed-ом. Но если параметры выбраны правильно, статистические свойства последовательности неотличимы от настоящей случайной.</p>
+<p>На практике в SimPy за это отвечает <code>random.seed()</code>. Фиксируешь seed -- получаешь воспроизводимые результаты: запускаешь код десять раз, получаешь одно и то же. Меняешь seed -- другая реализация, другие числа. Для статистики нужно много реализаций (много разных seed-ов), чтобы увидеть, как метрики "гуляют" от прогона к прогону.</p>
 </div>
 <h3 id="inverse-transform">Метод обратного преобразования (Inverse Transform)<a class="headerlink" href="#inverse-transform" title="Permanent link">&para;</a></h3>
 <p>Для генерации случайной величины <span class="arithmatex">\(X\)</span> с функцией распределения <span class="arithmatex">\(F(x)\)</span>:</p>
@@ -2059,7 +1804,8 @@
 </div>
 <hr />
 <h2 id="_16">Анализ выходных данных<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
-<p>Это, пожалуй, самая недооценённая часть имитационного моделирования. Многие строят модель, запускают один прогон и принимают решение на основе одного числа. Это грубейшая ошибка.</p>
+<p>Это самая недооценённая часть имитационного моделирования. Многие строят модель, запускают один прогон и принимают решение на основе одного числа. Это грубейшая ошибка.</p>
+<p>Одного прогона недостаточно! Симуляция стохастическая -- каждый запуск даёт разный результат. Запустил один раз -- среднее время ожидания 4.2 минуты. Запустил второй раз (другой seed) -- уже 6.1 минуты. Третий -- 3.8. Какое из этих чисел "правильное"? Никакое по отдельности. Нужно запускать 20--30 раз и строить доверительный интервал. Только тогда ты сможешь сказать: "среднее время ожидания -- от 3.9 до 5.7 минут с 95% уверенностью". Это уже результат, на основе которого можно принимать решения.</p>
 <h3 id="vs_3">Переходный период vs. установившийся режим<a class="headerlink" href="#vs_3" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -2071,21 +1817,21 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Терминирующая симуляция</strong> (Transient / Terminating)</td>
+<td><strong>Терминирующая симуляция</strong></td>
 <td>Система с естественным началом и концом</td>
 <td>Банк: открылся в 9:00, закрылся в 17:00</td>
 </tr>
 <tr>
-<td><strong>Стационарная симуляция</strong> (Steady-state)</td>
+<td><strong>Стационарная симуляция</strong></td>
 <td>Система работает «вечно», интересует установившийся режим</td>
 <td>Колл-центр 24/7, интернет-сервер</td>
 </tr>
 </tbody>
 </table>
-<p>Для <strong>стационарной</strong> симуляции критически важно учитывать <strong>переходный период</strong> (warm-up period): в начале симуляции система «пуста» --- в очередях никого, серверы простаивают. Статистика за этот период не отражает установившегося поведения.</p>
+<p>Для <strong>стационарной</strong> симуляции критически важно учитывать <mark>переходный период</mark> (warm-up period): в начале симуляции система «пуста» --- в очередях никого, серверы простаивают. Статистика за этот период не отражает установившегося поведения.</p>
 <pre class="mermaid"><code>flowchart LR
-    A["Начало симуляции\n(система пуста)"] --&gt; B["Переходный период\n(warm-up)"]
-    B --&gt; C["Установившийся режим\n(собираем статистику)"]
+    A["Начало&lt;br&gt;(система пуста)"] --&gt; B["Warm-up&lt;br&gt;(переходный)"]
+    B --&gt; C["Установ. режим&lt;br&gt;(собираем стат.)"]
     C --&gt; D["Конец симуляции"]
 
     style A fill:#ffebee,stroke:#f44336
@@ -2101,7 +1847,7 @@
 <ol>
 <li>Выполнить <span class="arithmatex">\(k\)</span> <strong>независимых</strong> прогонов (с разными seed-ами)</li>
 <li>Для каждого прогона вычислить интересующую метрику <span class="arithmatex">\(\bar{X}_1, \bar{X}_2, \ldots, \bar{X}_k\)</span></li>
-<li>Построить доверительный интервал:</li>
+<li>Построить <mark>доверительный интервал</mark>:</li>
 </ol>
 <div class="arithmatex">\[\bar{X} \pm t_{k-1, 1-\alpha/2} \cdot \frac{S}{\sqrt{k}}\]</div>
 <p>где <span class="arithmatex">\(\bar{X}\)</span> --- среднее по прогонам, <span class="arithmatex">\(S\)</span> --- стандартное отклонение, <span class="arithmatex">\(t_{k-1, 1-\alpha/2}\)</span> --- квантиль распределения Стьюдента.</p>
@@ -2120,15 +1866,15 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Общие случайные числа</strong> (Common Random Numbers, CRN)</td>
+<td><strong>Common Random Numbers</strong></td>
 <td>Сравнивать два сценария с одинаковыми случайными числами --- разница будет менее шумной</td>
 </tr>
 <tr>
-<td><strong>Антитетические переменные</strong> (Antithetic Variates)</td>
+<td><strong>Antithetic Variates</strong></td>
 <td>Если в одном прогоне использовали <span class="arithmatex">\(U\)</span>, в парном --- <span class="arithmatex">\(1-U\)</span>. Отрицательная корреляция снижает дисперсию среднего</td>
 </tr>
 <tr>
-<td><strong>Контрольные переменные</strong> (Control Variates)</td>
+<td><strong>Control Variates</strong></td>
 <td>Используем вспомогательную величину с известным средним для коррекции оценки</td>
 </tr>
 </tbody>
@@ -2136,7 +1882,7 @@
 <hr />
 <div class="admonition success">
 <p class="admonition-title">Итого</p>
-<p>Имитационное моделирование --- это не только код, но и <strong>методология</strong>. Правильная формулировка задачи, валидация модели, грамотный статистический анализ выходных данных --- всё это не менее важно, чем сама программа. Книга Лоу «Simulation Modeling and Analysis» --- незаменимый справочник для всех, кто занимается симуляцией серьёзно.</p>
+<p>Имитационное моделирование --- это не только код, но и <strong>методология</strong>. Правильная формулировка задачи, <mark>валидация модели</mark>, грамотный статистический анализ выходных данных --- всё это не менее важно, чем сама программа. Книга Лоу "Simulation Modeling and Analysis" --- незаменимый справочник для всех, кто занимается симуляцией серьёзно.</p>
 </div>
 
 
@@ -2195,7 +1941,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>

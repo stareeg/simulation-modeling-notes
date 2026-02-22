@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Конспект курса «Имитационное моделирование» (ФКН ВШЭ)">
+        <meta name="description" content="Конспект курса «Имитационное моделирование»">
       
       
       
@@ -51,6 +51,8 @@
     
       <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#-" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -88,7 +90,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
     <a href="." title="Имитационное моделирование — Конспект" class="md-header__button md-logo" aria-label="Имитационное моделирование — Конспект" data-md-component="logo">
       
@@ -200,264 +204,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-    
-  
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Главная
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="01-introduction/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  1. Введение в ИМ
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="02-system-dynamics/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  2. Системная динамика
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="03-agent-based/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  3. Агентное моделирование
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="04-discrete-event/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  4. Дискретно-событийное моделирование
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="05-queueing-basics/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  5. Основы ТМО
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="06-queueing-intro/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  6. Теория очередей — введение
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="07-single-queue/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  7. Анализ одиночной очереди
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="08-queueing-networks/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  8. Сети массового обслуживания
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="09-simpy/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  9. SimPy — основы
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="10-simpy-practice/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  10. SimPy — практика
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="11-simulation-analysis/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  11. Моделирование и анализ
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="cheatsheet/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Шпаргалка
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -471,10 +217,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="." title="Имитационное моделирование — Конспект" class="md-nav__button md-logo" aria-label="Имитационное моделирование — Конспект" data-md-component="logo">
       
@@ -554,7 +298,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         Содержание курса
@@ -565,7 +309,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         Как пользоваться
@@ -934,7 +678,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         Содержание курса
@@ -945,7 +689,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         Как пользоваться
@@ -972,11 +716,10 @@
 
 
 
-<h1 id="_1">Имитационное моделирование — Конспект курса<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>Добро пожаловать в конспект курса <strong>«Имитационное моделирование»</strong> (ФКН ВШЭ).</p>
-<p>Этот конспект покрывает все ключевые темы курса: от общего введения в имитационное моделирование до математического аппарата теории массового обслуживания и практического программирования симуляций на Python (SimPy).</p>
+<h1 id="-">Имитационное моделирование -- Конспект курса<a class="headerlink" href="#-" title="Permanent link">&para;</a></h1>
+<p>Конспект покрывает все ключевые темы курса: от общего введения в имитационное моделирование до математического аппарата теории массового обслуживания и практического программирования симуляций на Python (SimPy).</p>
 <hr />
-<h2 id="_2">Содержание курса<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_1">Содержание курса<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1013,13 +756,13 @@
 </tr>
 <tr>
 <td>6</td>
-<td><a href="06-queueing-intro/">Теория очередей — введение</a></td>
+<td><a href="06-queueing-intro/">Теория очередей -- введение</a></td>
 <td>Нотация Кендалла, закон Литтла, распределения</td>
 </tr>
 <tr>
 <td>7</td>
 <td><a href="07-single-queue/">Анализ одиночной очереди</a></td>
-<td>M/M/1, M/M/m, M/M/m/B — формулы и примеры</td>
+<td>M/M/1, M/M/m, M/M/m/B -- формулы и примеры</td>
 </tr>
 <tr>
 <td>8</td>
@@ -1028,13 +771,13 @@
 </tr>
 <tr>
 <td>9</td>
-<td><a href="09-simpy/">SimPy — основы</a></td>
+<td><a href="09-simpy/">SimPy -- основы</a></td>
 <td>Процессы, таймауты, ресурсы, контейнеры, хранилища</td>
 </tr>
 <tr>
 <td>10</td>
-<td><a href="10-simpy-practice/">SimPy — практика</a></td>
-<td>Автомойка, кинотеатр — полные примеры</td>
+<td><a href="10-simpy-practice/">SimPy -- практика</a></td>
+<td>Автомойка, кинотеатр -- полные примеры</td>
 </tr>
 <tr>
 <td>11</td>
@@ -1049,18 +792,16 @@
 </tbody>
 </table>
 <hr />
-<h2 id="_3">Как пользоваться<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_2">Как пользоваться<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Последовательное чтение</strong>: темы выстроены от общего к частному — начните с введения</li>
+<li><strong>Последовательное чтение</strong>: темы выстроены от общего к частному -- начните с введения</li>
 <li><strong>Справочник</strong>: используйте <a href="cheatsheet/">шпаргалку</a> для быстрого поиска формул</li>
 <li><strong>Поиск</strong>: используйте строку поиска вверху страницы</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Совет</p>
-<p>Каждая тема начинается с блока <strong>«Зачем это нужно»</strong> — если времени мало, прочитайте хотя бы его.</p>
+<p>Каждая тема начинается с блока <strong>"Зачем это нужно"</strong> -- если времени мало, прочитайте хотя бы его.</p>
 </div>
-<hr />
-<p><em>Конспект подготовлен на основе лекционных материалов курса ФКН ВШЭ.</em></p>
 
 
 
@@ -1118,7 +859,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.79ae519e.min.js"></script>

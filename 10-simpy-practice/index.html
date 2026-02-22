@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Конспект курса «Имитационное моделирование» (ФКН ВШЭ)">
+        <meta name="description" content="Конспект курса «Имитационное моделирование»">
       
       
       
@@ -53,6 +53,8 @@
     
       <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -90,7 +92,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
     <a href=".." title="Имитационное моделирование — Конспект" class="md-header__button md-logo" aria-label="Имитационное моделирование — Конспект" data-md-component="logo">
       
@@ -202,264 +206,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Главная
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../01-introduction/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  1. Введение в ИМ
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../02-system-dynamics/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  2. Системная динамика
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../03-agent-based/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  3. Агентное моделирование
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../04-discrete-event/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  4. Дискретно-событийное моделирование
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../05-queueing-basics/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  5. Основы ТМО
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../06-queueing-intro/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  6. Теория очередей — введение
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../07-single-queue/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  7. Анализ одиночной очереди
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../08-queueing-networks/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  8. Сети массового обслуживания
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../09-simpy/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  9. SimPy — основы
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
-        
-  
-  
-    
-  
-  10. SimPy — практика
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../11-simulation-analysis/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  11. Моделирование и анализ
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../cheatsheet/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Шпаргалка
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -473,10 +219,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Имитационное моделирование — Конспект" class="md-nav__button md-logo" aria-label="Имитационное моделирование — Конспект" data-md-component="logo">
       
@@ -826,17 +570,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Зачем это нужно
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#1-carwash" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -849,7 +582,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         Постановка задачи
@@ -860,10 +593,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         Ключевые концепции
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что тут происходит
       
     </span>
   </a>
@@ -907,6 +651,17 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
+        Что можно менять и смотреть
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         Диаграмма последовательности
       
     </span>
@@ -932,7 +687,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         Постановка задачи
@@ -943,21 +698,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ключевые концепции
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Полный код с комментариями
+        Почему время ожидания такое большое
       
     </span>
   </a>
@@ -968,7 +712,7 @@
   <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Анализ результатов
+        Ключевые концепции
       
     </span>
   </a>
@@ -977,6 +721,39 @@
         
           <li class="md-nav__item">
   <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Полный код с комментариями
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Анализ результатов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как искать узкое место
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
       
         Подбор оптимальных параметров
@@ -1059,7 +836,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       
         Сводная таблица паттернов
@@ -1071,6 +848,67 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Паттерны для домашки
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Паттерны для домашки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Паттерн 1: Несколько типов клиентов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Паттерн 2: Несколько этапов обслуживания
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Паттерн 3: Запуск нескольких экспериментов
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Чеклист перед сдачей домашки
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1163,17 +1001,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Зачем это нужно
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#1-carwash" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1186,7 +1013,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         Постановка задачи
@@ -1197,10 +1024,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         Ключевые концепции
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что тут происходит
       
     </span>
   </a>
@@ -1244,6 +1082,17 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
+        Что можно менять и смотреть
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         Диаграмма последовательности
       
     </span>
@@ -1269,7 +1118,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         Постановка задачи
@@ -1280,21 +1129,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ключевые концепции
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Полный код с комментариями
+        Почему время ожидания такое большое
       
     </span>
   </a>
@@ -1305,7 +1143,7 @@
   <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Анализ результатов
+        Ключевые концепции
       
     </span>
   </a>
@@ -1314,6 +1152,39 @@
         
           <li class="md-nav__item">
   <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Полный код с комментариями
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Анализ результатов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как искать узкое место
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
       
         Подбор оптимальных параметров
@@ -1396,7 +1267,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       
         Сводная таблица паттернов
@@ -1408,6 +1279,67 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Паттерны для домашки
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Паттерны для домашки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Паттерн 1: Несколько типов клиентов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Паттерн 2: Несколько этапов обслуживания
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Паттерн 3: Запуск нескольких экспериментов
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Чеклист перед сдачей домашки
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1429,22 +1361,10 @@
 
 
 <h1 id="simpy-">SimPy --- практические примеры<a class="headerlink" href="#simpy-" title="Permanent link">&para;</a></h1>
-<p>Привет! В прошлый раз мы познакомились с SimPy как с библиотекой --- узнали про окружение, процессы, ресурсы и таймауты. Сегодня закрепим всё на двух полноценных моделях: <strong>автомойка</strong> и <strong>кинотеатр</strong>. Оба примера --- классика документации SimPy, и они отлично показывают, как из маленьких кирпичиков (Resource, timeout, process) складываются реальные модели.</p>
-<hr />
-<h2 id="_1">Зачем это нужно<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Теория без практики --- как учебник по плаванию без бассейна. Можно прочитать про <code>simpy.Resource</code> и <code>env.timeout()</code>, но пока не напишешь полноценную модель с несколькими процессами, взаимодействующими друг с другом, --- настоящего понимания не будет.</p>
-<p>В этом конспекте мы разберём:</p>
-<ul>
-<li><strong>Автомойку (Carwash)</strong> --- простая модель с одним ресурсом и случайным потоком заявок</li>
-<li><strong>Кинотеатр (Theater)</strong> --- модель посложнее, с несколькими последовательными этапами обслуживания и сбором статистики</li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Совет</p>
-<p>Попробуй запустить оба примера самостоятельно и поменять параметры --- это лучший способ разобраться, как работает SimPy.</p>
-</div>
+<p>Погнали разбирать SimPy на двух полноценных моделях: <strong>автомойка</strong> и <strong>кинотеатр</strong>. Оба примера --- классика документации SimPy, и они отлично показывают, как из маленьких кирпичиков (Resource, timeout, process) складываются реальные модели.</p>
 <hr />
 <h2 id="1-carwash">Пример 1: Автомойка (Carwash)<a class="headerlink" href="#1-carwash" title="Permanent link">&para;</a></h2>
-<h3 id="_2">Постановка задачи<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="_1">Постановка задачи<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>Автомойка имеет <strong>ограниченное число моечных машин</strong>. Автомобили приезжают случайным образом. Если свободная машина есть --- автомобиль сразу начинает мойку. Если все машины заняты --- автомобиль встаёт в очередь и ждёт.</p>
 <p>Параметры модели:</p>
 <table>
@@ -1483,102 +1403,96 @@
 </tr>
 </tbody>
 </table>
-<h3 id="_3">Ключевые концепции<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>Этот пример демонстрирует три фундаментальных паттерна SimPy:</p>
+<h3 id="_2">Ключевые концепции<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>Суть в том, что этот пример демонстрирует три фундаментальных паттерна SimPy:</p>
 <ol>
-<li><strong>Resource</strong> --- ресурс с ограниченной ёмкостью (моечные машины)</li>
+<li><mark>Resource</mark> --- ресурс с ограниченной ёмкостью (моечные машины)</li>
 <li><strong>Случайные поступления</strong> --- автомобили приезжают через случайные интервалы</li>
-<li><strong>Взаимодействие процессов</strong> --- процесс автомобиля запускает подпроцесс мойки и ждёт его завершения</li>
+<li><mark>Взаимодействие процессов</mark> --- процесс автомобиля запускает подпроцесс мойки и ждёт его завершения</li>
 </ol>
+<h3 id="_3">Что тут происходит<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>Логика модели очень простая, если разложить по шагам. Есть автомойка с двумя машиноместами. В самом начале симуляции разом приезжают 4 машины --- две сразу попадают на мойку, две стоят в очереди. Дальше раз в 5--9 минут (случайно) приезжает ещё одна машина. Каждая мойка длится ровно 5 минут. Когда машина домыта, она освобождает место, и туда сразу заезжает следующая из очереди (если кто-то ждёт). Вся магия SimPy в том, что тебе не надо руками двигать часы или проверять очередь --- <code>yield request</code> сам усыпит процесс, пока ресурс не освободится, а <code>yield env.timeout(...)</code> промотает симуляционное время на нужное количество минут.</p>
 <h3 id="_4">Полный код с комментариями<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">simpy</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># === Параметры модели ===</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">RANDOM_SEED</span> <span class="o">=</span> <span class="mi">42</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">NUM_MACHINES</span> <span class="o">=</span> <span class="mi">2</span>   <span class="c1"># Количество моечных машин</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">WASHTIME</span> <span class="o">=</span> <span class="mi">5</span>       <span class="c1"># Время мойки одного автомобиля (мин.)</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">T_INTER</span> <span class="o">=</span> <span class="mi">7</span>        <span class="c1"># Среднее время между приездами (мин.)</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">SIM_TIME</span> <span class="o">=</span> <span class="mi">20</span>      <span class="c1"># Общее время симуляции (мин.)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">RANDOM_SEED</span> <span class="o">=</span> <span class="mi">42</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">NUM_MACHINES</span> <span class="o">=</span> <span class="mi">2</span>   <span class="c1"># машиноместа на мойке</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">WASHTIME</span> <span class="o">=</span> <span class="mi">5</span>       <span class="c1"># сколько минут моем одну машину</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">T_INTER</span> <span class="o">=</span> <span class="mi">7</span>        <span class="c1"># в среднем раз в 7 минут приезжает новая машина</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">SIM_TIME</span> <span class="o">=</span> <span class="mi">20</span>      <span class="c1"># сколько минут гоняем симуляцию</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="k">class</span><span class="w"> </span><span class="nc">Carwash</span><span class="p">:</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Автомойка с ограниченным числом моечных машин.</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="sd">    Автомобили запрашивают машину (Resource). Когда получают ---</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="sd">    запускают процесс мойки и ждут его завершения.</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">num_machines</span><span class="p">,</span> <span class="n">washtime</span><span class="p">):</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>        <span class="c1"># Resource --- ключевой объект SimPy.</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>        <span class="c1"># num_machines задаёт, сколько автомобилей</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>        <span class="c1"># могут мыться одновременно.</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">machine</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Resource</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">num_machines</span><span class="p">)</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">washtime</span> <span class="o">=</span> <span class="n">washtime</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
-<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">wash</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">car</span><span class="p">):</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Процесс мойки: занимает washtime минут.</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
-<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="sd">        После мойки выводим, сколько процентов грязи удалено</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="sd">        (случайное число от 50 до 99).</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="sd">        &quot;&quot;&quot;</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>        <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">washtime</span><span class="p">)</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>        <span class="n">pct_dirt</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">99</span><span class="p">)</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Carwash removed </span><span class="si">{</span><span class="n">pct_dirt</span><span class="si">}</span><span class="s2">% of </span><span class="si">{</span><span class="n">car</span><span class="si">}</span><span class="s2">&#39;s dirt.&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="k">class</span><span class="w"> </span><span class="nc">Carwash</span><span class="p">:</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Автомойка с ограниченным числом моечных машин.</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="sd">    Автомобили запрашивают машину (Resource). Когда получают ---</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="sd">    запускают процесс мойки и ждут его завершения.</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">num_machines</span><span class="p">,</span> <span class="n">washtime</span><span class="p">):</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">machine</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Resource</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">num_machines</span><span class="p">)</span>  <span class="c1"># машиномест всего num_machines</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">washtime</span> <span class="o">=</span> <span class="n">washtime</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">wash</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">car</span><span class="p">):</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Процесс мойки: занимает washtime минут.</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="sd">        После мойки выводим, сколько процентов грязи удалено</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="sd">        (случайное число от 50 до 99).</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="sd">        &quot;&quot;&quot;</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>        <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">washtime</span><span class="p">)</span>  <span class="c1"># мойка занимает фиксированное время</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>        <span class="n">pct_dirt</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">99</span><span class="p">)</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Carwash removed </span><span class="si">{</span><span class="n">pct_dirt</span><span class="si">}</span><span class="s2">% of </span><span class="si">{</span><span class="n">car</span><span class="si">}</span><span class="s2">&#39;s dirt.&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="k">def</span><span class="w"> </span><span class="nf">car</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">cw</span><span class="p">):</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Процесс одного автомобиля.</span>
 <a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>
-<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>
-<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="k">def</span><span class="w"> </span><span class="nf">car</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">cw</span><span class="p">):</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Процесс одного автомобиля.</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>
-<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="sd">    Автомобиль приезжает на мойку, запрашивает моечную машину,</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="sd">    ожидает мойку и уезжает.</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> arrives at the carwash at </span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>
-<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>    <span class="c1"># with cw.machine.request() --- запрашиваем ресурс.</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>    <span class="c1"># Если свободная машина есть --- yield request вернётся сразу.</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>    <span class="c1"># Если нет --- процесс «засыпает» до освобождения ресурса.</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>    <span class="k">with</span> <span class="n">cw</span><span class="o">.</span><span class="n">machine</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">request</span><span class="p">:</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>        <span class="k">yield</span> <span class="n">request</span>  <span class="c1"># Ждём, пока машина не освободится</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="sd">    Автомобиль приезжает на мойку, запрашивает моечную машину,</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="sd">    ожидает мойку и уезжает.</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> arrives at the carwash at </span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>    <span class="k">with</span> <span class="n">cw</span><span class="o">.</span><span class="n">machine</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">request</span><span class="p">:</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>        <span class="k">yield</span> <span class="n">request</span>  <span class="c1"># ждём свободную мойку</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> enters the carwash at </span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">cw</span><span class="o">.</span><span class="n">wash</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>  <span class="c1"># моем</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> leaves the carwash at </span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>    <span class="c1"># при выходе из with ресурс автоматически освобождается</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>
 <a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>
-<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> enters the carwash at </span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>        <span class="c1"># Запускаем подпроцесс мойки и ждём его завершения</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">cw</span><span class="o">.</span><span class="n">wash</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>
-<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> leaves the carwash at </span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>    <span class="c1"># При выходе из with ресурс автоматически освобождается!</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>
+<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">num_machines</span><span class="p">,</span> <span class="n">washtime</span><span class="p">,</span> <span class="n">t_inter</span><span class="p">):</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Генератор автомобилей.</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>
+<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="sd">    Создаёт автомойку, запускает начальную партию автомобилей,</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a><span class="sd">    а затем генерирует новые автомобили через случайные интервалы.</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>    <span class="n">carwash</span> <span class="o">=</span> <span class="n">Carwash</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">num_machines</span><span class="p">,</span> <span class="n">washtime</span><span class="p">)</span>
 <a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a>
-<a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a><span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">num_machines</span><span class="p">,</span> <span class="n">washtime</span><span class="p">,</span> <span class="n">t_inter</span><span class="p">):</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Генератор автомобилей.</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a>
-<a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a><span class="sd">    Создаёт автомойку, запускает начальную партию автомобилей,</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a><span class="sd">    а затем генерирует новые автомобили через случайные интервалы.</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a>    <span class="n">carwash</span> <span class="o">=</span> <span class="n">Carwash</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">num_machines</span><span class="p">,</span> <span class="n">washtime</span><span class="p">)</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a>
-<a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a>    <span class="n">car_count</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>  <span class="c1"># Бесконечный счётчик: 0, 1, 2, ...</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a>
-<a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a>    <span class="c1"># Создаём 4 начальных автомобиля (они приедут в момент t=0)</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a>        <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">car</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Car </span><span class="si">{</span><span class="nb">next</span><span class="p">(</span><span class="n">car_count</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">carwash</span><span class="p">))</span>
-<a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a>
-<a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a>    <span class="c1"># Бесконечный цикл генерации новых автомобилей</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76" href="#__codelineno-0-76"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a>        <span class="c1"># Случайный интервал: t_inter +/- 2 минуты</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78" href="#__codelineno-0-78"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">t_inter</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">t_inter</span> <span class="o">+</span> <span class="mi">2</span><span class="p">))</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79" href="#__codelineno-0-79"></a>        <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">car</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Car </span><span class="si">{</span><span class="nb">next</span><span class="p">(</span><span class="n">car_count</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">carwash</span><span class="p">))</span>
-<a id="__codelineno-0-80" name="__codelineno-0-80" href="#__codelineno-0-80"></a>
-<a id="__codelineno-0-81" name="__codelineno-0-81" href="#__codelineno-0-81"></a>
-<a id="__codelineno-0-82" name="__codelineno-0-82" href="#__codelineno-0-82"></a><span class="c1"># === Запуск симуляции ===</span>
-<a id="__codelineno-0-83" name="__codelineno-0-83" href="#__codelineno-0-83"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Carwash&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-84" name="__codelineno-0-84" href="#__codelineno-0-84"></a><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">RANDOM_SEED</span><span class="p">)</span>
-<a id="__codelineno-0-85" name="__codelineno-0-85" href="#__codelineno-0-85"></a>
-<a id="__codelineno-0-86" name="__codelineno-0-86" href="#__codelineno-0-86"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
-<a id="__codelineno-0-87" name="__codelineno-0-87" href="#__codelineno-0-87"></a><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">setup</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">NUM_MACHINES</span><span class="p">,</span> <span class="n">WASHTIME</span><span class="p">,</span> <span class="n">T_INTER</span><span class="p">))</span>
-<a id="__codelineno-0-88" name="__codelineno-0-88" href="#__codelineno-0-88"></a><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="n">SIM_TIME</span><span class="p">)</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a>    <span class="n">car_count</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>  <span class="c1"># бесконечный счётчик: 0, 1, 2, ...</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a>
+<a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a>    <span class="c1"># в момент t=0 на мойку приезжают сразу 4 машины</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a>        <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">car</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Car </span><span class="si">{</span><span class="nb">next</span><span class="p">(</span><span class="n">car_count</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">carwash</span><span class="p">))</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a>
+<a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a>    <span class="c1"># дальше генерим машины по одной через случайные интервалы</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a>        <span class="c1"># генерим время между приходами: t_inter +/- 2 минуты</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">t_inter</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">t_inter</span> <span class="o">+</span> <span class="mi">2</span><span class="p">))</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a>        <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">car</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Car </span><span class="si">{</span><span class="nb">next</span><span class="p">(</span><span class="n">car_count</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">carwash</span><span class="p">))</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a>
+<a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a>
+<a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a><span class="c1"># запуск симуляции</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Carwash&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76" href="#__codelineno-0-76"></a><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">RANDOM_SEED</span><span class="p">)</span>  <span class="c1"># фиксируем seed, чтобы результат воспроизводился</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a>
+<a id="__codelineno-0-78" name="__codelineno-0-78" href="#__codelineno-0-78"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79" href="#__codelineno-0-79"></a><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">setup</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">NUM_MACHINES</span><span class="p">,</span> <span class="n">WASHTIME</span><span class="p">,</span> <span class="n">T_INTER</span><span class="p">))</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80" href="#__codelineno-0-80"></a><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="n">SIM_TIME</span><span class="p">)</span>  <span class="c1"># гоняем модель 20 минут</span>
 </code></pre></div>
 <h3 id="_5">Пример вывода<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Carwash
@@ -1610,9 +1524,9 @@
 <a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>Car 6 enters the carwash at 16.00.
 </code></pre></div>
 <h3 id="_6">Анализ вывода<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p>Давай разберём, что тут происходит:</p>
+<p>Короче, вот что тут происходит:</p>
 <ol>
-<li><strong>t=0:</strong> Четыре машины приезжают одновременно. Но моечных машин всего 2 --- поэтому Car 0 и Car 1 сразу начинают мойку, а Car 2 и Car 3 встают в очередь.</li>
+<li><strong>t=0:</strong> Четыре машины приезжают одновременно. Но моечных машин всего 2 --- поэтому Car 0 и Car 1 сразу начинают мойку, а Car 2 и Car 3 встают в <mark>очередь</mark>.</li>
 <li><strong>t=5:</strong> Мойка Car 0 и Car 1 завершена (5 минут). Они уезжают, освобождая ресурсы. Car 2 и Car 3 немедленно занимают машины. Также в этот момент приезжает Car 4 --- встаёт в очередь.</li>
 <li><strong>t=10:</strong> Car 2 и Car 3 уезжают. Car 4 и Car 5 (приехал в t=10) начинают мойку.</li>
 <li><strong>t=15:</strong> Car 4 и Car 5 уезжают. Очередь пуста.</li>
@@ -1622,46 +1536,61 @@
 <p class="admonition-title">Обрати внимание</p>
 <p>Car 6 приезжает в t=16, а не в t=15, потому что интервал между приездами случайный: <code>random.randint(5, 9)</code> (то есть <span class="arithmatex">\(T\_INTER \pm 2 = 7 \pm 2\)</span>).</p>
 </div>
-<h3 id="_7">Диаграмма последовательности<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h3 id="_7">Что можно менять и смотреть<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>Этот пример --- отличная песочница, чтобы поиграться с параметрами и посмотреть, как меняется поведение системы.</p>
+<ul>
+<li><strong><code>NUM_MACHINES = 1</code></strong> --- попробуй оставить одну мойку. Сразу увидишь, как очередь растёт: 4 машины приехали в t=0, а мойка обслуживает по одной за 5 минут. Последняя из начальных четырёх будет ждать 15 минут.</li>
+<li><strong><code>NUM_MACHINES = 4</code></strong> --- поставь 4 мойки. Все начальные машины попадут сразу, очереди не будет вообще. Но зато 2 мойки будут простаивать почти всё время --- деньги на ветер.</li>
+<li><strong><code>WASHTIME = 10</code></strong> --- увеличь время мойки вдвое. При тех же 2 машиноместах и потоке раз в 7 минут система начнёт захлёбываться.</li>
+<li><strong><code>T_INTER = 3</code></strong> --- сделай поток интенсивнее (машина каждые 1--5 минут). Очередь будет расти бесконечно, потому что система не справляется.</li>
+<li><strong><code>SIM_TIME = 200</code></strong> --- увеличь время симуляции, чтобы увидеть устоявшееся поведение. На 20 минутах статистика ещё не стабилизировалась.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Совет</p>
+<p>Когда подбираешь параметры, смотри на соотношение: если среднее время обслуживания / (число серверов * среднее время между приходами) &gt; 1, то очередь будет расти бесконечно. Для нашей мойки: 5 / (2 * 7) = 0.36 --- система стабильна, очередь не растёт.</p>
+</div>
+<h3 id="_8">Диаграмма последовательности<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>sequenceDiagram
     participant C0 as Car 0
     participant C1 as Car 1
     participant C2 as Car 2
     participant C3 as Car 3
-    participant CW as Carwash&lt;br/&gt;(2 машины)
+    participant CW as Carwash (2 маш.)
 
-    Note over C0,C3: t=0: Все 4 машины приезжают
+    Note over C0,C3: t=0: 4 машины приезжают
 
-    C0-&gt;&gt;CW: request() --- машина свободна
-    C1-&gt;&gt;CW: request() --- машина свободна
-    C2-&gt;&gt;CW: request() --- очередь...
-    C3-&gt;&gt;CW: request() --- очередь...
+    C0-&gt;&gt;CW: request() --- свободна
+    C1-&gt;&gt;CW: request() --- свободна
+    C2-&gt;&gt;CW: request() --- очередь
+    C3-&gt;&gt;CW: request() --- очередь
 
-    Note over CW: t=0..5: Мойка Car 0 и Car 1
+    Note over CW: t=0..5: Мойка C0, C1
 
     CW--&gt;&gt;C0: wash done (t=5)
     CW--&gt;&gt;C1: wash done (t=5)
     C0-&gt;&gt;CW: release()
     C1-&gt;&gt;CW: release()
 
-    CW--&gt;&gt;C2: Ваша очередь!
-    CW--&gt;&gt;C3: Ваша очередь!
+    CW--&gt;&gt;C2: Очередь подошла
+    CW--&gt;&gt;C3: Очередь подошла
 
-    Note over CW: t=5..10: Мойка Car 2 и Car 3
+    Note over CW: t=5..10: Мойка C2, C3
 
     CW--&gt;&gt;C2: wash done (t=10)
     CW--&gt;&gt;C3: wash done (t=10)</code></pre>
 <hr />
 <h2 id="2-theater">Пример 2: Кинотеатр (Theater)<a class="headerlink" href="#2-theater" title="Permanent link">&para;</a></h2>
-<h3 id="_8">Постановка задачи<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h3 id="_9">Постановка задачи<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p>Зрители приходят в кинотеатр и проходят через <strong>несколько последовательных этапов</strong> обслуживания:</p>
 <ol>
 <li><strong>Кассир</strong> --- покупка билета (1--3 мин.)</li>
 <li><strong>Буфет</strong> (опционально, с вероятностью 50%) --- покупка еды (1--5 мин.)</li>
 <li><strong>Контролёр</strong> --- проверка билета (3 секунды = 3/60 мин.)</li>
 </ol>
-<p>Наша задача --- измерить <strong>среднее время ожидания</strong> зрителя (от прихода до момента, когда он попал в зал) и подобрать оптимальное количество кассиров, серверов буфета и контролёров.</p>
-<h3 id="_9">Ключевые концепции<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>Задача --- измерить <mark>среднее время ожидания</mark> зрителя (от прихода до момента, когда он попал в зал) и подобрать оптимальное количество кассиров, серверов буфета и контролёров.</p>
+<h3 id="_10">Почему время ожидания такое большое<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>Прежде чем лезть в код, разберёмся, почему в этой модели зрители ждут по полчаса и больше. Тут 3 ресурса последовательно: кассир, потом буфет, потом контролёр. Узкое место --- самый медленный ресурс. Если кассиров 2, каждый обслуживает 1--3 минуты (в среднем 2 мин.), а новый зритель приходит каждые 12 секунд --- это 5 зрителей в минуту. Два кассира обслуживают в среднем 1 зрителя в минуту. Приход в 5 раз быстрее обслуживания --- очевидно, очередь будет расти каждую секунду. Добавь сюда буфет (1--5 мин. для половины зрителей) --- и получается, что система безнадёжно перегружена. Именно поэтому среднее ожидание получается 36 минут. Контролёр (3 секунды) --- вообще не узкое место, его можно хоть убрать.</p>
+<h3 id="_11">Ключевые концепции<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -1692,12 +1621,12 @@
 </tr>
 </tbody>
 </table>
-<h3 id="_10">Полный код с комментариями<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<h3 id="_12">Полный код с комментариями<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">simpy</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">statistics</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># Глобальный список для сбора времён ожидания</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># сюда складываем время ожидания каждого зрителя</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">wait_times</span> <span class="o">=</span> <span class="p">[]</span>
 <a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
@@ -1708,21 +1637,21 @@
 <a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
 <a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">num_cashiers</span><span class="p">,</span> <span class="n">num_servers</span><span class="p">,</span> <span class="n">num_ushers</span><span class="p">):</span>
 <a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cashier</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Resource</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">num_cashiers</span><span class="p">)</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">server</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Resource</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">num_servers</span><span class="p">)</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">usher</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Resource</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">num_ushers</span><span class="p">)</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cashier</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Resource</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">num_cashiers</span><span class="p">)</span>   <span class="c1"># кассы</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">server</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Resource</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">num_servers</span><span class="p">)</span>      <span class="c1"># буфет</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">usher</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Resource</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">num_ushers</span><span class="p">)</span>        <span class="c1"># контролёры на входе</span>
 <a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>
 <a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">purchase_ticket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">moviegoer</span><span class="p">):</span>
 <a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Покупка билета: занимает от 1 до 3 минут.&quot;&quot;&quot;</span>
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>        <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>        <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1"># кассир работает 1-3 мин.</span>
 <a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>
 <a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">check_ticket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">moviegoer</span><span class="p">):</span>
 <a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Проверка билета: занимает 3 секунды (3/60 минуты).&quot;&quot;&quot;</span>
-<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>        <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">3</span> <span class="o">/</span> <span class="mi">60</span><span class="p">)</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>        <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">3</span> <span class="o">/</span> <span class="mi">60</span><span class="p">)</span>  <span class="c1"># контролёр проверяет почти мгновенно</span>
 <a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>
 <a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">sell_food</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">moviegoer</span><span class="p">):</span>
 <a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Продажа еды в буфете: от 1 до 5 минут.&quot;&quot;&quot;</span>
-<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>        <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>        <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># буфет --- самый долгий этап</span>
 <a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>
 <a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>
 <a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="k">def</span><span class="w"> </span><span class="nf">go_to_movies</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">moviegoer</span><span class="p">,</span> <span class="n">theater</span><span class="p">):</span>
@@ -1733,25 +1662,25 @@
 <a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="sd">    2. Буфет (с вероятностью 50%)</span>
 <a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="sd">    3. Контролёр (обязательно)</span>
 <a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>    <span class="n">arrival_time</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span>  <span class="c1"># Запоминаем время прихода</span>
+<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>    <span class="n">arrival_time</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span>  <span class="c1"># запоминаем, когда пришёл зритель</span>
 <a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>
-<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a>    <span class="c1"># Этап 1: Покупка билета</span>
+<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a>    <span class="c1"># этап 1: покупка билета</span>
 <a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a>    <span class="k">with</span> <span class="n">theater</span><span class="o">.</span><span class="n">cashier</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">request</span><span class="p">:</span>
-<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a>        <span class="k">yield</span> <span class="n">request</span>  <span class="c1"># Ждём свободного кассира</span>
+<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a>        <span class="k">yield</span> <span class="n">request</span>  <span class="c1"># тут ждём очередь к кассиру</span>
 <a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">theater</span><span class="o">.</span><span class="n">purchase_ticket</span><span class="p">(</span><span class="n">moviegoer</span><span class="p">))</span>
 <a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a>
-<a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a>    <span class="c1"># Этап 2: Буфет (опционально)</span>
+<a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a>    <span class="c1"># этап 2: буфет --- ходит только половина зрителей</span>
 <a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a>    <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]):</span>
 <a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a>        <span class="k">with</span> <span class="n">theater</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">request</span><span class="p">:</span>
-<a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a>            <span class="k">yield</span> <span class="n">request</span>  <span class="c1"># Ждём свободного сервера</span>
+<a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a>            <span class="k">yield</span> <span class="n">request</span>  <span class="c1"># ждём очередь в буфет</span>
 <a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a>            <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">theater</span><span class="o">.</span><span class="n">sell_food</span><span class="p">(</span><span class="n">moviegoer</span><span class="p">))</span>
 <a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a>
-<a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a>    <span class="c1"># Этап 3: Проверка билета</span>
+<a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a>    <span class="c1"># этап 3: проверка билета на входе</span>
 <a id="__codelineno-2-55" name="__codelineno-2-55" href="#__codelineno-2-55"></a>    <span class="k">with</span> <span class="n">theater</span><span class="o">.</span><span class="n">usher</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">request</span><span class="p">:</span>
-<a id="__codelineno-2-56" name="__codelineno-2-56" href="#__codelineno-2-56"></a>        <span class="k">yield</span> <span class="n">request</span>  <span class="c1"># Ждём свободного контролёра</span>
+<a id="__codelineno-2-56" name="__codelineno-2-56" href="#__codelineno-2-56"></a>        <span class="k">yield</span> <span class="n">request</span>  <span class="c1"># ждём контролёра</span>
 <a id="__codelineno-2-57" name="__codelineno-2-57" href="#__codelineno-2-57"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">theater</span><span class="o">.</span><span class="n">check_ticket</span><span class="p">(</span><span class="n">moviegoer</span><span class="p">))</span>
 <a id="__codelineno-2-58" name="__codelineno-2-58" href="#__codelineno-2-58"></a>
-<a id="__codelineno-2-59" name="__codelineno-2-59" href="#__codelineno-2-59"></a>    <span class="c1"># Зритель в зале! Записываем общее время ожидания.</span>
+<a id="__codelineno-2-59" name="__codelineno-2-59" href="#__codelineno-2-59"></a>    <span class="c1"># зритель в зале, считаем статистику</span>
 <a id="__codelineno-2-60" name="__codelineno-2-60" href="#__codelineno-2-60"></a>    <span class="n">wait_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">arrival_time</span><span class="p">)</span>
 <a id="__codelineno-2-61" name="__codelineno-2-61" href="#__codelineno-2-61"></a>
 <a id="__codelineno-2-62" name="__codelineno-2-62" href="#__codelineno-2-62"></a>
@@ -1763,20 +1692,20 @@
 <a id="__codelineno-2-68" name="__codelineno-2-68" href="#__codelineno-2-68"></a><span class="sd">    &quot;&quot;&quot;</span>
 <a id="__codelineno-2-69" name="__codelineno-2-69" href="#__codelineno-2-69"></a>    <span class="n">theater</span> <span class="o">=</span> <span class="n">Theater</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">num_cashiers</span><span class="p">,</span> <span class="n">num_servers</span><span class="p">,</span> <span class="n">num_ushers</span><span class="p">)</span>
 <a id="__codelineno-2-70" name="__codelineno-2-70" href="#__codelineno-2-70"></a>
-<a id="__codelineno-2-71" name="__codelineno-2-71" href="#__codelineno-2-71"></a>    <span class="c1"># Первые 3 зрителя уже в очереди</span>
+<a id="__codelineno-2-71" name="__codelineno-2-71" href="#__codelineno-2-71"></a>    <span class="c1"># сначала 3 зрителя уже стоят в очереди</span>
 <a id="__codelineno-2-72" name="__codelineno-2-72" href="#__codelineno-2-72"></a>    <span class="k">for</span> <span class="n">moviegoer</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
 <a id="__codelineno-2-73" name="__codelineno-2-73" href="#__codelineno-2-73"></a>        <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">go_to_movies</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">moviegoer</span><span class="p">,</span> <span class="n">theater</span><span class="p">))</span>
 <a id="__codelineno-2-74" name="__codelineno-2-74" href="#__codelineno-2-74"></a>
-<a id="__codelineno-2-75" name="__codelineno-2-75" href="#__codelineno-2-75"></a>    <span class="c1"># Бесконечная генерация новых зрителей</span>
+<a id="__codelineno-2-75" name="__codelineno-2-75" href="#__codelineno-2-75"></a>    <span class="c1"># дальше каждые 12 секунд приходит новый зритель</span>
 <a id="__codelineno-2-76" name="__codelineno-2-76" href="#__codelineno-2-76"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<a id="__codelineno-2-77" name="__codelineno-2-77" href="#__codelineno-2-77"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">0.20</span><span class="p">)</span>  <span class="c1"># Каждые 12 секунд новый зритель</span>
+<a id="__codelineno-2-77" name="__codelineno-2-77" href="#__codelineno-2-77"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">0.20</span><span class="p">)</span>  <span class="c1"># 0.20 мин = 12 секунд</span>
 <a id="__codelineno-2-78" name="__codelineno-2-78" href="#__codelineno-2-78"></a>        <span class="n">moviegoer</span> <span class="o">+=</span> <span class="mi">1</span>
 <a id="__codelineno-2-79" name="__codelineno-2-79" href="#__codelineno-2-79"></a>        <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">go_to_movies</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">moviegoer</span><span class="p">,</span> <span class="n">theater</span><span class="p">))</span>
 <a id="__codelineno-2-80" name="__codelineno-2-80" href="#__codelineno-2-80"></a>
 <a id="__codelineno-2-81" name="__codelineno-2-81" href="#__codelineno-2-81"></a>
 <a id="__codelineno-2-82" name="__codelineno-2-82" href="#__codelineno-2-82"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_average_wait_time</span><span class="p">(</span><span class="n">wait_times</span><span class="p">):</span>
-<a id="__codelineno-2-83" name="__codelineno-2-83" href="#__codelineno-2-83"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Вычисляет среднее время ожидания и</span>
-<a id="__codelineno-2-84" name="__codelineno-2-84" href="#__codelineno-2-84"></a><span class="sd">    возвращает его в формате (минуты, секунды).</span>
+<a id="__codelineno-2-83" name="__codelineno-2-83" href="#__codelineno-2-83"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Считаем среднее время ожидания,</span>
+<a id="__codelineno-2-84" name="__codelineno-2-84" href="#__codelineno-2-84"></a><span class="sd">    возвращаем в формате (минуты, секунды).</span>
 <a id="__codelineno-2-85" name="__codelineno-2-85" href="#__codelineno-2-85"></a><span class="sd">    &quot;&quot;&quot;</span>
 <a id="__codelineno-2-86" name="__codelineno-2-86" href="#__codelineno-2-86"></a>    <span class="n">average_wait</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">wait_times</span><span class="p">)</span>
 <a id="__codelineno-2-87" name="__codelineno-2-87" href="#__codelineno-2-87"></a>    <span class="n">minutes</span><span class="p">,</span> <span class="n">frac_minutes</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">average_wait</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -1784,7 +1713,7 @@
 <a id="__codelineno-2-89" name="__codelineno-2-89" href="#__codelineno-2-89"></a>    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">minutes</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span>
 <a id="__codelineno-2-90" name="__codelineno-2-90" href="#__codelineno-2-90"></a>
 <a id="__codelineno-2-91" name="__codelineno-2-91" href="#__codelineno-2-91"></a>
-<a id="__codelineno-2-92" name="__codelineno-2-92" href="#__codelineno-2-92"></a><span class="c1"># === Запуск симуляции ===</span>
+<a id="__codelineno-2-92" name="__codelineno-2-92" href="#__codelineno-2-92"></a><span class="c1"># запуск симуляции</span>
 <a id="__codelineno-2-93" name="__codelineno-2-93" href="#__codelineno-2-93"></a><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 <a id="__codelineno-2-94" name="__codelineno-2-94" href="#__codelineno-2-94"></a><span class="n">num_cashiers</span> <span class="o">=</span> <span class="mi">2</span>
 <a id="__codelineno-2-95" name="__codelineno-2-95" href="#__codelineno-2-95"></a><span class="n">num_servers</span> <span class="o">=</span> <span class="mi">2</span>
@@ -1792,7 +1721,7 @@
 <a id="__codelineno-2-97" name="__codelineno-2-97" href="#__codelineno-2-97"></a>
 <a id="__codelineno-2-98" name="__codelineno-2-98" href="#__codelineno-2-98"></a><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
 <a id="__codelineno-2-99" name="__codelineno-2-99" href="#__codelineno-2-99"></a><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">run_theater</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">num_cashiers</span><span class="p">,</span> <span class="n">num_servers</span><span class="p">,</span> <span class="n">num_ushers</span><span class="p">))</span>
-<a id="__codelineno-2-100" name="__codelineno-2-100" href="#__codelineno-2-100"></a><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<a id="__codelineno-2-100" name="__codelineno-2-100" href="#__codelineno-2-100"></a><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>  <span class="c1"># гоняем 90 минут</span>
 <a id="__codelineno-2-101" name="__codelineno-2-101" href="#__codelineno-2-101"></a>
 <a id="__codelineno-2-102" name="__codelineno-2-102" href="#__codelineno-2-102"></a><span class="n">mins</span><span class="p">,</span> <span class="n">secs</span> <span class="o">=</span> <span class="n">get_average_wait_time</span><span class="p">(</span><span class="n">wait_times</span><span class="p">)</span>
 <a id="__codelineno-2-103" name="__codelineno-2-103" href="#__codelineno-2-103"></a><span class="nb">print</span><span class="p">(</span>
@@ -1800,13 +1729,34 @@
 <a id="__codelineno-2-105" name="__codelineno-2-105" href="#__codelineno-2-105"></a>    <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The average wait time is </span><span class="si">{</span><span class="n">mins</span><span class="si">}</span><span class="s2"> minutes and </span><span class="si">{</span><span class="n">secs</span><span class="si">}</span><span class="s2"> seconds.&quot;</span><span class="p">,</span>
 <a id="__codelineno-2-106" name="__codelineno-2-106" href="#__codelineno-2-106"></a><span class="p">)</span>
 </code></pre></div>
-<h3 id="_11">Анализ результатов<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h3 id="_13">Анализ результатов<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <p>При конфигурации <code>(2 кассира, 2 сервера, 2 контролёра)</code> и времени симуляции 90 минут среднее время ожидания составляет <strong>36 минут и 38 секунд</strong>. Это довольно много!</p>
 <div class="admonition warning">
 <p class="admonition-title">Почему так долго?</p>
 <p>Зрители приходят каждые 12 секунд --- это очень интенсивный поток. При двух кассирах, каждый из которых обслуживает 1--3 минуты, система быстро перегружается и очередь растёт.</p>
 </div>
-<h3 id="_12">Подбор оптимальных параметров<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<h3 id="_14">Как искать узкое место<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>Когда среднее ожидание слишком большое, надо понять, какой именно ресурс тормозит всю систему. Простой способ --- посчитать загрузку каждого ресурса.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># загрузка = время_занятости / общее_время</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># ресурс с загрузкой &gt; 0.8 --- узкое место, он перегружен</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Для кинотеатра прикинем на пальцах:</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># зритель каждые 0.2 мин = 5 зрителей/мин</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1"># кассир обслуживает в среднем 2 мин на зрителя</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># 2 кассира обслуживают 2/2 = 1 зрителя/мин</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># загрузка кассиров = 5 / 1 = 5.0 (!!!) --- перегрузка в 5 раз</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1"># буфет: половина зрителей * 3 мин в среднем = 2.5 * 3 = 7.5 мин/мин на 2 сервера</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="c1"># загрузка буфета = 7.5 / 2 = 3.75 --- тоже перегрузка</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="c1"># контролёр: 5 зрителей/мин * 0.05 мин = 0.25 мин/мин на 2 контролёра</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="c1"># загрузка контролёров = 0.25 / 2 = 0.125 --- контролёры скучают</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Правило большого пальца</p>
+<p>Увеличивать надо тот ресурс, загрузка которого больше 1.0 (или ближе к 1.0, если хочешь короткие очереди). Ресурсы с загрузкой &lt; 0.5 трогать бессмысленно --- они и так простаивают.</p>
+</div>
+<h3 id="_15">Подбор оптимальных параметров<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
 <p>Чтобы найти оптимальную конфигурацию, нужно запускать симуляцию с разными параметрами:</p>
 <table>
 <thead>
@@ -1846,24 +1796,24 @@
 </table>
 <div class="admonition tip">
 <p class="admonition-title">Узкое место</p>
-<p>Контролёр проверяет билет за 3 секунды --- это самый быстрый этап. Узкое место --- <strong>кассиры</strong> (1--3 мин.) и <strong>буфет</strong> (1--5 мин.). Увеличение числа контролёров почти не повлияет на результат, а вот добавление кассиров --- повлияет существенно.</p>
+<p>Контролёр проверяет билет за 3 секунды --- это самый быстрый этап. <mark>Узкое место</mark> --- <strong>кассиры</strong> (1--3 мин.) и <strong>буфет</strong> (1--5 мин.). Увеличение числа контролёров почти не повлияет на результат, а вот добавление кассиров --- повлияет существенно.</p>
 </div>
 <h3 id="-">Блок-схема процесса зрителя<a class="headerlink" href="#-" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>flowchart TD
-    A["Зритель приходит в кинотеатр"] --&gt; B["Встаёт в очередь к кассиру"]
+    A["Зритель пришёл"] --&gt; B["Очередь к кассиру"]
     B --&gt; C{"Кассир свободен?"}
     C -- Нет --&gt; C
-    C -- Да --&gt; D["Покупает билет\n(1--3 мин.)"]
-    D --&gt; E{"Хочет еду?\n(50% / 50%)"}
-    E -- Да --&gt; F["Встаёт в очередь в буфет"]
+    C -- Да --&gt; D["Покупка билета&lt;br&gt;(1--3 мин.)"]
+    D --&gt; E{"Хочет еду?&lt;br&gt;(50/50)"}
+    E -- Да --&gt; F["Очередь в буфет"]
     F --&gt; G{"Сервер свободен?"}
     G -- Нет --&gt; G
-    G -- Да --&gt; H["Покупает еду\n(1--5 мин.)"]
-    H --&gt; I["Встаёт в очередь к контролёру"]
+    G -- Да --&gt; H["Покупка еды&lt;br&gt;(1--5 мин.)"]
+    H --&gt; I["Очередь к контролёру"]
     E -- Нет --&gt; I
     I --&gt; J{"Контролёр свободен?"}
     J -- Нет --&gt; J
-    J -- Да --&gt; K["Проверка билета\n(3 сек.)"]
+    J -- Да --&gt; K["Проверка билета&lt;br&gt;(3 сек.)"]
     K --&gt; L["Зритель в зале!"]
 
     style A fill:#e8f4f8,stroke:#2196F3
@@ -1871,27 +1821,27 @@
     style E fill:#fff3e0,stroke:#FF9800</code></pre>
 <hr />
 <h2 id="simpy">Общие паттерны SimPy<a class="headerlink" href="#simpy" title="Permanent link">&para;</a></h2>
-<p>Оба примера используют одни и те же базовые паттерны. Давай их выделим --- они пригодятся при написании любой SimPy-модели.</p>
+<p>Оба примера используют одни и те же базовые паттерны. Они пригодятся при написании любой SimPy-модели.</p>
 <h3 id="1-with-resourcerequest">1. Захват ресурса с <code>with resource.request()</code><a class="headerlink" href="#1-with-resourcerequest" title="Permanent link">&para;</a></h3>
 <p>Это основной механизм работы с ограниченными ресурсами:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">with</span> <span class="n">resource</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">request</span><span class="p">:</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="k">yield</span> <span class="n">request</span>          <span class="c1"># Ждём, пока ресурс не освободится</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>  <span class="c1"># Используем ресурс</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Ресурс автоматически освобождается при выходе из with</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">with</span> <span class="n">resource</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">request</span><span class="p">:</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="k">yield</span> <span class="n">request</span>          <span class="c1"># Ждём, пока ресурс не освободится</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>  <span class="c1"># Используем ресурс</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Ресурс автоматически освобождается при выходе из with</span>
 </code></pre></div>
 <div class="admonition note">
-<p class="admonition-title">Почему <code>with</code>?</p>
+<p class="admonition-title">Почему with?</p>
 <p>Конструкция <code>with</code> гарантирует, что ресурс будет освобождён даже если внутри произойдёт ошибка. Без <code>with</code> можно забыть вызвать <code>resource.release(request)</code> --- и ресурс останется занятым навсегда.</p>
 </div>
 <p><strong>Автомойка:</strong> <code>with cw.machine.request()</code> --- запрос моечной машины.</p>
 <p><strong>Кинотеатр:</strong> три последовательных <code>with</code> --- кассир, буфет, контролёр.</p>
 <h3 id="2-randomrandint">2. Случайные интервалы с <code>random.randint()</code><a class="headerlink" href="#2-randomrandint" title="Permanent link">&para;</a></h3>
 <p>SimPy работает с любыми генераторами случайных чисел Python:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Случайный интервал между приездами (автомойка)</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">t_inter</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">t_inter</span> <span class="o">+</span> <span class="mi">2</span><span class="p">))</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Случайное время обслуживания (кинотеатр)</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Случайный интервал между приездами (автомойка)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">t_inter</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">t_inter</span> <span class="o">+</span> <span class="mi">2</span><span class="p">))</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Случайное время обслуживания (кинотеатр)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Воспроизводимость</p>
@@ -1899,33 +1849,33 @@
 </div>
 <h3 id="3">3. Сбор статистики<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>Простейший подход --- собирать значения в список и вычислять агрегаты после окончания симуляции:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># В начале</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">wait_times</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># В процессе (внутри go_to_movies)</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">wait_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">arrival_time</span><span class="p">)</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># После симуляции</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">average_wait</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">wait_times</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># В начале</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">wait_times</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># В процессе (внутри go_to_movies)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">wait_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">arrival_time</span><span class="p">)</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># После симуляции</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">average_wait</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">wait_times</span><span class="p">)</span>
 </code></pre></div>
 <p>В автомойке статистика не собирается (только вывод в консоль). В кинотеатре --- полноценный сбор и анализ времён ожидания. В реальных проектах стоит собирать больше метрик: длину очереди, загрузку ресурсов, число обслуженных заявок.</p>
 <h3 id="4-while-true">4. Генерация процессов (паттерн <code>while True</code>)<a class="headerlink" href="#4-while-true" title="Permanent link">&para;</a></h3>
 <p>Оба примера используют один и тот же паттерн для непрерывной генерации новых заявок:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="c1"># Создаём начальные заявки</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">initial_count</span><span class="p">):</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">some_process</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="o">...</span><span class="p">))</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="c1"># Бесконечная генерация</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">inter_arrival_time</span><span class="p">)</span>  <span class="c1"># Ждём</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>        <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">some_process</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="o">...</span><span class="p">))</span>     <span class="c1"># Создаём новую заявку</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="c1"># Создаём начальные заявки</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">initial_count</span><span class="p">):</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>        <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">some_process</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="o">...</span><span class="p">))</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="c1"># Бесконечная генерация</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">inter_arrival_time</span><span class="p">)</span>  <span class="c1"># Ждём</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>        <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">some_process</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="o">...</span><span class="p">))</span>     <span class="c1"># Создаём новую заявку</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Бесконечный цикл?</p>
 <p><code>while True</code> не зависает, потому что <code>yield env.timeout(...)</code> приостанавливает генератор. Симуляция остановится, когда <code>env.run(until=SIM_TIME)</code> дойдёт до указанного времени --- все незавершённые процессы просто прекратятся.</p>
 </div>
-<h3 id="_13">Сводная таблица паттернов<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<h3 id="_16">Сводная таблица паттернов<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -1963,9 +1913,159 @@
 </tbody>
 </table>
 <hr />
+<h2 id="_17">Паттерны для домашки<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<p>Ниже --- готовые кирпичики, которые пригодятся при написании домашки. Бери и адаптируй под свою задачу.</p>
+<h3 id="1">Паттерн 1: Несколько типов клиентов<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>Если в задаче есть VIP и обычные клиенты (или срочные/несрочные заявки), используй <code>PriorityResource</code>. Он работает как обычный <code>Resource</code>, но при освобождении ресурса первым обслуживается клиент с наименьшим приоритетом (0 = самый важный).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">simpy</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">vip_customer</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">server</span><span class="p">):</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;VIP клиент --- обслуживается первым.&quot;&quot;&quot;</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> (VIP) пришёл&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="k">with</span> <span class="n">server</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">priority</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>  <span class="c1"># 0 = высший приоритет</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>        <span class="k">yield</span> <span class="n">req</span>  <span class="c1"># VIP пролезет вперёд очереди</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> (VIP) обслуживается&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># среднее время обслуживания 3 мин.</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">regular_customer</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">server</span><span class="p">):</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Обычный клиент --- ждёт дольше, если есть VIP.&quot;&quot;&quot;</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> пришёл&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>    <span class="k">with</span> <span class="n">server</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">priority</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>  <span class="c1"># 1 = обычный приоритет</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>        <span class="k">yield</span> <span class="n">req</span>  <span class="c1"># если впереди есть VIP, пропустим их</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> обслуживается&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># обычные обслуживаются дольше</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="c1"># PriorityResource вместо обычного Resource</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="n">server</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">PriorityResource</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Осторожно с приоритетами</p>
+<p>Если VIP приходят слишком часто, обычные клиенты могут ждать вечно --- это называется starvation. В реальных системах для защиты от этого ограничивают время ожидания или резервируют часть ресурсов для обычных клиентов.</p>
+</div>
+<h3 id="2">Паттерн 2: Несколько этапов обслуживания<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>Этот паттерн уже есть в примере с кинотеатром, но вот чистый шаблон, который можно скопировать. Ключевая идея --- каждый <code>with</code> блок захватывает свой ресурс, и они идут последовательно.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">multi_stage_customer</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">stage1</span><span class="p">,</span> <span class="n">stage2</span><span class="p">,</span> <span class="n">wait_times</span><span class="p">):</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Клиент проходит два этапа обслуживания подряд.&quot;&quot;&quot;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="n">arrival</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span>  <span class="c1"># запоминаем время прихода</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="c1"># сначала проходим первый этап</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="k">with</span> <span class="n">stage1</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>        <span class="k">yield</span> <span class="n">req</span>  <span class="c1"># ждём первый ресурс</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># обслуживание ~2 мин.</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    <span class="c1"># потом второй (первый ресурс уже освободился!)</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>    <span class="k">with</span> <span class="n">stage2</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>        <span class="k">yield</span> <span class="n">req</span>  <span class="c1"># ждём второй ресурс</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># обслуживание ~3 мин.</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>    <span class="c1"># считаем статистику: полное время от прихода до выхода</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>    <span class="n">wait_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">arrival</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Важный момент</p>
+<p>Обрати внимание: первый ресурс освобождается, когда мы выходим из первого <code>with</code>, а не когда заканчивается весь процесс. Это правильное поведение --- клиент ушёл от кассира и перешёл к следующему этапу, кассир уже свободен для следующего клиента.</p>
+</div>
+<h3 id="3_1">Паттерн 3: Запуск нескольких экспериментов<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<p>В домашке часто надо сравнить: а что если серверов 1, 2, 3, 4, 5? Вот как это сделать одним скриптом. Ключевой трюк --- фиксировать <code>random.seed</code> перед каждым запуском, чтобы сравнение было честным (одни и те же клиенты приходят в одно и то же время).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">simpy</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">statistics</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">source</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">wait_times</span><span class="p">):</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Генератор клиентов --- стандартный паттерн.&quot;&quot;&quot;</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># клиент каждые ~2 мин.</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>        <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">customer</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Client-</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">wait_times</span><span class="p">))</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="k">def</span><span class="w"> </span><span class="nf">customer</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">wait_times</span><span class="p">):</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Клиент: пришёл, подождал, обслужился.&quot;&quot;&quot;</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>    <span class="n">arrival</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>    <span class="k">with</span> <span class="n">server</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>        <span class="k">yield</span> <span class="n">req</span>  <span class="c1"># тут ждём очередь</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">))</span>  <span class="c1"># обслуживание ~4 мин.</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>    <span class="n">wait_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">arrival</span><span class="p">)</span>  <span class="c1"># записываем полное время в системе</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="c1"># прогоняем эксперименты для разного числа серверов</span>
+<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="k">for</span> <span class="n">num_servers</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+<a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># одинаковый seed для честного сравнения!</span>
+<a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>    <span class="n">wait_times</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>    <span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>    <span class="n">server</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Resource</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="n">num_servers</span><span class="p">)</span>
+<a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>    <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">source</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">wait_times</span><span class="p">))</span>
+<a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>    <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>  <span class="c1"># достаточно большое время для стабильной статистики</span>
+<a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a>    <span class="n">avg</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">wait_times</span><span class="p">)</span>
+<a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">num_servers</span><span class="p">,</span> <span class="n">avg</span><span class="p">))</span>
+<a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">num_servers</span><span class="si">}</span><span class="s2"> серверов: среднее ожидание </span><span class="si">{</span><span class="n">avg</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> мин.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Результат будет выглядеть примерно так:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>1 серверов: среднее ожидание 18.42 мин.
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>2 серверов: среднее ожидание 4.31 мин.
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>3 серверов: среднее ожидание 4.05 мин.
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>4 серверов: среднее ожидание 4.02 мин.
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>5 серверов: среднее ожидание 4.01 мин.
+</code></pre></div>
+<p>Видно, что основной выигрыш --- при переходе от 1 к 2 серверам. Дальше добавление серверов уже почти не помогает. Это типичная картина для СМО: после снятия узкого места дальнейшие улучшения дают убывающую отдачу.</p>
+<hr />
+<h2 id="_18">Чеклист перед сдачей домашки<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<p>Перед тем как отправлять домашку, пройдись по этому списку. Каждый пункт --- типичная ошибка, на которой теряют баллы.</p>
+<p><strong>Воспроизводимость:</strong></p>
+<ul>
+<li>[ ] <code>random.seed()</code> зафиксирован в начале? Без этого результаты будут разными при каждом запуске, и проверяющий не сможет воспроизвести твои числа.</li>
+</ul>
+<p><strong>Время симуляции:</strong></p>
+<ul>
+<li>[ ] <code>SIM_TIME</code> достаточно большой? Минимум 1000, а лучше 5000--10000. На коротких прогонах (20--100) статистика ещё не стабилизировалась и может сильно гулять. Попробуй запустить с разным <code>SIM_TIME</code> и убедись, что среднее перестало прыгать.</li>
+</ul>
+<p><strong>Сбор статистики:</strong></p>
+<ul>
+<li>[ ] Не забыл <code>wait_times.append(...)</code> внутри процесса клиента? Частая ошибка --- написать весь процесс, но забыть записать результат. Без <code>append</code> список будет пустым и <code>statistics.mean()</code> упадёт с ошибкой.</li>
+<li>[ ] Считаешь правильную величину? <code>env.now - arrival_time</code> --- это полное время в системе (ожидание + обслуживание). Если нужно только время ожидания в очереди, то надо замерять момент до и после <code>yield request</code>.</li>
+</ul>
+<p><strong>Проверка результатов:</strong></p>
+<ul>
+<li>[ ] Результаты симуляции сходятся с теорией? Для простых случаев (M/M/1, M/M/c) есть аналитические формулы. Например, для M/M/1 с интенсивностью прихода lambda и обслуживания mu, среднее время в системе = 1 / (mu - lambda). Если симуляция показывает что-то сильно другое --- ищи баг.</li>
+</ul>
+<p><strong>Визуализация:</strong></p>
+<ul>
+<li>[ ] Графики есть? Минимальный набор --- гистограмма времён ожидания и график среднего ожидания от числа серверов. Вот болванка:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># гистограмма времён ожидания</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">wait_times</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Время ожидания (мин.)&#39;</span><span class="p">)</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Количество клиентов&#39;</span><span class="p">)</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Распределение времён ожидания&#39;</span><span class="p">)</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="c1"># среднее ожидание vs число серверов (из эксперимента выше)</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="n">servers</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">]</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="n">avg_waits</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">]</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">servers</span><span class="p">,</span> <span class="n">avg_waits</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Число серверов&#39;</span><span class="p">)</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Среднее ожидание (мин.)&#39;</span><span class="p">)</span>
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Влияние числа серверов&#39;</span><span class="p">)</span>
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>
+<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;simulation_results.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>Оформление кода:</strong></p>
+<ul>
+<li>[ ] Код разбит на функции, а не всё в одном блоке? Минимум: функция-генератор клиентов, функция-процесс клиента, функция запуска эксперимента.</li>
+<li>[ ] Константы вынесены наверх, а не захардкожены внутри функций?</li>
+</ul>
+<hr />
 <div class="admonition success">
 <p class="admonition-title">Итого</p>
-<p>Два примера --- автомойка и кинотеатр --- покрывают все основные паттерны SimPy: ресурсы, случайные времена, взаимодействие процессов, сбор статистики и непрерывную генерацию заявок. Если ты разобрался с этими двумя моделями --- ты можешь построить практически любую дискретно-событийную модель на SimPy.</p>
+<p>Два примера --- автомойка и кинотеатр --- покрывают все основные паттерны SimPy: <mark>ресурсы</mark>, случайные времена, взаимодействие процессов, сбор статистики и непрерывную генерацию заявок. Разобрался с этими двумя моделями --- можешь построить практически любую дискретно-событийную модель на SimPy.</p>
 </div>
 
 
@@ -2024,7 +2124,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>

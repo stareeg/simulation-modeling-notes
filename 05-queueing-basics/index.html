@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Конспект курса «Имитационное моделирование» (ФКН ВШЭ)">
+        <meta name="description" content="Конспект курса «Имитационное моделирование»">
       
       
       
@@ -53,6 +53,8 @@
     
       <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -90,7 +92,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
     <a href=".." title="Имитационное моделирование — Конспект" class="md-header__button md-logo" aria-label="Имитационное моделирование — Конспект" data-md-component="logo">
       
@@ -202,264 +206,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Главная
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../01-introduction/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  1. Введение в ИМ
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../02-system-dynamics/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  2. Системная динамика
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../03-agent-based/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  3. Агентное моделирование
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../04-discrete-event/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  4. Дискретно-событийное моделирование
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
-        
-  
-  
-    
-  
-  5. Основы ТМО
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../06-queueing-intro/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  6. Теория очередей — введение
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../07-single-queue/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  7. Анализ одиночной очереди
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../08-queueing-networks/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  8. Сети массового обслуживания
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../09-simpy/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  9. SimPy — основы
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../10-simpy-practice/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  10. SimPy — практика
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../11-simulation-analysis/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  11. Моделирование и анализ
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../cheatsheet/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Шпаргалка
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -473,10 +219,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Имитационное моделирование — Конспект" class="md-nav__button md-logo" aria-label="Имитационное моделирование — Конспект" data-md-component="logo">
       
@@ -747,10 +491,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+  <a href="#3-" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Группа 3: Показатели пары «система — клиент»
+        Группа 3: Показатели пары «система -- клиент»
       
     </span>
   </a>
@@ -928,6 +672,17 @@
   <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
       
+        Пошаговый разбор: как составить уравнение для конкретного состояния
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         Стационарный (установившийся) режим
       
     </span>
@@ -941,7 +696,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
+  <a href="#_20" class="md-nav__link">
     <span class="md-ellipsis">
       
         Процессы гибели и размножения
@@ -953,7 +708,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     <span class="md-ellipsis">
       
         Формулы для предельных вероятностей
@@ -969,7 +724,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#_22" class="md-nav__link">
     <span class="md-ellipsis">
       
         СМО с отказами
@@ -981,7 +736,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     <span class="md-ellipsis">
       
         Одноканальная СМО с отказами
@@ -992,7 +747,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
+  <a href="#_24" class="md-nav__link">
     <span class="md-ellipsis">
       
         Многоканальная СМО с отказами (формулы Эрланга)
@@ -1003,10 +758,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
+  <a href="#_25" class="md-nav__link">
     <span class="md-ellipsis">
       
         Пример: оптимизация банковского отделения
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пример: телефонные линии (пошаговый разбор формулы Эрланга)
       
     </span>
   </a>
@@ -1019,7 +785,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_25" class="md-nav__link">
+  <a href="#_27" class="md-nav__link">
     <span class="md-ellipsis">
       
         СМО с ожиданием
@@ -1031,7 +797,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_26" class="md-nav__link">
+  <a href="#_28" class="md-nav__link">
     <span class="md-ellipsis">
       
         Одноканальная СМО с ограниченной очередью
@@ -1042,7 +808,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_27" class="md-nav__link">
+  <a href="#_29" class="md-nav__link">
     <span class="md-ellipsis">
       
         Предельные вероятности
@@ -1053,7 +819,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_28" class="md-nav__link">
+  <a href="#_30" class="md-nav__link">
     <span class="md-ellipsis">
       
         Вероятность отказа
@@ -1064,7 +830,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_29" class="md-nav__link">
+  <a href="#_31" class="md-nav__link">
     <span class="md-ellipsis">
       
         Средняя длина очереди
@@ -1075,7 +841,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_30" class="md-nav__link">
+  <a href="#_32" class="md-nav__link">
     <span class="md-ellipsis">
       
         Среднее время ожидания в очереди
@@ -1086,7 +852,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_31" class="md-nav__link">
+  <a href="#_33" class="md-nav__link">
     <span class="md-ellipsis">
       
         Среднее время пребывания в системе
@@ -1381,10 +1147,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+  <a href="#3-" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Группа 3: Показатели пары «система — клиент»
+        Группа 3: Показатели пары «система -- клиент»
       
     </span>
   </a>
@@ -1562,6 +1328,17 @@
   <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
       
+        Пошаговый разбор: как составить уравнение для конкретного состояния
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         Стационарный (установившийся) режим
       
     </span>
@@ -1575,7 +1352,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
+  <a href="#_20" class="md-nav__link">
     <span class="md-ellipsis">
       
         Процессы гибели и размножения
@@ -1587,7 +1364,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     <span class="md-ellipsis">
       
         Формулы для предельных вероятностей
@@ -1603,7 +1380,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#_22" class="md-nav__link">
     <span class="md-ellipsis">
       
         СМО с отказами
@@ -1615,7 +1392,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     <span class="md-ellipsis">
       
         Одноканальная СМО с отказами
@@ -1626,7 +1403,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
+  <a href="#_24" class="md-nav__link">
     <span class="md-ellipsis">
       
         Многоканальная СМО с отказами (формулы Эрланга)
@@ -1637,10 +1414,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
+  <a href="#_25" class="md-nav__link">
     <span class="md-ellipsis">
       
         Пример: оптимизация банковского отделения
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пример: телефонные линии (пошаговый разбор формулы Эрланга)
       
     </span>
   </a>
@@ -1653,7 +1441,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_25" class="md-nav__link">
+  <a href="#_27" class="md-nav__link">
     <span class="md-ellipsis">
       
         СМО с ожиданием
@@ -1665,7 +1453,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_26" class="md-nav__link">
+  <a href="#_28" class="md-nav__link">
     <span class="md-ellipsis">
       
         Одноканальная СМО с ограниченной очередью
@@ -1676,7 +1464,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_27" class="md-nav__link">
+  <a href="#_29" class="md-nav__link">
     <span class="md-ellipsis">
       
         Предельные вероятности
@@ -1687,7 +1475,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_28" class="md-nav__link">
+  <a href="#_30" class="md-nav__link">
     <span class="md-ellipsis">
       
         Вероятность отказа
@@ -1698,7 +1486,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_29" class="md-nav__link">
+  <a href="#_31" class="md-nav__link">
     <span class="md-ellipsis">
       
         Средняя длина очереди
@@ -1709,7 +1497,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_30" class="md-nav__link">
+  <a href="#_32" class="md-nav__link">
     <span class="md-ellipsis">
       
         Среднее время ожидания в очереди
@@ -1720,7 +1508,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_31" class="md-nav__link">
+  <a href="#_33" class="md-nav__link">
     <span class="md-ellipsis">
       
         Среднее время пребывания в системе
@@ -1753,10 +1541,10 @@
 
 
 <h1 id="_1">Основы теории массового обслуживания<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>Привет! В этой лекции мы разберём <strong>теорию массового обслуживания</strong> (ТМО) — мощный математический аппарат, который помогает проектировать и оптимизировать самые разные системы: от банковских отделений до серверных кластеров. Материал может показаться формульно насыщенным, но не пугайся — мы пойдём шаг за шагом и разберём каждую идею на примерах.</p>
+<p><strong>Теория массового обслуживания</strong> (ТМО) — мощный математический аппарат для проектирования и оптимизации самых разных систем: от банковских отделений до серверных кластеров. Погнали разбираться.</p>
 <hr />
 <h2 id="_2">Зачем это нужно<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Представь: ты стоишь в очереди в банке, и тебе интересно — сколько касс нужно открыть, чтобы среднее время ожидания не превышало 5 минут? Или ты проектируешь колл-центр и хочешь понять, сколько операторов нанять, чтобы не более 2% звонков оставались без ответа? Именно на такие вопросы отвечает <strong>теория массового обслуживания</strong>.</p>
+<p>Суть в том, что ТМО отвечает на конкретные вопросы: сколько касс открыть, чтобы среднее ожидание не превышало 5 минут? Сколько операторов нанять, чтобы не более 2% звонков оставались без ответа?</p>
 <p>Основоположником ТМО считается датский инженер <strong>Агнер Краруп Эрланг</strong> (A.K. Erlang), который в <strong>1909 году</strong> опубликовал первую работу по анализу телефонных сетей. Сам термин <strong>«теория массового обслуживания»</strong> был предложен выдающимся советским математиком <strong>А.Я. Хинчиным</strong>.</p>
 <p>Где применяется ТМО на практике:</p>
 <ul>
@@ -1772,7 +1560,8 @@
 </div>
 <hr />
 <h2 id="_3">Структура СМО<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>Любая <strong>система массового обслуживания</strong> (СМО) состоит из четырёх основных элементов:</p>
+<p>Любая СМО — это по сути «вход -&gt; ожидание -&gt; обслуживание -&gt; выход». Стоматология, касса в магазине, сервер обрабатывающий запросы — все это СМО. Разница лишь в деталях: сколько каналов, есть ли очередь, с какой скоростью приходят заявки.</p>
+<p>Любая <mark>система массового обслуживания</mark> (СМО) состоит из четырёх основных элементов:</p>
 <ol>
 <li><strong>Входящий поток заявок</strong> — клиенты (или запросы), поступающие в систему случайным образом с некоторой интенсивностью <span class="arithmatex">\(\lambda\)</span></li>
 <li><strong>Очередь</strong> — буфер, в котором заявки ожидают обслуживания (может быть ограниченной или бесконечной длины)</li>
@@ -1780,11 +1569,11 @@
 <li><strong>Выходящий поток</strong> — обслуженные заявки, покидающие систему</li>
 </ol>
 <pre class="mermaid"><code>graph LR
-    A["Входящий поток&lt;br/&gt;заявок (λ)"] --&gt; B["Очередь&lt;br/&gt;(буфер)"]
-    B --&gt; C1["Канал 1&lt;br/&gt;(μ)"]
-    B --&gt; C2["Канал 2&lt;br/&gt;(μ)"]
-    B --&gt; C3["Канал n&lt;br/&gt;(μ)"]
-    C1 --&gt; D["Выходящий&lt;br/&gt;поток"]
+    A["Вх. поток (λ)"] --&gt; B["Очередь&lt;br/&gt;(буфер)"]
+    B --&gt; C1["Канал 1 (μ)"]
+    B --&gt; C2["Канал 2 (μ)"]
+    B --&gt; C3["Канал n (μ)"]
+    C1 --&gt; D["Вых. поток"]
     C2 --&gt; D
     C3 --&gt; D
 
@@ -1819,7 +1608,7 @@
 <tr>
 <td><strong>Относительная пропускная способность</strong></td>
 <td><span class="arithmatex">\(Q\)</span></td>
-<td>Доля поступивших заявок, которые будут обслужены: <span class="arithmatex">\(Q = A / \lambda\)</span></td>
+<td>Доля поступивших заявок, которые будут обслужены: <span class="arithmatex">\(Q = \frac{A}{\lambda}\)</span></td>
 </tr>
 <tr>
 <td><strong>Коэффициент загрузки</strong></td>
@@ -1846,7 +1635,7 @@
 <tr>
 <td><strong>Среднее время пребывания в системе</strong></td>
 <td><span class="arithmatex">\(T_{\text{сист}}\)</span></td>
-<td>Полное время от поступления до завершения обслуживания: <span class="arithmatex">\(T_{\text{сист}} = T_{\text{оч}} + T_{\text{обс}}\)</span></td>
+<td>Полное время от поступления до завершения: <span class="arithmatex">\(T_{\text{сист}} = T_{\text{оч}} + T_{\text{обс}}\)</span></td>
 </tr>
 <tr>
 <td><strong>Вероятность отказа</strong></td>
@@ -1860,7 +1649,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="3">Группа 3: Показатели пары «система — клиент»<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<h3 id="3-">Группа 3: Показатели пары «система -- клиент»<a class="headerlink" href="#3-" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -1889,9 +1678,9 @@
 </ul>
 <h3 id="_7">По дисциплине обслуживания<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>С отказами</strong> — заявка, заставшая все каналы занятыми, покидает систему (получает отказ)</li>
-<li><strong>С ожиданием (очередью)</strong> — заявка встаёт в очередь и ждёт освобождения канала (очередь может быть ограниченной или неограниченной)</li>
-<li><strong>Смешанные</strong> — заявка ждёт ограниченное время, после чего покидает систему</li>
+<li><strong>С отказами</strong> — заявка, заставшая все каналы занятыми, покидает систему (получает отказ). Представь: звонишь в такси, все машины заняты — «перезвоните позже». Заявка потеряна.</li>
+<li><strong>С ожиданием (очередью)</strong> — заявка встаёт в очередь и ждёт освобождения канала (очередь может быть ограниченной или неограниченной). Очередь в поликлинику — стоишь сколько надо, но в итоге попадёшь.</li>
+<li><strong>Смешанные</strong> — заявка ждёт ограниченное время, после чего покидает систему. Очередь в МФЦ с талончиком — если прождал больше часа, уходишь.</li>
 </ul>
 <h3 id="_8">По источнику заявок<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1935,14 +1724,18 @@
 <h3 id="_11">Свойства потоков<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <p>Выделяют три ключевых свойства:</p>
 <p><strong>1. Стационарность (стационарный поток)</strong></p>
-<p>Вероятность появления <span class="arithmatex">\(m\)</span> событий на интервале длиной <span class="arithmatex">\(\tau\)</span> зависит только от длины интервала <span class="arithmatex">\(\tau\)</span> и не зависит от того, где именно на временной оси расположен этот интервал. Другими словами, интенсивность потока <strong>не меняется со временем</strong>.</p>
+<p>Вероятность появления <span class="arithmatex">\(m\)</span> событий на интервале длиной <span class="arithmatex">\(\tau\)</span> зависит только от длины интервала <span class="arithmatex">\(\tau\)</span> и не зависит от того, где именно на временной оси расположен этот интервал. Короче, интенсивность потока <strong>не меняется со временем</strong>.</p>
+<p>По-простому: утром и вечером клиенты приходят с одинаковой частотой. В реальности такое бывает редко (вспомни час пик в метро), но как модельное допущение — работает отлично.</p>
 <p><strong>2. Отсутствие последействия (поток без последействия)</strong></p>
-<p>Число событий, попадающих на любой интервал времени, <strong>не зависит</strong> от числа событий на любом другом, не пересекающемся с ним интервале. То есть прошлое не влияет на будущее.</p>
+<p>Число событий, попадающих на любой интервал времени, <strong>не зависит</strong> от числа событий на любом другом, не пересекающемся с ним интервале. Прошлое не влияет на будущее.</p>
+<p>Аналогия: тот факт, что последние 5 минут в магазин никто не заходил, не означает, что «ну сейчас-то точно кто-то придёт». Поток не помнит, что было раньше. Каждый момент времени — как с чистого листа.</p>
 <p><strong>3. Ординарность (ординарный поток)</strong></p>
 <p>Вероятность одновременного появления двух или более событий в один и тот же момент времени пренебрежимо мала.</p>
+<p>Проще говоря, клиенты приходят по одному, а не толпой. В дверь магазина не вваливаются одновременно трое — они заходят друг за другом, пусть и с маленькими интервалами.</p>
 <div class="admonition success">
 <p class="admonition-title">Простейший (пуассоновский) поток</p>
-<p>Поток, обладающий <strong>всеми тремя</strong> свойствами — стационарностью, отсутствием последействия и ординарностью — называется <strong>простейшим</strong> (или <strong>пуассоновским</strong>) потоком. Это самая удобная и часто используемая модель в ТМО.</p>
+<p>Поток, обладающий <strong>всеми тремя</strong> свойствами — стационарностью, отсутствием последействия и ординарностью — называется <mark>простейшим</mark> (или <mark>пуассоновским</mark>) потоком. Это самая удобная и часто используемая модель в ТМО.</p>
+<p>Если все три условия выполняются одновременно — получаем простейший поток. Это как нормальное распределение в статистике — базовый, отправной случай. Реальные потоки сложнее, но начинать анализ почти всегда стоит с него.</p>
 </div>
 <h3 id="_12">Распределение Пуассона<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <p>Для простейшего потока с интенсивностью <span class="arithmatex">\(\lambda\)</span> вероятность того, что за время <span class="arithmatex">\(\tau\)</span> произойдёт ровно <span class="arithmatex">\(m\)</span> событий, определяется <strong>формулой Пуассона</strong>:</p>
@@ -1966,12 +1759,13 @@ f(t) = \lambda \, e^{-\lambda t}, \quad t \geq 0
 \]</div>
 <div class="admonition info">
 <p class="admonition-title">Свойство отсутствия памяти</p>
-<p>Показательное распределение обладает замечательным свойством <strong>отсутствия памяти</strong>: если ты уже прождал время <span class="arithmatex">\(s\)</span>, то вероятность прождать ещё время <span class="arithmatex">\(t\)</span> такая же, как если бы ты только начал ждать. Формально: <span class="arithmatex">\(P(T &gt; s + t \mid T &gt; s) = P(T &gt; t)\)</span>.</p>
+<p>Показательное распределение обладает замечательным свойством <strong>отсутствия памяти</strong>: если уже прождали время <span class="arithmatex">\(s\)</span>, то вероятность прождать ещё время <span class="arithmatex">\(t\)</span> такая же, как если бы только начали ждать. Формально: <span class="arithmatex">\(P(T &gt; s + t \mid T &gt; s) = P(T &gt; t)\)</span>.</p>
 </div>
 <hr />
 <h2 id="_14">Марковские процессы<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
-<p><strong>Марковский процесс</strong> — это случайный процесс, в котором будущее зависит от прошлого <strong>только через настоящее</strong>. Если мы знаем текущее состояние системы, то для предсказания будущего нам не нужна информация о том, как система пришла в это состояние.</p>
+<p><mark>Марковский процесс</mark> — это случайный процесс, в котором будущее зависит от прошлого <strong>только через настоящее</strong>. Если мы знаем текущее состояние системы, то для предсказания будущего нам не нужна информация о том, как система пришла в это состояние.</p>
 <p>Формально: вероятность перехода системы в любое будущее состояние зависит только от <strong>текущего состояния</strong> и не зависит от предыстории.</p>
+<p>Хорошая аналогия для понимания: шахматы — это <strong>НЕ</strong> марковский процесс. Одна и та же позиция на доске может быть выигрышной или проигрышной в зависимости от того, КАК в неё пришли (квалификация игроков, предыдущие ходы, психологическое состояние). А вот количество клиентов в очереди — марковский процесс: неважно, как набралось 5 человек в очереди (пришли ли они за последнюю минуту или копились полчаса), дальше система ведёт себя одинаково — важно лишь то, что сейчас их ровно 5.</p>
 <h3 id="_15">Примеры<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
 <p><strong>Марковский процесс:</strong></p>
 <ul>
@@ -2000,15 +1794,27 @@ f(t) = \lambda \, e^{-\lambda t}, \quad t \geq 0
 <p><strong>Правая часть</strong> — алгебраическая сумма:</p>
 <ul>
 <li>со знаком <strong>«+»</strong> берутся произведения интенсивностей потоков, <strong>входящих</strong> в состояние <span class="arithmatex">\(S_i\)</span>, на вероятности тех состояний, откуда идут эти потоки;</li>
-<li>со знаком <strong>«–»</strong> берутся произведения интенсивностей потоков, <strong>выходящих</strong> из состояния <span class="arithmatex">\(S_i\)</span>, на саму вероятность <span class="arithmatex">\(p_i\)</span>.</li>
+<li>со знаком <strong>«--»</strong> берутся произведения интенсивностей потоков, <strong>выходящих</strong> из состояния <span class="arithmatex">\(S_i\)</span>, на саму вероятность <span class="arithmatex">\(p_i\)</span>.</li>
 </ul>
 </div>
 <p>В формульном виде:</p>
 <div class="arithmatex">\[
 \frac{dp_i(t)}{dt} = \sum_{j \neq i} \lambda_{ji} \, p_j(t) - p_i(t) \sum_{j \neq i} \lambda_{ij}
 \]</div>
-<h3 id="_18">Стационарный (установившийся) режим<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
-<p>Если система работает достаточно долго, вероятности состояний перестают зависеть от времени и стремятся к <strong>предельным (установившимся) значениям</strong>:</p>
+<h3 id="_18">Пошаговый разбор: как составить уравнение для конкретного состояния<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p>Звучит абстрактно? Давай разберём на конкретном примере. Возьмём простейшую СМО с отказами и одним каналом. Два состояния: <span class="arithmatex">\(S_0\)</span> (канал свободен) и <span class="arithmatex">\(S_1\)</span> (канал занят). Поток заявок с интенсивностью <span class="arithmatex">\(\lambda\)</span>, обслуживание с интенсивностью <span class="arithmatex">\(\mu\)</span>.</p>
+<p>Граф переходов: <span class="arithmatex">\(S_0 \xrightarrow{\lambda} S_1 \xrightarrow{\mu} S_0\)</span>.</p>
+<p>Составим уравнение для состояния <span class="arithmatex">\(S_0\)</span>:</p>
+<ol>
+<li><strong>Левая часть</strong> — производная: <span class="arithmatex">\(\dfrac{dp_0}{dt}\)</span>.</li>
+<li><strong>Смотрим, какие потоки ВХОДЯТ в <span class="arithmatex">\(S_0\)</span></strong>: из <span class="arithmatex">\(S_1\)</span> идёт поток с интенсивностью <span class="arithmatex">\(\mu\)</span>. Берём со знаком «+»: <span class="arithmatex">\(+\mu \cdot p_1\)</span>.</li>
+<li><strong>Смотрим, какие потоки ВЫХОДЯТ из <span class="arithmatex">\(S_0\)</span></strong>: в <span class="arithmatex">\(S_1\)</span> идёт поток с интенсивностью <span class="arithmatex">\(\lambda\)</span>. Берём со знаком «-»: <span class="arithmatex">\(-\lambda \cdot p_0\)</span>.</li>
+<li><strong>Собираем</strong>: <span class="arithmatex">\(\dfrac{dp_0}{dt} = \mu \cdot p_1 - \lambda \cdot p_0\)</span>.</li>
+</ol>
+<p>Для <span class="arithmatex">\(S_1\)</span> — аналогично, но зеркально: <span class="arithmatex">\(\dfrac{dp_1}{dt} = \lambda \cdot p_0 - \mu \cdot p_1\)</span>.</p>
+<p>Логика простая: вероятность состояния <strong>растёт</strong>, когда в него «втекают» потоки из других состояний, и <strong>падает</strong>, когда из него «утекают» потоки в другие состояния. По сути — закон сохранения, как в физике: что втекает минус что вытекает = изменение.</p>
+<h3 id="_19">Стационарный (установившийся) режим<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<p>Если система работает достаточно долго, вероятности состояний перестают зависеть от времени и стремятся к <mark>предельным (установившимся) значениям</mark>:</p>
 <div class="arithmatex">\[
 \lim_{t \to \infty} p_i(t) = p_i = \text{const}
 \]</div>
@@ -2033,19 +1839,19 @@ f(t) = \lambda \, e^{-\lambda t}, \quad t \geq 0
 </ol>
 </div>
 <hr />
-<h2 id="_19">Процессы гибели и размножения<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
-<p>Очень важный частный случай марковских процессов — <strong>процесс гибели и размножения</strong> (birth-death process). В нём переходы возможны <strong>только между соседними состояниями</strong>: из <span class="arithmatex">\(S_k\)</span> можно перейти либо в <span class="arithmatex">\(S_{k+1}\)</span> (рождение/приход), либо в <span class="arithmatex">\(S_{k-1}\)</span> (гибель/уход).</p>
+<h2 id="_20">Процессы гибели и размножения<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<p>Очень важный частный случай марковских процессов — <mark>процесс гибели и размножения</mark> (birth-death process). В нём переходы возможны <strong>только между соседними состояниями</strong>: из <span class="arithmatex">\(S_k\)</span> можно перейти либо в <span class="arithmatex">\(S_{k+1}\)</span> (рождение/приход), либо в <span class="arithmatex">\(S_{k-1}\)</span> (гибель/уход).</p>
 <pre class="mermaid"><code>graph LR
-    S0(("S₀")) --&gt;|"λ₀₁"| S1(("S₁"))
-    S1 --&gt;|"μ₁₀"| S0
-    S1 --&gt;|"λ₁₂"| S2(("S₂"))
-    S2 --&gt;|"μ₂₁"| S1
-    S2 --&gt;|"λ₂₃"| S3(("S₃"))
-    S3 --&gt;|"μ₃₂"| S2
-    S3 --&gt;|"λ₃₄"| S4(("..."))
-    S4 --&gt;|"μ₄₃"| S3
-    S4 --&gt;|"λₙ₋₁,ₙ"| S5(("Sₙ"))
-    S5 --&gt;|"μₙ,ₙ₋₁"| S4
+    S0(("S0")) --&gt;|"λ01"| S1(("S1"))
+    S1 --&gt;|"μ10"| S0
+    S1 --&gt;|"λ12"| S2(("S2"))
+    S2 --&gt;|"μ21"| S1
+    S2 --&gt;|"λ23"| S3(("S3"))
+    S3 --&gt;|"μ32"| S2
+    S3 --&gt;|"λ34"| S4(("..."))
+    S4 --&gt;|"μ43"| S3
+    S4 --&gt;|"λ(n-1),n"| S5(("Sn"))
+    S5 --&gt;|"μn,(n-1)"| S4
 
     style S0 fill:#4CAF50,stroke:#333,color:#fff
     style S1 fill:#2196F3,stroke:#333,color:#fff
@@ -2053,7 +1859,7 @@ f(t) = \lambda \, e^{-\lambda t}, \quad t \geq 0
     style S3 fill:#2196F3,stroke:#333,color:#fff
     style S4 fill:#FF9800,stroke:#333,color:#fff
     style S5 fill:#f44336,stroke:#333,color:#fff</code></pre>
-<h3 id="_20">Формулы для предельных вероятностей<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<h3 id="_21">Формулы для предельных вероятностей<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
 <p>Для процесса гибели и размножения предельные вероятности выражаются через <span class="arithmatex">\(p_0\)</span> по рекуррентной формуле:</p>
 <div class="arithmatex">\[
 p_k = \frac{\lambda_{01} \cdot \lambda_{12} \cdots \lambda_{k-1,k}}{\mu_{10} \cdot \mu_{21} \cdots \mu_{k,k-1}} \, p_0
@@ -2073,19 +1879,19 @@ p_0 = \left(1 + \sum_{k=1}^{n} \frac{\lambda_{01} \cdot \lambda_{12} \cdots \lam
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Почему это важно</p>
-<p>Большинство классических моделей СМО (с отказами, с очередью) являются частными случаями процесса гибели и размножения. Поэтому, освоив эти формулы, ты сможешь быстро получать результаты для конкретных систем.</p>
+<p>Большинство классических моделей СМО (с отказами, с очередью) являются частными случаями процесса гибели и размножения. Освоив эти формулы, можно быстро получать результаты для конкретных систем.</p>
 </div>
 <hr />
-<h2 id="_21">СМО с отказами<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<h2 id="_22">СМО с отказами<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
 <p>В СМО <strong>с отказами</strong> заявка, поступившая в момент, когда все каналы заняты, <strong>получает отказ</strong> и покидает систему. Очередь отсутствует.</p>
-<h3 id="_22">Одноканальная СМО с отказами<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<h3 id="_23">Одноканальная СМО с отказами<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
 <p>Система имеет два состояния:</p>
 <ul>
 <li><span class="arithmatex">\(S_0\)</span> — канал свободен</li>
 <li><span class="arithmatex">\(S_1\)</span> — канал занят</li>
 </ul>
 <pre class="mermaid"><code>graph LR
-    S0(("S₀&lt;br/&gt;свободен")) --&gt;|"λ"| S1(("S₁&lt;br/&gt;занят"))
+    S0(("S0 свободен")) --&gt;|"λ"| S1(("S1 занят"))
     S1 --&gt;|"μ"| S0
 
     style S0 fill:#4CAF50,stroke:#333,color:#fff
@@ -2102,20 +1908,20 @@ P_{\text{отк}} = p_1 = \frac{\lambda}{\lambda + \mu}
 <div class="arithmatex">\[
 Q = 1 - P_{\text{отк}} = \frac{\mu}{\lambda + \mu}
 \]</div>
-<h3 id="_23">Многоканальная СМО с отказами (формулы Эрланга)<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
-<p>Рассмотрим систему с <span class="arithmatex">\(n\)</span> каналами, интенсивностью входящего потока <span class="arithmatex">\(\lambda\)</span> и интенсивностью обслуживания каждым каналом <span class="arithmatex">\(\mu\)</span>. Введём <strong>приведённую интенсивность</strong>:</p>
+<h3 id="_24">Многоканальная СМО с отказами (формулы Эрланга)<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<p>Рассмотрим систему с <span class="arithmatex">\(n\)</span> каналами, интенсивностью входящего потока <span class="arithmatex">\(\lambda\)</span> и интенсивностью обслуживания каждым каналом <span class="arithmatex">\(\mu\)</span>. Введём <mark>приведённую интенсивность</mark>:</p>
 <div class="arithmatex">\[
 \rho = \frac{\lambda}{\mu}
 \]</div>
 <p>Состояния системы: <span class="arithmatex">\(S_0\)</span> (все каналы свободны), <span class="arithmatex">\(S_1\)</span> (один канал занят), ..., <span class="arithmatex">\(S_n\)</span> (все каналы заняты).</p>
 <pre class="mermaid"><code>graph LR
-    S0(("S₀")) --&gt;|"λ"| S1(("S₁"))
+    S0(("S0")) --&gt;|"λ"| S1(("S1"))
     S1 --&gt;|"μ"| S0
-    S1 --&gt;|"λ"| S2(("S₂"))
+    S1 --&gt;|"λ"| S2(("S2"))
     S2 --&gt;|"2μ"| S1
     S2 --&gt;|"λ"| S3(("..."))
     S3 --&gt;|"3μ"| S2
-    S3 --&gt;|"λ"| Sn(("Sₙ"))
+    S3 --&gt;|"λ"| Sn(("Sn"))
     Sn --&gt;|"nμ"| S3
 
     style S0 fill:#4CAF50,stroke:#333,color:#fff
@@ -2124,19 +1930,19 @@ Q = 1 - P_{\text{отк}} = \frac{\mu}{\lambda + \mu}
     style S3 fill:#FF9800,stroke:#333,color:#fff
     style Sn fill:#f44336,stroke:#333,color:#fff</code></pre>
 <div class="admonition note">
-<p class="admonition-title">Обрати внимание на интенсивности обслуживания</p>
+<p class="admonition-title">Обрати внимание на интенсивности</p>
 <p>Когда в системе занято <span class="arithmatex">\(k\)</span> каналов, суммарная интенсивность обслуживания равна <span class="arithmatex">\(k\mu\)</span>, а не просто <span class="arithmatex">\(\mu\)</span>.</p>
 </div>
 <p>Предельные вероятности (<strong>формулы Эрланга</strong>):</p>
 <div class="arithmatex">\[
-p_0 = \left(1 + \rho + \frac{\rho^2}{2!} + \frac{\rho^3}{3!} + \cdots + \frac{\rho^n}{n!}\right)^{-1} = \left(\sum_{k=0}^{n} \frac{\rho^k}{k!}\right)^{-1}
+p_0 = \left(\sum_{k=0}^{n} \frac{\rho^k}{k!}\right)^{-1}
 \]</div>
 <div class="arithmatex">\[
 p_k = \frac{\rho^k}{k!} \, p_0, \quad k = 1, 2, \ldots, n
 \]</div>
 <p><strong>Вероятность отказа</strong> (формула Эрланга):</p>
 <div class="arithmatex">\[
-P_{\text{отк}} = p_n = \frac{\rho^n}{n!} \, p_0 = \frac{\rho^n / n!}{\displaystyle\sum_{k=0}^{n} \frac{\rho^k}{k!}}
+P_{\text{отк}} = p_n = \frac{\rho^n}{n!} \, p_0 = \frac{\frac{\rho^n}{n!}}{\displaystyle\sum_{k=0}^{n} \frac{\rho^k}{k!}}
 \]</div>
 <p><strong>Относительная пропускная способность:</strong></p>
 <div class="arithmatex">\[
@@ -2150,13 +1956,13 @@ A = \lambda \cdot Q
 <div class="arithmatex">\[
 \bar{k} = \rho \cdot Q = \frac{\lambda}{\mu}(1 - P_{\text{отк}})
 \]</div>
-<h3 id="_24">Пример: оптимизация банковского отделения<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<h3 id="_25">Пример: оптимизация банковского отделения<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
 <div class="admonition example">
 <p class="admonition-title">Задача</p>
 <p>В банковское отделение поступает в среднем <span class="arithmatex">\(\lambda = 10\)</span> клиентов в час. Среднее время обслуживания одного клиента — 12 минут (<span class="arithmatex">\(\mu = 5\)</span> клиентов/час). Сколько касс нужно открыть, чтобы вероятность отказа не превышала 5%?</p>
 </div>
 <p><strong>Решение:</strong></p>
-<p>Приведённая интенсивность: <span class="arithmatex">\(\rho = \lambda / \mu = 10 / 5 = 2\)</span>.</p>
+<p>Приведённая интенсивность: <span class="arithmatex">\(\rho = \frac{\lambda}{\mu} = \frac{10}{5} = 2\)</span>.</p>
 <p>Подбираем <span class="arithmatex">\(n\)</span>, вычисляя <span class="arithmatex">\(P_{\text{отк}}\)</span> для разных значений:</p>
 <table>
 <thead>
@@ -2190,10 +1996,52 @@ A = \lambda \cdot Q
 </tbody>
 </table>
 <p><strong>Ответ:</strong> необходимо открыть <strong>5 касс</strong>, чтобы вероятность отказа составила менее 5%.</p>
+<h3 id="_26">Пример: телефонные линии (пошаговый разбор формулы Эрланга)<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<div class="admonition example">
+<p class="admonition-title">Задача</p>
+<p>Мини-АТС принимает в среднем <span class="arithmatex">\(\lambda = 90\)</span> вызовов в час. Средняя продолжительность разговора — 2 минуты, т.е. <span class="arithmatex">\(\mu = 30\)</span> вызовов/час. Сколько линий нужно, чтобы обслуживать хотя бы 90% звонков?</p>
+</div>
+<p><strong>Решение по шагам:</strong></p>
+<p><strong>Шаг 1.</strong> Считаем приведённую интенсивность:</p>
+<div class="arithmatex">\[
+\rho = \frac{\lambda}{\mu} = \frac{90}{30} = 3
+\]</div>
+<p>Что означает <span class="arithmatex">\(\rho = 3\)</span>? За время одного среднего разговора (2 минуты) в среднем поступает 3 новых вызова. Система явно нагружена.</p>
+<p><strong>Шаг 2.</strong> Пробуем <span class="arithmatex">\(n = 1\)</span> (одна линия):</p>
+<div class="arithmatex">\[
+p_0 = \left(1 + 3\right)^{-1} = 0{,}25
+\]</div>
+<div class="arithmatex">\[
+P_{\text{отк}} = \frac{3^1}{1!} \cdot 0{,}25 = 0{,}75
+\]</div>
+<p>Относительная пропускная способность: <span class="arithmatex">\(Q = 1 - 0{,}75 = 0{,}25\)</span>. Только каждый 4-й звонок проходит. Катастрофа.</p>
+<p><strong>Шаг 3.</strong> Пробуем <span class="arithmatex">\(n = 3\)</span> (три линии):</p>
+<div class="arithmatex">\[
+p_0 = \left(1 + 3 + \frac{9}{2} + \frac{27}{6}\right)^{-1} = \left(1 + 3 + 4{,}5 + 4{,}5\right)^{-1} = \frac{1}{13} \approx 0{,}077
+\]</div>
+<div class="arithmatex">\[
+P_{\text{отк}} = \frac{27}{6} \cdot \frac{1}{13} = \frac{4{,}5}{13} \approx 0{,}346
+\]</div>
+<p><span class="arithmatex">\(Q \approx 0{,}654\)</span> — уже лучше, но все ещё теряем треть звонков.</p>
+<p><strong>Шаг 4.</strong> Пробуем <span class="arithmatex">\(n = 5\)</span> (пять линий):</p>
+<div class="arithmatex">\[
+p_0 = \left(1 + 3 + 4{,}5 + 4{,}5 + \frac{81}{24} + \frac{243}{120}\right)^{-1} = \left(1 + 3 + 4{,}5 + 4{,}5 + 3{,}375 + 2{,}025\right)^{-1} \approx \frac{1}{18{,}4} \approx 0{,}054
+\]</div>
+<div class="arithmatex">\[
+P_{\text{отк}} = \frac{243}{120} \cdot 0{,}054 \approx 0{,}11
+\]</div>
+<p><span class="arithmatex">\(Q \approx 0{,}89\)</span> — почти 90%, но чуть не дотягиваем.</p>
+<p><strong>Шаг 5.</strong> Пробуем <span class="arithmatex">\(n = 6\)</span>:</p>
+<div class="arithmatex">\[
+P_{\text{отк}} \approx 0{,}054
+\]</div>
+<p><span class="arithmatex">\(Q \approx 0{,}946\)</span> — отлично, проходит более 94% звонков.</p>
+<p><strong>Ответ:</strong> нужно <strong>6 линий</strong>, чтобы обслуживать более 90% вызовов.</p>
+<p>Обрати внимание на нелинейность: переход от 1 до 3 линий поднял <span class="arithmatex">\(Q\)</span> с 25% до 65%, а переход от 3 до 6 — с 65% до 95%. Каждая следующая линия даёт всё меньший прирост. Это типичная картина убывающей отдачи, и именно поэтому ТМО помогает найти «золотую середину» между качеством и затратами.</p>
 <hr />
-<h2 id="_25">СМО с ожиданием<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<h2 id="_27">СМО с ожиданием<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h2>
 <p>В СМО <strong>с ожиданием</strong> заявка, заставшая все каналы занятыми, <strong>не уходит</strong>, а встаёт в очередь. Рассмотрим наиболее практичный случай: <strong>одноканальная СМО с ограниченной очередью</strong>.</p>
-<h3 id="_26">Одноканальная СМО с ограниченной очередью<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<h3 id="_28">Одноканальная СМО с ограниченной очередью<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
 <p>Пусть в системе <strong>1 канал</strong> обслуживания и очередь вмещает не более <strong><span class="arithmatex">\(m\)</span> заявок</strong>. Интенсивность входящего потока — <span class="arithmatex">\(\lambda\)</span>, интенсивность обслуживания — <span class="arithmatex">\(\mu\)</span>.</p>
 <p>Состояния системы:</p>
 <ul>
@@ -2204,15 +2052,15 @@ A = \lambda \cdot Q
 <li><span class="arithmatex">\(S_{m+1}\)</span> — канал занят, <span class="arithmatex">\(m\)</span> заявок в очереди (очередь заполнена)</li>
 </ul>
 <pre class="mermaid"><code>graph LR
-    S0(("S₀")) --&gt;|"λ"| S1(("S₁"))
+    S0(("S0")) --&gt;|"λ"| S1(("S1"))
     S1 --&gt;|"μ"| S0
-    S1 --&gt;|"λ"| S2(("S₂"))
+    S1 --&gt;|"λ"| S2(("S2"))
     S2 --&gt;|"μ"| S1
-    S2 --&gt;|"λ"| S3(("S₃"))
+    S2 --&gt;|"λ"| S3(("S3"))
     S3 --&gt;|"μ"| S2
     S3 --&gt;|"λ"| S4(("..."))
     S4 --&gt;|"μ"| S3
-    S4 --&gt;|"λ"| Sm(("S&lt;sub&gt;m+1&lt;/sub&gt;"))
+    S4 --&gt;|"λ"| Sm(("S(m+1)"))
     Sm --&gt;|"μ"| S4
 
     style S0 fill:#4CAF50,stroke:#333,color:#fff
@@ -2226,8 +2074,8 @@ A = \lambda \cdot Q
 <li><span class="arithmatex">\(\lambda_{k,k+1} = \lambda\)</span> для всех <span class="arithmatex">\(k = 0, 1, \ldots, m\)</span></li>
 <li><span class="arithmatex">\(\mu_{k,k-1} = \mu\)</span> для всех <span class="arithmatex">\(k = 1, 2, \ldots, m+1\)</span></li>
 </ul>
-<p>Обозначим <span class="arithmatex">\(\rho = \lambda / \mu\)</span>.</p>
-<h3 id="_27">Предельные вероятности<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<p>Обозначим <span class="arithmatex">\(\rho = \frac{\lambda}{\mu}\)</span>.</p>
+<h3 id="_29">Предельные вероятности<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
 <p><strong>Случай <span class="arithmatex">\(\rho \neq 1\)</span>:</strong></p>
 <div class="arithmatex">\[
 p_k = \rho^k \, p_0, \quad k = 0, 1, \ldots, m+1
@@ -2247,21 +2095,17 @@ p_k = \frac{(1 - \rho) \, \rho^k}{1 - \rho^{m+2}}, \quad k = 0, 1, \ldots, m+1
 p_k = \frac{1}{m + 2}, \quad k = 0, 1, \ldots, m+1
 \]</div>
 <p>(все состояния равновероятны)</p>
-<h3 id="_28">Вероятность отказа<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<h3 id="_30">Вероятность отказа<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
 <p>Отказ происходит, когда система находится в состоянии <span class="arithmatex">\(S_{m+1}\)</span> (очередь заполнена):</p>
 <div class="arithmatex">\[
 P_{\text{отк}} = p_{m+1} = \begin{cases} \dfrac{(1 - \rho) \, \rho^{m+1}}{1 - \rho^{m+2}}, &amp; \text{если } \rho \neq 1 \\[10pt] \dfrac{1}{m + 2}, &amp; \text{если } \rho = 1 \end{cases}
 \]</div>
-<h3 id="_29">Средняя длина очереди<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<h3 id="_31">Средняя длина очереди<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
 <p>Средняя длина очереди — это математическое ожидание числа заявок в очереди:</p>
 <div class="arithmatex">\[
 L_{\text{оч}} = \sum_{k=1}^{m} k \cdot p_{k+1} = \sum_{k=1}^{m} k \cdot \rho^{k+1} \, p_0
 \]</div>
 <p><strong>Для <span class="arithmatex">\(\rho \neq 1\)</span>:</strong></p>
-<div class="arithmatex">\[
-L_{\text{оч}} = \frac{\rho^2}{1 - \rho^{m+2}} \left[\frac{1 - (m+1)\rho^m + m\rho^{m+1}}{(1-\rho)^2} \cdot (1-\rho)\right]
-\]</div>
-<p>После упрощения:</p>
 <div class="arithmatex">\[
 L_{\text{оч}} = \frac{\rho^2 \left[1 - (m+1)\rho^m + m\rho^{m+1}\right]}{(1 - \rho)(1 - \rho^{m+2})}
 \]</div>
@@ -2269,8 +2113,8 @@ L_{\text{оч}} = \frac{\rho^2 \left[1 - (m+1)\rho^m + m\rho^{m+1}\right]}{(1 - 
 <div class="arithmatex">\[
 L_{\text{оч}} = \frac{m(m+1)}{2(m+2)}
 \]</div>
-<h3 id="_30">Среднее время ожидания в очереди<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
-<p>По <strong>формуле Литтла</strong> среднее время ожидания связано со средней длиной очереди:</p>
+<h3 id="_32">Среднее время ожидания в очереди<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<p>По <mark>формуле Литтла</mark> среднее время ожидания связано со средней длиной очереди:</p>
 <div class="arithmatex">\[
 T_{\text{оч}} = \frac{L_{\text{оч}}}{\lambda_{\text{эф}}}
 \]</div>
@@ -2279,7 +2123,7 @@ T_{\text{оч}} = \frac{L_{\text{оч}}}{\lambda_{\text{эф}}}
 <div class="arithmatex">\[
 T_{\text{оч}} = \frac{L_{\text{оч}}}{\lambda(1 - P_{\text{отк}})}
 \]</div>
-<h3 id="_31">Среднее время пребывания в системе<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<h3 id="_33">Среднее время пребывания в системе<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
 <div class="arithmatex">\[
 T_{\text{сист}} = T_{\text{оч}} + \frac{1}{\mu}
 \]</div>
@@ -2291,8 +2135,8 @@ T_{\text{сист}} = T_{\text{оч}} + \frac{1}{\mu}
 </div>
 <hr />
 <div class="admonition abstract">
-<p class="admonition-title">Итоги лекции</p>
-<p>Мы рассмотрели основные понятия и инструменты теории массового обслуживания:</p>
+<p class="admonition-title">Итоги</p>
+<p>Главное, что разобрали:</p>
 <ol>
 <li><strong>Структура СМО</strong>: входящий поток, очередь, каналы, выходящий поток</li>
 <li><strong>Показатели эффективности</strong>: пропускная способность, время ожидания, вероятность отказа</li>
@@ -2361,7 +2205,7 @@ T_{\text{сист}} = T_{\text{оч}} + \frac{1}{\mu}
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
