@@ -1,0 +1,81 @@
+site_name: "Имитационное моделирование — Конспект"
+site_description: "Конспект курса «Имитационное моделирование» (ФКН ВШЭ)"
+site_url: ""
+
+theme:
+  name: material
+  language: ru
+  palette:
+    - scheme: slate
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Светлая тема
+    - scheme: default
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Тёмная тема
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.mark
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.tilde
+  - tables
+  - attr_list
+  - md_in_html
+  - def_list
+  - footnotes
+  - toc:
+      permalink: true
+
+extra_javascript:
+  - javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
+extra_css:
+  - https://unpkg.com/katex@0/dist/katex.min.css
+
+nav:
+  - Главная: index.md
+  - "1. Введение в ИМ": 01-introduction.md
+  - "2. Системная динамика": 02-system-dynamics.md
+  - "3. Агентное моделирование": 03-agent-based.md
+  - "4. Дискретно-событийное моделирование": 04-discrete-event.md
+  - "5. Основы ТМО": 05-queueing-basics.md
+  - "6. Теория очередей — введение": 06-queueing-intro.md
+  - "7. Анализ одиночной очереди": 07-single-queue.md
+  - "8. Сети массового обслуживания": 08-queueing-networks.md
+  - "9. SimPy — основы": 09-simpy.md
+  - "10. SimPy — практика": 10-simpy-practice.md
+  - "11. Моделирование и анализ": 11-simulation-analysis.md
+  - "Шпаргалка": cheatsheet.md
