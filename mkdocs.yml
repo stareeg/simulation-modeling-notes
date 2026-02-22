@@ -1,5 +1,5 @@
 site_name: "Имитационное моделирование — Конспект"
-site_description: "Конспект курса «Имитационное моделирование» (ФКН ВШЭ)"
+site_description: "Конспект курса «Имитационное моделирование»"
 site_url: ""
 
 theme:
@@ -19,9 +19,9 @@ theme:
         icon: material/brightness-4
         name: Тёмная тема
   features:
-    - navigation.tabs
     - navigation.sections
     - navigation.expand
+    - navigation.indexes
     - navigation.top
     - search.suggest
     - search.highlight
@@ -64,6 +64,7 @@ extra_javascript:
 
 extra_css:
   - https://unpkg.com/katex@0/dist/katex.min.css
+  - stylesheets/extra.css
 
 nav:
   - Главная: index.md

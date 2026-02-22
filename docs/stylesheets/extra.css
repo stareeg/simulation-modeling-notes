@@ -1,0 +1,27 @@
+/* Colored text highlighting */
+.md-typeset .highlight-red { color: #ff5252; font-weight: bold; }
+.md-typeset .highlight-blue { color: #448aff; font-weight: bold; }
+.md-typeset .highlight-green { color: #69f0ae; font-weight: bold; }
+.md-typeset .highlight-yellow { color: #ffd740; font-weight: bold; }
+.md-typeset .highlight-orange { color: #ff9100; font-weight: bold; }
+.md-typeset .highlight-purple { color: #e040fb; font-weight: bold; }
+
+/* Better Mermaid diagram sizing */
+.mermaid {
+  font-size: 14px !important;
+}
+.mermaid .nodeLabel {
+  font-size: 13px !important;
+  white-space: normal !important;
+  max-width: 200px !important;
+}
+.mermaid .edgeLabel {
+  font-size: 12px !important;
+}
+
+/* Mark tag styling */
+.md-typeset mark {
+  background-color: rgba(255, 215, 64, 0.3);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
